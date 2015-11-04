@@ -1,0 +1,27 @@
+/*Setting up compatibility for older browsers and removing automatic styling to help the page display correctly on all browsers*/
+header, section, footer, aside, nav, main, article, figure
+{
+	display: block;
+}
+
+*
+{
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+
+}
+
+/*CSS for sections that appear more than once in the page*/
+p
+{
+	font-size: 12pt;
+	color: #000000;
+}
+
+#container
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	width: 50%;
+	margin: auto;
+}
