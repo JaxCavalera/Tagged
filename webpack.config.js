@@ -2,6 +2,7 @@
 var webpack = require('webpack');
 var ip = require('ip');
 var htmlgenerator = require('html-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
@@ -31,7 +32,7 @@ module.exports =
 			},
 			{
 				test: /\.css$/, // scan for css files only
-				loader: 'style!css', // Run both loaders
+				loader: 'style!css!postcss-loader',
 				include: APP_PATH
 			},
 			{
@@ -43,12 +44,7 @@ module.exports =
 				test: /\.jpg$/,
 				loader: 'file',
 				include: APP_PATH
-			},
-			{
-				test: /\.ico$/,
-				loader: 'file',
-				include: APP_PATH
-			},
+			}
 		]
 	},
 	devServer:
@@ -60,11 +56,17 @@ module.exports =
 		host: LOCAL_IP,
 		port: MY_PORT
 	},
+	postcss: function ()
+	{
+        return [autoprefixer({browsers: ['> 1%']})];
+    },
 	plugins:
 	[
 		new webpack.HotModuleReplacementPlugin(),
 		new htmlgenerator({
-			title: 'Tagged'
+			title: 'Tagged',
+			filename: 'index.html',
+			favicon: APP_PATH+'/heading/images/favicon.ico'
 		})
 	]
 };

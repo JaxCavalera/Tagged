@@ -22,6 +22,6 @@ p
 #container
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	width: 50%;
-	margin: auto;
+	display: flex;
+	flex-direction: column;
 }

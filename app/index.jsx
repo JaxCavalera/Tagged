@@ -1,8 +1,9 @@
 import './default.css';
+
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
-import HeadElement from '../app/heading/head-element.jsx';
+import HeadElement from './heading/head-element.jsx';
 
 main();
 
@@ -14,6 +15,6 @@ function main()
 //	Add an instance of the div to the Body element
 	document.body.appendChild(container_div);
 
-	//	Insert the HeadArea react class inside contanier_div
+//	Insert the HeadArea react class inside contanier_div
 	ReactDOM.render(<HeadElement/>, container_div);
 }

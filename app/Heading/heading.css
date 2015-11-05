@@ -1,0 +1,54 @@
+header
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	background-color: rgba(0, 12, 77, 1);
+	/*  logo blue = #007DF1		ice blue = #D3E6F7*/
+}
+
+#head_bar
+{
+	display: flex;
+	justify-content: center;
+	max-width: 980px;
+	width: 90%;
+	height: 100px;
+	/*margin: 0 2.5%;*/
+}
+
+#logo_panel
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #B2FAA0;
+	height: 100%;
+	width: 75%;
+}
+
+#logo_panel img
+{
+	max-height: 90px;
+}
+
+#login_panel
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5px;
+	background-color: #B2FAA0;
+	width: 25%;
+	max-width: 220px;
+	min-width: 175px;
+}
+
+#login_panel input
+{
+	margin: 5px 0;
+	width: 90%;
+	text-align: center;
+}
