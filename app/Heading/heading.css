@@ -30,7 +30,8 @@ header
 
 #logo_panel img
 {
-	max-height: 90px;
+	/*max-height: 90px;*/
+	height: 100%;
 }
 
 #login_panel
