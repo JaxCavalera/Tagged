@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html{% if(o.htmlWebpackPlugin.files.manifest) { %} manifest="{%= o.htmlWebpackPlugin.files.manifest %}"{% } %}>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>{%=o.htmlWebpackPlugin.options.title || 'Add title prop in webpack config'%}</title>
+		{% if (o.htmlWebpackPlugin.files.favicon) { %}
+		<link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+		{% } %}
+	</head>
+	<body>
+		{% for (var chunk in o.htmlWebpackPlugin.files.chunks) {
+		%}<script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>{%
+		} %}text
+	</body>
+</html>

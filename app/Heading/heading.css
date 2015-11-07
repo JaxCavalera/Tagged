@@ -1,21 +1,18 @@
 header
 {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	width: 100%;
-	background-color: rgba(0, 12, 77, 1);
-	/*  logo blue = #007DF1		ice blue = #D3E6F7*/
+	justify-content: center;
+	background-color: #007DF1;
+	/* Navy = #000C4D  logo blue = #007DF1	   Green = #B2FAA0	ice blue = #D3E6F7*/
 }
 
 #head_bar
 {
 	display: flex;
-	justify-content: center;
-	max-width: 980px;
-	width: 90%;
+	justify-content: space-between;
+	max-width: 95%;
+	width: 980px;
 	height: 100px;
-	/*margin: 0 2.5%;*/
 }
 
 #logo_panel
@@ -23,15 +20,17 @@ header
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #B2FAA0;
-	height: 100%;
-	width: 75%;
+	background: rgb(211, 230, 247);
+	flex-basis: 81%;
+	margin-right: 5px;
+	/*border-radius: 0px 0px 0px 20px;*/
 }
 
 #logo_panel img
 {
-	/*max-height: 90px;*/
-	height: 100%;
+	max-height: 80px;
+	max-width: 177.717px;
+	width: 80%;
 }
 
 #login_panel
@@ -40,16 +39,45 @@ header
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-left: 5px;
-	background-color: #B2FAA0;
-	width: 25%;
-	max-width: 220px;
-	min-width: 175px;
+	background: rgb(211, 230, 247);
+	min-width: 150px;
 }
 
-#login_panel input
+.auth_form
 {
-	margin: 5px 0;
-	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 92%;
+}
+
+.auth_form span
+{
+	font-weight: bold;
+	height: 1em;
+	line-height: 0.7em;
 	text-align: center;
+	width: 100%;
+}
+
+.auth_form input
+{
+	box-sizing: border-box;
+	margin: 2px 0px;
+}
+
+.auth_form > input
+{
+	text-align: center;
+	width: 100%;
+}
+
+#form_btns
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
 }

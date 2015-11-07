@@ -13,9 +13,15 @@ export default class HeadElement extends React.Component
 					<img src={taglogo} alt="Tagged Logo"/>
 				</div>
 				<div id="login_panel">
-					<p>Image Gallery Login</p>
-					<input type="text" name="username" placeholder="Username"></input>
-					<input type="password" name="password" placeholder="Password"></input>
+					<form className="auth_form">
+						<span>My Account</span>
+						<input type="text" name="username" placeholder="Username"/>
+						<input type="password" name="password" placeholder="Password"/>
+						<div id="form_btns">
+							<input type="submit" name="register" value="Register"/>
+							<input type="submit" name="login" value="Login"/>
+						</div>
+					</form>
 				</div>
 			</div>
 		</header>

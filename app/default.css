@@ -1,9 +1,3 @@
-/*Setting up compatibility for older browsers and removing automatic styling to help the page display correctly on all browsers*/
-header, section, footer, aside, nav, main, article, figure
-{
-	display: block;
-}
-
 *
 {
 	text-decoration: none;
@@ -22,6 +16,5 @@ p
 #container
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	display: flex;
-	flex-direction: column;
+	display: block;
 }
