@@ -12,14 +12,7 @@ var MY_PORT = 8080;
 
 module.exports =
 {
-	entry:
-	{
-		app:[
-    		// `webpack-dev-server/client?$http://localhost:3000/`, //YOUR ACTUAL PORT HERE
-    		`webpack/hot/only-dev-server`,
-    		'./app/index.jsx'
-  		]
-	},
+	entry: './app/index.jsx',
 	output:
 	{
 		path: BUILD_PATH,
@@ -57,7 +50,6 @@ module.exports =
 	devServer:
 	{
 		historyApiFallback: true,
-		lazy: false,
 		hot: true,
 		inline: true,
 		progress: true,
@@ -71,7 +63,6 @@ module.exports =
 	plugins:
 	[
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
 		new htmlgenerator({
 			title: 'Tagged',
 			filename: 'index.html',

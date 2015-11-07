@@ -10,6 +10,6 @@
 	<body>
 		{% for (var chunk in o.htmlWebpackPlugin.files.chunks) {
 		%}<script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>{%
-		} %}text
+		} %}
 	</body>
 </html>
