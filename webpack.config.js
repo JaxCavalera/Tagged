@@ -44,6 +44,11 @@ module.exports =
 				test: /\.jpg$/,
 				loader: 'file',
 				include: APP_PATH
+			},
+			{
+				test: /\.json$/,
+				loader: 'file',
+				include: APP_PATH
 			}
 		]
 	},

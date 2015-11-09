@@ -7,7 +7,7 @@
 import './default.css';
 
 import AndroidIcon from './heading/images/androidicon.png';
-import MyManifest from 'file!./heading/images/manifest.json';
+import MyManifest from './heading/images/manifest.json';
 console.log(MyManifest);
 
 //	Libraries file?name=[name].[ext]!
