@@ -13,7 +13,7 @@ p
 	color: #000000;
 }
 
-#container
+.container
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	display: block;

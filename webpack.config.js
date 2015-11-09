@@ -67,7 +67,7 @@ module.exports =
 			title: 'Tagged',
 			filename: 'index.html',
 			template: APP_PATH+'/index_template.html',
-			favicon: APP_PATH+'/heading/images/favicon.ico'
+			// favicon: APP_PATH+'/heading/images/favicon.ico'
 		})
 	]
 };

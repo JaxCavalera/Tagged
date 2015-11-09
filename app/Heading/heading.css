@@ -1,12 +1,21 @@
-header
+/*This styling is for the heading component of Tagged
+
+Colours are listed :
+logo blue = #007DF1
+Ice blue = #D3E6F7
+Navy = #000C4D
+
+Header spans the full width of the window adding a Logo Blue */
+.header
 {
 	display: flex;
 	justify-content: center;
 	background-color: #007DF1;
-	/* Navy = #000C4D  logo blue = #007DF1	   Green = #B2FAA0	ice blue = #D3E6F7*/
 }
 
-#head_bar
+/*Head_bar pushes the logo_panel and login_panel divs apart
+A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
+.headBar
 {
 	display: flex;
 	justify-content: space-between;
@@ -15,7 +24,8 @@ header
 	height: 100px;
 }
 
-#logo_panel
+/*Controls Auto Scaling and placement of Tagged Logo*/
+.logoPanel
 {
 	display: flex;
 	justify-content: center;
@@ -23,17 +33,17 @@ header
 	background: rgb(211, 230, 247);
 	flex-basis: 81%;
 	margin-right: 5px;
-	/*border-radius: 0px 0px 0px 20px;*/
 }
 
-#logo_panel img
+.tagLogo
 {
 	max-height: 80px;
 	max-width: 177.717px;
 	width: 80%;
 }
 
-#login_panel
+/*Controls styling of the login_panel*/
+.loginPanel
 {
 	display: flex;
 	flex-direction: column;
@@ -43,7 +53,7 @@ header
 	min-width: 150px;
 }
 
-.auth_form
+.authForm
 {
 	display: flex;
 	flex-direction: column;
@@ -53,7 +63,7 @@ header
 	height: 92%;
 }
 
-.auth_form span
+.formTitle
 {
 	font-weight: bold;
 	height: 1em;
@@ -62,22 +72,42 @@ header
 	width: 100%;
 }
 
-.auth_form input
+.logFormInput
 {
 	box-sizing: border-box;
 	margin: 2px 0px;
 }
 
-.auth_form > input
+.authForm > input
 {
 	text-align: center;
 	width: 100%;
 }
 
-#form_btns
+.formBtns
 {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	width: 100%;
+}
+
+.formBtns > button
+{
+	background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+	height: 1.6em;
+	line-height: 0.4em;
+	font-size: 0.8em;
+	width: 45%;
+	border: solid;
+	border-color: rgba(67, 138, 201, 0.25);
+	border-width: 1px;
+	border-radius: 0.25em;
+	cursor: pointer;
+}
+
+.formBtns > button:hover
+{
+	background: rgba(67, 138, 201, 1);
+	color: rgba(255, 255, 255, 1);
 }

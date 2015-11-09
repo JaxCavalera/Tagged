@@ -3,9 +3,13 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>{%=o.htmlWebpackPlugin.options.title || 'Add title prop in webpack config'%}</title>
-		{% if (o.htmlWebpackPlugin.files.favicon) { %}
-		<link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+
+	{% if (o.htmlWebpackPlugin.files.favicon) { %}
+		<!-- Favicons are added --><link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
 		{% } %}
+	<!-- Check if viewed on a Mobile -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	</head>
 	<body>
 		{% for (var chunk in o.htmlWebpackPlugin.files.chunks) {

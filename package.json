@@ -7,6 +7,7 @@
     "jquery": "^2.1.4",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
+    "react-helmet": "^2.1.1",
     "webpack-dev-server": "^1.12.1"
   },
   "devDependencies": {
