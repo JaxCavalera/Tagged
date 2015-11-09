@@ -5,7 +5,8 @@
 
 //	import files used for all pages
 import './default.css';
-import TaggedIcoSvg from 'file!./heading/images/favicon.svg';
+import AndroidIcon from 'file!./heading/images/android-icon-192x192.png';
+import MyManifest from 'file!./heading/images/manifest.json';
 
 // Libraries
 ﻿import React from 'react';
@@ -14,6 +15,7 @@ import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
 // Component import area -- will need to add routing here later
 import HeaderDiv from './heading/headerdiv.jsx';
+console.log(MyManifest);
 
 class ContainerDiv extends React.Component
 {
@@ -24,7 +26,8 @@ class ContainerDiv extends React.Component
 				<HeaderDiv/>
 				<Helmet
 					link={[
-						{"rel": "icon", "type": "image/png", "sizes": "any", "href": {TaggedIcoSvg}}
+						{"rel": "icon", "sizes": "192x192", "href": AndroidIcon},
+						{"rel": "manifest", "href": MyManifest}
 					]}
 				/>
 			</div>
