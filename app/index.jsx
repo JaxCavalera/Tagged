@@ -6,7 +6,7 @@
 //	import files used for all pages
 import './default.css';
 
-import AndroidIcon from 'file-loader?name=[name].[ext]!./heading/images/androidicon.png';
+import AndroidIcon from './heading/images/androidicon.png';
 import MyManifest from 'file?name=[name].[ext]!./heading/images/manifest.json';
 
 //	Libraries
