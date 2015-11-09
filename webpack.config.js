@@ -25,9 +25,6 @@ module.exports =
 			{
 				test: /\.jsx?$/, // scan for js and jsx files only
 				loader: 'babel',
-				//include: /src/
-				//include: path.join(__dirname, './src')
-				//path.resolve(APP_PATH, 'home')
 				include: APP_PATH
 			},
 			{
@@ -73,7 +70,6 @@ module.exports =
 			title: 'Tagged',
 			filename: 'index.html',
 			template: APP_PATH+'/index_template.html',
-			// favicon: APP_PATH+'/heading/images/favicon.ico'
 		})
 	]
 };

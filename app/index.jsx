@@ -40,7 +40,7 @@ class DocuHeadTags extends React.Component
 	}
 }
 
-//	Declare a new div elemnt to hold the react content
+//	Declare a new div element to hold the react content
 function main()
 {
 	let container_div = document.createElement('div');
