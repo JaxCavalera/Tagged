@@ -4,6 +4,9 @@
 		<meta charset="UTF-8"/>
 		<title>{%=o.htmlWebpackPlugin.options.title || 'Add title prop in webpack config'%}</title>
 
+		<!-- <link rel="icon" sizes="192x192" href="/androidicon.png">
+		<link rel="manifest" href="/manifest.json"> -->
+
 	{% if (o.htmlWebpackPlugin.files.favicon) { %}
 		<!-- Favicons are added --><link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
 		{% } %}

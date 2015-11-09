@@ -1,13 +1,13 @@
-import './heading.css';
 import React from 'react';
+
 import taglogo from './images/taggedLogo.png';
+import './heading.css';
 
 export default class HeaderDiv extends React.Component
 {
 	render()
 	{
 		return (
-		<div className="header">
 			<div className="headBar">
 				<div className="logoPanel">
 					<img className="tagLogo" src={taglogo} alt="Tagged Logo"/>
@@ -24,7 +24,6 @@ export default class HeaderDiv extends React.Component
 					</form>
 				</div>
 			</div>
-		</div>
 		);
 	}
 }
