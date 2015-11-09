@@ -7,9 +7,10 @@
 import './default.css';
 
 import AndroidIcon from './heading/images/androidicon.png';
-import MyManifest from 'file?name=[name].[ext]!./heading/images/manifest.json';
+import MyManifest from 'file!./heading/images/manifest.json';
+console.log(MyManifest);
 
-//	Libraries
+//	Libraries file?name=[name].[ext]!
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
