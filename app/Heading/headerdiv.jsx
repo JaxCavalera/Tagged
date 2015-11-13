@@ -23,10 +23,10 @@ export default class HeaderDiv extends React.Component
 //      Set the initial state values for changable DOM elements
         this.state = {
             unameRaw: "Username",
-            pwordRaw: "password"
+            pwordRaw: ""
         };
 
-        this.errorTxt = [];
+        this.errorTxt = ["Change Username", "Password Is Missing"];
     }
 
     uname(e)
@@ -121,9 +121,11 @@ export default class HeaderDiv extends React.Component
 //  Function for when the Register button is clicked
     regBtn()
     {
-        if (this.errorTxt === "")
+        if (this.errorTxt.length == 0)
         {
             console.log(this.state.unameRaw);
+            console.log(this.state.pwordRaw);
+            console.log('SEND via AJAX');
         };
     }
 
