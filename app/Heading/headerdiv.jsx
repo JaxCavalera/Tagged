@@ -23,16 +23,17 @@ export default class HeaderDiv extends React.Component
             password : ""
         }
 
-        regBtn()
-        {
-            let uname = this.state.username;
+    }
 
-            switch (true) {
-                case (uname === '' || uname === 'Enter Valid Username' || /^[.?\s+.?]/.test(uname)) :
-                    uname = 'Enter Valid Username';
-                    break;
-                default:console.log(uname);
-            }
+    regBtn()
+    {
+        let uname = this.state.username;
+
+        switch (true) {
+            case (uname === '' || uname === 'Enter Valid Username' || /^[.?\s+.?]/.test(uname)) :
+                uname = 'Enter Valid Username';
+                break;
+            default:console.log(uname);
         }
     }
 
