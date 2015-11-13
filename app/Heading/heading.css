@@ -49,7 +49,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	justify-content: center;
 	align-items: center;
 	background: rgb(211, 230, 247);
-	min-width: 150px;
+	min-width: 185px;
 }
 
 .authForm
@@ -75,6 +75,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 {
 	box-sizing: border-box;
 	margin: 2px 0px;
+	color: rgba(0, 0, 0, 1);
 }
 
 .authForm > input
@@ -109,4 +110,9 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 {
 	background: rgba(67, 138, 201, 1);
 	color: rgba(255, 255, 255, 1);
+}
+
+.inputError
+{
+	color: rgba(255, 0, 0, 1);
 }

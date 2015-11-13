@@ -24,8 +24,9 @@ module.exports =
 		[
 			{
 				test: /\.jsx?$/, // scan for js and jsx files only
-				loader: 'babel',
-				include: APP_PATH
+				loader: 'babel?stage=0',
+				include: APP_PATH,
+				exclude: /node_modules/
 			},
 			{
 				test: /\.css$/, // scan for css files only
