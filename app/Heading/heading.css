@@ -20,7 +20,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	justify-content: space-between;
 	max-width: 95%;
 	width: 980px;
-	height: 100px;
+	height: 110px;
 }
 
 /*Controls Auto Scaling and placement of Tagged Logo*/
@@ -115,4 +115,6 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 .inputError
 {
 	color: rgba(255, 0, 0, 1);
+    font-size: 0.65em;
+    height: 1em;
 }
