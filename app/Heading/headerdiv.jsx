@@ -11,18 +11,29 @@ export default class HeaderDiv extends React.Component
 {
 //    Functions and code for making dom elements inside render do stuff goes here
 
-    getInitialState()
+    constructor()
     {
-        return
-        {
-            username: ''
-            password: ''
-        };
-    }
+        super();
 
-    regBtn(e)
-    {
-        console.log(e);
+        this.regBtn = this.rgBtn.bind(this);
+
+        this.state =
+        {
+            username : "",
+            password : ""
+        }
+
+        regBtn()
+        {
+            let uname = this.state.username;
+
+            switch (true) {
+                case (uname === '' || uname === 'Enter Valid Username' || /^[.?\s+.?]/.test(uname)) :
+                    uname = 'Enter Valid Username';
+                    break;
+                default:console.log(uname);
+            }
+        }
     }
 
     render()
@@ -38,7 +49,7 @@ export default class HeaderDiv extends React.Component
                         <input className="logFormInput" type="text" id="username" placeholder="Username"/>
                         <input className="logFormInput" type="password" id="password" placeholder="Password"/>
                         <div className="formBtns">
-                            <button className="logFormInput" type="button" id="register" onClick={this.regBtn.bind(this)}>Register</button>
+                            <button className="logFormInput" type="button" id="register" onClick={this.regBtn}>Register</button>
                             <button className="logFormInput" type="button" id="login">Login</button>
                         </div>
                     </form>
