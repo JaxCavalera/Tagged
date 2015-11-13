@@ -15,7 +15,7 @@ export default class HeaderDiv extends React.Component
     {
         super();
 
-        this.regBtn = this.rgBtn.bind(this);
+        this.regBtn = this.regBtn.bind(this);
 
         this.state =
         {
