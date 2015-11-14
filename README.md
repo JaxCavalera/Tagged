@@ -1,14 +1,33 @@
-# Tagged - Milestone One Testing and Report
+# Tagged - Testing and Report
+
 
 * * *
 
-[TOC]
 
+
+## Contents
+**[Purpose](#purpose)**
+**[Milestone One](#milestone-one)**
+[Development Environment Setup](#development-environment-setup)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node & Webpack Setup](#node-&-webpack-setup)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparing for Webpack-dev-server](#preparing-for-webpack-dev-server)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Installing Webpack-dev-server](#installing-webpack-dev-server)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Running the Server](#running-the-server)
 - - -
 
-## Purpose
-The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page".
 
+
+
+
+## Purpose
+The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page". My primary goal for this document is to keep a point of reference for future development work and is not intended as a tutorial guide as there are much better guides out there.
+
+Essentially this is my personal, informal tutorial on geting up and running with Node.js, React and Webpack.  The documentation will demonstrate evidence of my current comprehension == (at the time of writing)== with each of the technologies being used and will explain key decissions that were made during the development process.
+
+[Back to Top](#contents)
+
+- - -
+#Milestone One
 ## Development Environment Setup
 #### Node & Webpack Setup
 Node.js is responsible for hosting all of the modules required to run and develop web applications including the Node Package Manager (NPM). Webpack is responsible for bundling all of your project into a single bundle.js file which is placed inside the body tags of your index.html document and will load in all the components that form the web application.
@@ -53,27 +72,45 @@ The process of setting up a testing and development environment for Tagged requi
         "dev": "npm run build && npm run start"
 }
 ```
+[Back to Top](#contents)
 
 - - -
 
 #### Preparing for Webpack-dev-server
-The next step is to prepare the computer for webpack-dev-server to be installed and because we are running a Windows system it will require the following to be taken care of before we can install the package with NPM :
+The next step is to prepare the computer for webpack-dev-server to be installed.  As the dev environment used for this project is Windows 10 it will require the following steps to be taken before the webpack-dev-server can be installed :
 
-When installing webpack-dev-server you need to install Python 2.7.3 HYPERLINK "http://www.python.org/download/releases/2.7.3"http://www.python.org/download/releases/2.7.3#download   Then on windows 10 add a System Environment Variable to the Path section. Use the "Search Windows" charm in the taskbar to search for Environment Variable. In system (not user) add :   The folder where python.exe is located but not to the actual executable file. Should look something like "c:/Python27/" (just add it to the end of the long list of PATH variables putting a semi-colon ";" before your new entry and then press Apply/Ok or similar.    If you have Visual Studio 2015 but did a "typical" install (which does not install c++ stuff), you can install the c++ stuff by going File > New Project and trying to start a c++ project. You will get options to install things. Make sure you have a couple gb on your hard disk. Or install VS 2015 Community and make sure you include the C++ stuff in a custom installation.   HYPERLINK "https://github.com/nodejs/node-gyp/issues/629"https://github.com/nodejs/node-gyp/issues/629#issuecomment-151018292
+== Additional steps may be required for your operating system if following along, so be sure to do a quick google for webpack-dev-server prerequisites for your specific computer setup ==
 
-Webpack-dev-server Setup Now that the prep work is completed it's time to install and configure the web server so open up command prompt to the root directory of the project and do the following :
+- Windows 10 requires the installation of [Python 2.7.3](http://www.python.org/download/releases/2.7.3#download)
 
-npm install webpack-dev-server --save npm install ip -D
+- Add a ++System++ Environment Variable to the Path section.
+ - Use the "Search Windows" charm in the taskbar to search for Environment Variable.
 
-At this point, the packages used for detecting the Local IP and running the dev server are installed. The next task is to create the webpack.config.js file inside the root directory of your project and add the following :
+ - In ++system++ (not user) add : *The folder where python.exe is located* == but not to the actual executable file == 
+ e.g: `c:/Python27/` ==just add it to the end of the long list of PATH variables putting a semi-colon ";" before your new entry and then press Apply/Ok or similar.==
+- If you have Visual Studio 2015 but did a "typical" install ==which does not install c\++ stuff required for webpack-dev-server to run correctly==, you can install the c\++ stuff by going **File** > **New Project** and trying to start a c\++ project. You will get options to install things. Make sure you have a couple gb on your hard disk.
+If you do not have Visual Studio currently Installed you can install VS 2015 Community and make sure you include the c\++ stuff in a custom installation.
+([Source of information](https://github.com/nodejs/node-gyp/issues/629#issuecomment-151018292))
 
-￹ ﻿﻿var path = require('path'); var webpack = require('webpack'); var ip = require('ip'); var htmlgenerator = require('html-webpack-plugin'); var autoprefixer = require('autoprefixer');
+[Back to Top](#contents)
 
-var ROOTPATH = path.resolve(dirname); var APPPATH = path.resolve(ROOTPATH, 'app'); var BUILDPATH = path.resolve(ROOTPATH, 'build'); var LOCALIP = ip.address(); var MY_PORT = 8080;
+- - -
 
-module.exports = { entry: './app/index.jsx', output: { path: BUILDPATH, filename: 'bundle.js' }, module: { loaders: [ { test: /.jsx?$/, // scan for js and jsx files only loader: 'babel', include: APPPATH }, { test: /.css$/, // scan for css files only loader: 'style!css!postcss-loader', include: APPPATH }, { test: /.png$/, loader: 'url?limit=100000&mimetype=image/png', include: APPPATH }, { test: /.jpg$/, loader: 'file', include: APPPATH }, { test: /.json$/, loader: 'file', include: APPPATH } ] }, devServer: { historyApiFallback: true, hot: true, inline: true, progress: true, host: LOCALIP, port: MYPORT }, postcss: function () { return [autoprefixer({browsers: ['> 1%']})]; }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin(), new htmlgenerator({ title: 'Tagged', filename: 'index.html', template: APPPATH+'/indextemplate.html', }) ] };￻
+#### Installing Webpack-dev-server
+Now that the prep work is completed it's time to install and configure the web server so open up command prompt to the root directory of the project and do the following :
 
-Run the Server To start the web server Two (2) more things need to be done. Firstly the following documents need to be created inside rootDirectory/app/ :
+- npm install webpack-dev-server --save-dev
+
+- npm install ip --save
+
+At this point, the packages used for detecting the Local IP and running the dev server are installed. The next task is to create the webpack.config.js file inside the root directory of the project and add **[the code linked here](https://github.com/JaxCavalera/Tagged/blob/Milestone1/webpack.config.js)**
+
+[Back to Top](#contents)
+
+- - -
+
+#### Running the Server
+To start the web server Two (2) more things need to be done. Firstly the following documents need to be created inside rootDirectory/app/ :
 
 Entry File - index.jsx ￹ import './default.css';￻
 
