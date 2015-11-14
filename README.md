@@ -1,8 +1,17 @@
-Tagged - Milestone One Testing and Report
+# Tagged - Milestone One Testing and Report
 
-Contents HYPERLINK \l "Purpose 3 HYPERLINK \l "Development Notes 4 HYPERLINK \l "Development Environment Setup 4 HYPERLINK \l "Node & Webpack Setup 4 HYPERLINK \l "Preparing for Webpack-dev-server 5 HYPERLINK \l "Webpack-dev-server Setup 6 HYPERLINK \l "Run the Server 8 HYPERLINK \l "React Setup 9 HYPERLINK \l "Development of Web Application 10 HYPERLINK \l "Index Template File 10 HYPERLINK \l "Entry File 10 HYPERLINK \l "Header Div Component 12 HYPERLINK \l "CSS Files 13 HYPERLINK \l "Testing 16 Purpose The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page".
+* * *
 
-Development Notes Development Environment Setup Node & Webpack Setup Node.js is responsible for hosting all of the modules required to run and develop web applications including the Node Package Manager (NPM). Webpack is responsible for bundling all of your project into a single bundle.js file which is placed inside the body tags of your index.html document and will load in all the components that form the web application.
+[TOC]
+
+- - -
+
+## Purpose
+The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page".
+
+## Development Environment Setup
+#### Node & Webpack Setup
+Node.js is responsible for hosting all of the modules required to run and develop web applications including the Node Package Manager (NPM). Webpack is responsible for bundling all of your project into a single bundle.js file which is placed inside the body tags of your index.html document and will load in all the components that form the web application.
 
 Babel-loader is a webpack specific version of Babel, which is used to convert (parse) ES6 and JSX amongst other things into CommonJS (ES5). Webpack-dev-server will be used to auto-compile when changes to the source code are made and will also force refresh the browser to streamline the development process.
 
@@ -10,11 +19,45 @@ The HTML assembler, file and css loaders are used to process the "app" folder's 
 
 The process of setting up a testing and development environment for Tagged required the following steps to be performed in the order listed :
 
-Download the latest stable release of Node.js as a compiled binary and install Create the root project folder with "build" and "app" as sub-directories. Create the following directory structure inside "app" -> /app/heading/images Through Terminal (command prompt), navigate to the project root folder and use NPM to do the following : Initialize the Project : npm init Install Webpack : npm install webpack --save-dev --save lists the package in package.json -dev moves it to the developer section in package.json "for dev use only, not a dependency" Open Package.json and add this to Scripts : ￹ "scripts": { "build": "webpack", "start": "webpack-dev-server --devtool eval --progress", "dev": "npm run build && npm run start"}, }￻
+1. Download the latest stable release of Node.js as a compiled binary and install
 
-Install Babel-Loader : npm install babel-loader@5.x --save-dev @5.x forces the latest 5.x version 6.x is not fully supported yet Install Jquery Library : npm install jquery --save Install Autoprefixer & Postcss : npm install postcss-loader autoprefixer -D Install CSS & File Loaders : npm i css-loader style-loader file-loader url-loader -D Install HTML Assembler : npm install html-webpack-plugin -D
+2. Create the root project folder with "build" and "app" as sub-directories.
 
-Preparing for Webpack-dev-server The next step is to prepare the computer for webpack-dev-server to be installed and because we are running a Windows system it will require the following to be taken care of before we can install the package with NPM :
+3. Create the following directory structure inside "app" -> /app/heading/images
+
+4. Through Terminal (command prompt), navigate to the project root folder and use NPM to do the following:
+ - **Initialize the Project :** npm init
+ - **Install Webpack :** npm install webpack --save-dev
+    - **--save**, lists the module in the dependency section of package.json
+
+    - **-dev**, moves it to the developer section in package.json ==for dev use only (won't be installed when npm install is ran on your package)==
+
+ - **Install Babel-Loader :** npm install babel-loader@5.x --save
+   ==@5.x forces the latest 5.x version as 6.x is not fully supported at the time of writing.==
+
+ - ** Install Jquery Library :** npm install jquery --save
+
+ - **Install Autoprefixer & Postcss :** npm install postcss-loader autoprefixer --save
+
+ - **Install CSS & File Loaders :** npm i css-loader style-loader file-loader url-loader --save
+
+ - **Install HTML Assembler :** npm install html-webpack-plugin -D
+   == -D is shorthand for --save-dev.  i is shorthand for install. ==
+
+5. Open Package.json and add this to Scripts :
+```
+"scripts":
+{
+        "build": "webpack",
+        "start": "webpack-dev-server --devtool eval --progress",
+        "dev": "npm run build && npm run start"
+}
+```
+
+- - -
+
+#### Preparing for Webpack-dev-server
+The next step is to prepare the computer for webpack-dev-server to be installed and because we are running a Windows system it will require the following to be taken care of before we can install the package with NPM :
 
 When installing webpack-dev-server you need to install Python 2.7.3 HYPERLINK "http://www.python.org/download/releases/2.7.3"http://www.python.org/download/releases/2.7.3#download   Then on windows 10 add a System Environment Variable to the Path section. Use the "Search Windows" charm in the taskbar to search for Environment Variable. In system (not user) add :   The folder where python.exe is located but not to the actual executable file. Should look something like "c:/Python27/" (just add it to the end of the long list of PATH variables putting a semi-colon ";" before your new entry and then press Apply/Ok or similar.    If you have Visual Studio 2015 but did a "typical" install (which does not install c++ stuff), you can install the c++ stuff by going File > New Project and trying to start a c++ project. You will get options to install things. Make sure you have a couple gb on your hard disk. Or install VS 2015 Community and make sure you include the C++ stuff in a custom installation.   HYPERLINK "https://github.com/nodejs/node-gyp/issues/629"https://github.com/nodejs/node-gyp/issues/629#issuecomment-151018292
 
