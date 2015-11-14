@@ -186,7 +186,7 @@ e.g. ROOT/app/heading/headerdiv.jsx
 **CSS Files**   
 Both the index.jsx Entry file and the headerdiv.jsx Component are referencing several files including Two (2) Cascading Style Sheets, JSON Manifest document for managing the smartphone Meta Data and several images.
 
-The default.css file previously created should be extended to match the contents of the "default.css" **[linked here](https://github.com/JaxCavalera/Tagged/tree/Milestone1/app)**. The heading.css file found at the same, inside the "heading" sub-directory will also need to be created and fleshed out to match the online repository.
+The default.css file previously created should be extended to match the contents of the "default.css" **[linked here](https://github.com/JaxCavalera/Tagged/tree/Milestone1/app)**. The heading.css file found at the same link, inside the "heading" sub-directory will also need to be created and fleshed out to match the online repository.
 
 The Tagged logo, Favicon and Manifest code can be found at : https://github.com/JaxCavalera/Tagged/tree/Milestone1
 
