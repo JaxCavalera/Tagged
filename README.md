@@ -123,7 +123,7 @@ To start the web server Two (2) more things need to be done. Firstly the followi
 **Entry File - index.jsx**
 ```
 import './default.css';
-```
+```
 
 **Main CSS File - default.css**
 ```
