@@ -23,10 +23,9 @@ export default class HeaderDiv extends React.Component
 //      Set the initial state values for changable DOM elements
         this.state = {
             unameRaw: "Username",
-            pwordRaw: ""
+            pwordRaw: "",
+            errorTxt: ["Change Username", "Password Is Missing"]
         };
-
-        this.errorTxt = ["Change Username", "Password Is Missing"];
     }
 
     uname(e)
@@ -37,43 +36,43 @@ export default class HeaderDiv extends React.Component
 //      Validate the Username Field
         switch (true) {
             case (usertxt === "") :
-                if (this.errorTxt.indexOf("Username Is Missing") === -1)
+                if (this.state.errorTxt.indexOf("Username Is Missing") === -1)
                 {
-                    this.errorTxt.push("Username Is Missing");
+                    this.state.errorTxt.push("Username Is Missing");
                 };
                 break;
             case (usertxt === "Username") :
-                if (this.errorTxt.indexOf("Change Username") === -1)
+                if (this.state.errorTxt.indexOf("Change Username") === -1)
                 {
-                    this.errorTxt.push("Change Username");
+                    this.state.errorTxt.push("Change Username");
                 };
                 break;
             case (/\s+/.test(usertxt)) :
-                if (this.errorTxt.indexOf("Username Has Spaces") === -1)
+                if (this.state.errorTxt.indexOf("Username Has Spaces") === -1)
                 {
-                    this.errorTxt.push("Username Has Spaces");
+                    this.state.errorTxt.push("Username Has Spaces");
                 };
                 break;
             default:
 //     Check if Error 1 exists and if it does, remove it from the errorTxt array
-                let error1pos = this.errorTxt.indexOf("Username Is Missing");
+                let error1pos = this.state.errorTxt.indexOf("Username Is Missing");
                 if (error1pos !== -1)
                 {
-                    this.errorTxt.splice(error1pos, 1);
+                    this.state.errorTxt.splice(error1pos, 1);
                 };
 
 //     Check if Error 2 exists and if it does, remove it from the errorTxt array
-                let error2pos = this.errorTxt.indexOf("Change Username");
+                let error2pos = this.state.errorTxt.indexOf("Change Username");
                 if (error2pos !== -1)
                 {
-                    this.errorTxt.splice(error2pos, 1);
+                    this.state.errorTxt.splice(error2pos, 1);
                 };
 
 //     Check if Error 3 exists and if it does, remove it from the errorTxt array
-                let error3pos = this.errorTxt.indexOf("Username Has Spaces");
+                let error3pos = this.state.errorTxt.indexOf("Username Has Spaces");
                 if (error3pos !== -1)
                 {
-                    this.errorTxt.splice(error3pos, 1);
+                    this.state.errorTxt.splice(error3pos, 1);
                 };
 
                 console.log("Username is Valid");
@@ -88,30 +87,30 @@ export default class HeaderDiv extends React.Component
 //      Validate the Password Field
         switch (true) {
             case (usertxt === "") :
-                if (this.errorTxt.indexOf("Password Is Missing") === -1)
+                if (this.state.errorTxt.indexOf("Password Is Missing") === -1)
                 {
-                    this.errorTxt.push("Password Is Missing");
+                    this.state.errorTxt.push("Password Is Missing");
                 };
                 break;
             case (/\s+/.test(usertxt)) :
-                if (this.errorTxt.indexOf("Password Has Spaces") === -1)
+                if (this.state.errorTxt.indexOf("Password Has Spaces") === -1)
                 {
-                    this.errorTxt.push("Password Has Spaces");
+                    this.state.errorTxt.push("Password Has Spaces");
                 };
                 break;
             default:
 //     Check if Error 1 exists and if it does, remove it from the errorTxt array
-                let error1pos = this.errorTxt.indexOf("Password Is Missing");
+                let error1pos = this.state.errorTxt.indexOf("Password Is Missing");
                 if (error1pos !== -1)
                 {
-                    this.errorTxt.splice(error1pos, 1);
+                    this.state.errorTxt.splice(error1pos, 1);
                 };
 
 //     Check if Error 2 exists and if it does, remove it from the errorTxt array
-                let error2pos = this.errorTxt.indexOf("Password Has Spaces");
+                let error2pos = this.state.errorTxt.indexOf("Password Has Spaces");
                 if (error2pos !== -1)
                 {
-                    this.errorTxt.splice(error2pos, 1);
+                    this.state.errorTxt.splice(error2pos, 1);
                 };
 
                 console.log("Password is Valid");
@@ -121,7 +120,7 @@ export default class HeaderDiv extends React.Component
 //  Function for when the Register button is clicked
     regBtn()
     {
-        if (this.errorTxt.length == 0)
+        if (this.state.errorTxt.length == 0)
         {
             console.log(this.state.unameRaw);
             console.log(this.state.pwordRaw);
@@ -145,7 +144,7 @@ export default class HeaderDiv extends React.Component
                             <button className="logFormInput" type="button" onClick={this.regBtn}>Register</button>
                             <button className="logFormInput" type="button" >Login</button>
                         </div>
-                        <p className="inputError">{this.errorTxt[0]}</p>
+                        <p className="inputError">{this.state.errorTxt[0]}</p>
                     </form>
                 </div>
             </div>
