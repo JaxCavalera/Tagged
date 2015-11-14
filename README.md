@@ -7,12 +7,19 @@
 
 ## Contents
 **[Purpose](#purpose)**
+
 **[Milestone One](#milestone-one)**
+
 [Development Environment Setup](#development-environment-setup)
+
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node & Webpack Setup](#node-&-webpack-setup)
+
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparing for Webpack-dev-server](#preparing-for-webpack-dev-server)
+
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Installing Webpack-dev-server](#installing-webpack-dev-server)
+
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Running the Server](#running-the-server)
+
 - - -
 
 
