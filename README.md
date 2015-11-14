@@ -10,7 +10,7 @@
 
 **[Milestone One](#milestone-one)**
 
-[Development Environment Setup](#development-environment-setup)
+++[Development Environment Setup](#development-environment-setup)++
 
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node & Webpack Setup](#node-&-webpack-setup)
 
@@ -29,7 +29,7 @@
 ## Purpose
 The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page". My primary goal for this document is to keep a point of reference for future development work and is not intended as a tutorial guide as there are much better guides out there.
 
-Essentially this is my personal, informal tutorial on geting up and running with Node.js, React and Webpack.  The documentation will demonstrate evidence of my current comprehension == (at the time of writing)== with each of the technologies being used and will explain key decissions that were made during the development process.
+Essentially this is my personal, informal tutorial on geting up and running with Node.js, React and Webpack.  The documentation will demonstrate evidence of my current comprehension **[(at the time of writing this)]()** with each of the technologies being used and will explain key decissions that were made during the development process.
 
 [Back to Top](#contents)
 
