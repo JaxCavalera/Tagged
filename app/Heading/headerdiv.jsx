@@ -43,13 +43,18 @@ export default class HeaderDiv extends React.Component
                 this.state.errorTxt.splice(error1pos, 1);
             }
         }
-        console.log(this.state.unameRaw);
     }
 
 //  If the username input loses focus confirm contents
     unameBlur(e)
     {
-        console.log(this.state.unameRaw);
+        if (this.state.unameRaw === "")
+        {
+            if (this.state.errorTxt.indexOf("Username Is Missing") === -1)
+            {
+                this.state.errorTxt.push("Username Is Missing");
+            }
+        }
     }
 
     uname(e)
@@ -115,37 +120,40 @@ export default class HeaderDiv extends React.Component
         this.setState({pwordRaw: e.target.value});
         let usertxt = e.target.value;
 
-//      Validate the Password Field
-        switch (true) {
-            case (usertxt === "") :
-                if (this.state.errorTxt.indexOf("Password Is Missing") === -1)
-                {
-                    this.state.errorTxt.push("Password Is Missing");
-                };
-                break;
-            case (/\s+/.test(usertxt)) :
-                if (this.state.errorTxt.indexOf("Password Has Spaces") === -1)
-                {
-                    this.state.errorTxt.push("Password Has Spaces");
-                };
-                break;
-            default:
-//     Check if Error 1 exists and if it does, remove it from the errorTxt array
-                let error1pos = this.state.errorTxt.indexOf("Password Is Missing");
-                if (error1pos !== -1)
-                {
-                    this.state.errorTxt.splice(error1pos, 1);
-                };
+//      Validate the Username Field
+        if (usertxt.length === 0)
+        {
+            if (this.state.errorTxt.indexOf("Password Is Missing") === -1)
+            {
+                this.state.errorTxt.push("Password Is Missing");
+            }
+        }
+        else
+        {
+//      Check if Error 1 exists and if it does, remove it from the errorTxt array
+            let error1pos = this.state.errorTxt.indexOf("Password Is Missing");
+            if (error1pos !== -1)
+            {
+                this.state.errorTxt.splice(error1pos, 1);
+            }
+        }
 
-//     Check if Error 2 exists and if it does, remove it from the errorTxt array
-                let error2pos = this.state.errorTxt.indexOf("Password Has Spaces");
-                if (error2pos !== -1)
-                {
-                    this.state.errorTxt.splice(error2pos, 1);
-                };
-
-                console.log("Password is Valid");
-        };
+        if (/\s+/g.test(usertxt))
+        {
+            if (this.state.errorTxt.indexOf("Password Has Spaces") === -1)
+            {
+                this.state.errorTxt.push("Password Has Spaces");
+            }
+        }
+        else
+        {
+//      Check if Error 3 exists and if it does, remove it from the errorTxt array
+            let error3pos = this.state.errorTxt.indexOf("Password Has Spaces");
+            if (error3pos !== -1)
+            {
+                this.state.errorTxt.splice(error3pos, 1);
+            }
+        }
     }
 
 //  Function for when the Register button is clicked
