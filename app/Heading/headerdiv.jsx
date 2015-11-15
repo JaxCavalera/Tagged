@@ -11,9 +11,9 @@ export default class HeaderDiv extends React.Component
 {
 //    Functions and code for making dom elements inside render do stuff goes here
 
-    constructor(fakepropsname)
+    constructor(props)
     {
-        super(fakepropsname);
+        super(props);
 
 //      Cache all binds to avoid repeat function calls
         this.regBtn = this.regBtn.bind(this);
@@ -22,7 +22,6 @@ export default class HeaderDiv extends React.Component
         this.unameFocus = this.unameFocus.bind(this);
         this.unameBlur = this.unameBlur.bind(this);
 
-        console.log(fakepropsname.whatever);
 //      Set the initial state values for changable DOM elements
         this.state = {
             unameRaw: "Username",

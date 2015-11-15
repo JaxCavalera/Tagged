@@ -209,3 +209,16 @@ Ports were forwarded from the local ip through the router and directed to a publ
 [Back to Top](#contents)
 
 - - -
+
+
+## Notes   
+- When designing React Components you need to understand the following :
+ - Can I reuse most or parts of this component for another purpose?
+ - Which parts can be re-used?
+ - Design the component so it can be changed to suit each use-case by entering different Attribute values when declaring an instance of it.
+ e.g. <MyComponent myAttribute="value" /> which is accessed in component functions such as render() or prior using : this.props.myAttribute
+
+- The Constructor() function in a React component is used to do the following :
+ - Handle binding of event handlers so the "this" refers to the copy of the react component and not the window or something else.
+ - Creation of the this.props object  Constructor(props)
+ - Super() and Super(props) are functions used to run their parent function. This is what makes the Constructor automatically fire the moment an instance of the component is generated.  props needs to be passed between both of them to work.
