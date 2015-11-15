@@ -6,7 +6,7 @@ import ip from 'ip';
 
 const LOCAL_IP = ip.address();
 
-export default class HeaderDivLogic extends React.Component
+export default class HeadingLogic extends React.Component
 {
     render()
     {

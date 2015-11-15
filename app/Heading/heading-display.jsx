@@ -2,9 +2,9 @@ import React from 'react';
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
-import HeaderDivLogic from './heading-logic.jsx';
+import HeadingLogic from './heading-logic.jsx';
 
-export default class HeaderDiv extends React.Component
+export default class HeadingDispay extends React.Component
 {
 //    Functions and code for making dom elements inside render do stuff goes here
 

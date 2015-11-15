@@ -7,16 +7,16 @@ import React from 'react';
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
 //	Component import area -- will need to add routing here later
-import HeaderDiv from './heading/heading-display.jsx';
+import HeadingDisplay from './heading/heading-display.jsx';
 
 //	Generates head tags and places the HeaderDiv inside the container
-export default class DocHeadTags extends React.Component
+export default class IndexDisplay extends React.Component
 {
     render()
 	{
         return (
 			<div className="header">
-				<HeaderDiv />
+				<HeadingDisplay />
 				<Helmet
 					link={[
 						{"rel": "icon", "sizes": "192x192", "href": AndroidIcon},
