@@ -115,6 +115,6 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 .inputError
 {
 	color: rgba(255, 0, 0, 1);
-    font-size: 0.65em;
+    font-size: 0.59em;
     height: 1em;
 }
