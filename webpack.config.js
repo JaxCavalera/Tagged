@@ -12,7 +12,7 @@ var MY_PORT = 8080;
 
 module.exports =
 {
-	entry: './app/index.jsx',
+	entry: './app/index-logic.jsx',
 	output:
 	{
 		path: BUILD_PATH,
@@ -55,10 +55,11 @@ module.exports =
 	{
 		historyApiFallback: true,
 		hot: true,
-		inline: true,
+        inline: true,
 		progress: true,
 		host: LOCAL_IP,
-		port: MY_PORT
+		port: MY_PORT,
+        quiet: true
 	},
 	postcss: function ()
 	{

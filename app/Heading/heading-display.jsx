@@ -1,11 +1,8 @@
 import React from 'react';
-import $ from 'jquery';
-import ip from 'ip';
-
-const LOCAL_IP = ip.address();
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
+import HeaderDivLogic from './heading-logic.jsx';
 
 export default class HeaderDiv extends React.Component
 {
@@ -23,7 +20,8 @@ export default class HeaderDiv extends React.Component
         this.unameBlur = this.unameBlur.bind(this);
 
 //      Set the initial state values for changable DOM elements
-        this.state = {
+        this.state =
+        {
             unameRaw: "Username",
             pwordRaw: "",
             errorTxt: ["Create New Account or Login", "Password Is Missing"]
@@ -190,5 +188,3 @@ export default class HeaderDiv extends React.Component
         );
     }
 }
-
-HeaderDiv.displayName = 'HeaderDiv';
