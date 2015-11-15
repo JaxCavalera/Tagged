@@ -18,6 +18,7 @@ module.exports =
 		path: BUILD_PATH,
 		filename: 'bundle.js'
 	},
+    devtool: 'eval',
 	module:
 	{
 		loaders:
@@ -26,7 +27,7 @@ module.exports =
 				test: /\.jsx?$/, // scan for js and jsx files only
 				loader: 'babel?stage=0',
 				include: APP_PATH,
-				exclude: /node_modules/
+				exclude: '/node_modules/'
 			},
 			{
 				test: /\.css$/, // scan for css files only

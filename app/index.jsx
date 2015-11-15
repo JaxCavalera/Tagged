@@ -25,7 +25,7 @@ class DocuHeadTags extends React.Component
 	{
 		return (
 			<div className="header">
-				<HeaderDiv/>
+				<HeaderDiv whatever="made up something"/>
 				<Helmet
 					link={[
 						{"rel": "icon", "sizes": "192x192", "href": AndroidIcon},

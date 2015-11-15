@@ -24,8 +24,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --devtool eval --progress",
-    "dev": "npm run build && npm run start"
+    "start": "webpack-dev-server --progress"
   },
   "author": "Jax",
   "license": "ISC"
