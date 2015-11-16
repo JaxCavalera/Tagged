@@ -13,7 +13,7 @@ export default class HeadingDispay extends Component
     render()
     {
 //      Destructuring would be the same as const regBtnClick = this.props.regBtnClick
-        const {regBtnClick} = this.props;
+        const {regBtnClick} = this.props
         return (
             <div className="header">
                 <Helmet

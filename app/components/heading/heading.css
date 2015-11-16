@@ -25,7 +25,7 @@ p
 	display: block;
 }
 
-Header spans the full width of the window adding a Logo Blue
+/*  Header spans the full width of the window adding a Logo Blue */
 .header
 {
 	display: flex;
