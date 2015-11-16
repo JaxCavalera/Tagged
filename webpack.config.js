@@ -27,7 +27,7 @@ module.exports =
 				test: /\.jsx?$/, // scan for js and jsx files only
 				loader: 'babel?stage=0',
 				include: APP_PATH,
-				exclude: '/node_modules/'
+				exclude: /node_modules/
 			},
 			{
 				test: /\.css$/, // scan for css files only
@@ -58,8 +58,7 @@ module.exports =
         inline: true,
 		progress: true,
 		host: LOCAL_IP,
-		port: MY_PORT,
-        quiet: true
+		port: MY_PORT
 	},
 	postcss: function ()
 	{

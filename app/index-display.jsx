@@ -1,13 +1,13 @@
 //	import files used for all pages
 import './default.css';
 
-import AndroidIcon from './heading/images/androidicon.png';
-import MyManifest from './heading/images/manifest.json';
+import AndroidIcon from './display-components/heading/images/androidicon.png';
+import MyManifest from './display-components/heading/images/manifest.json';
 import React from 'react';
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
 //	Component import area -- will need to add routing here later
-import HeadingDisplay from './heading/heading-display.jsx';
+import HeadingDisplay from './display-components/heading/heading-display.jsx';
 
 //	Generates head tags and places the HeaderDiv inside the container
 export default class IndexDisplay extends React.Component
