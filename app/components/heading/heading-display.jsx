@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes} from 'react';
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
