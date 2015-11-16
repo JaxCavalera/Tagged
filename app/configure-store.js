@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 // root reducer, combines all reducers
@@ -10,10 +10,10 @@ import reducer from './root-reducer.js';
 // a function instead of an action (object)
 // https://github.com/gaearon/redux-thunk
 const logger = createLogger();
-const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 
 //  =============  could also be written as ==============
-//  const thunkWare = applyMiddleware(thunkMiddleware);
+//  const thunkWare = applyMiddleware(thunk);
 //  const createStoreWithMiddleware = thunkWare(createStore);
 //
 //  var addTwo = add(2);
@@ -24,7 +24,18 @@ const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(creat
 
 
 // create store with middleware, applying combined reducers
-export default function createMyStore(initialState)
+export default function configureStore(initialState)
 {
-    return createStoreWithMiddleware(reducer, initialState);
+    const store = createStoreWithMiddleware(reducer, initialState);
+
+//  Enable Webpack hot module replacement for reducers
+    if (module.hot)
+    {
+        module.hot.accept('./root-reducer.js', () => {
+            const nextReducer = require('./root-reducer.js');
+            store.replaceReducer(nextReducer);
+        });
+    }
+
+    return store;
 }

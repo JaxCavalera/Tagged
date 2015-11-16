@@ -1,20 +1,20 @@
 //	Libraries
 //  Import Statement braces {connect} import a non-default function
 //  e.g : "export default <function name>" export default root
-
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 //  Import connect function to bind the state tree to the app's state
 import {Provider} from 'react-redux';
 
 //  Import the store a.k.a the state tree
-import createMyStore from './store.js';
+import configureStore from './configure-store.js';
 
 //  Component import area -- will probably need to add routing here later
 import IndexDisplay from './index-display.jsx';
 
 //  Create the store instance - this file is the top-level "wrapper"
-const store = createMyStore();
+const store = configureStore();
 
 
 //	Declare a new div element to hold the react content
