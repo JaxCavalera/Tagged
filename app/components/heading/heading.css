@@ -3,8 +3,29 @@ Colours are listed :
 logo blue = #007DF1
 Ice blue = #D3E6F7
 Navy = #000C4D
+*/
 
-Header spans the full width of the window adding a Logo Blue */
+*
+{
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*CSS for sections that appear more than once in the page*/
+p
+{
+	font-size: 12pt;
+	color: #000000;
+}
+
+.container
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	display: block;
+}
+
+Header spans the full width of the window adding a Logo Blue
 .header
 {
 	display: flex;

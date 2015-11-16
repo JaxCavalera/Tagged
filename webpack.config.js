@@ -12,7 +12,7 @@ var MY_PORT = 8080;
 
 module.exports =
 {
-	entry: './app/index-logic.jsx',
+	entry: './app/index.jsx',
 	output:
 	{
 		path: BUILD_PATH,

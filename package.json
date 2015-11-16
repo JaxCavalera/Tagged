@@ -2,7 +2,7 @@
   "name": "Tagged",
   "version": "1.0.0",
   "description": "description here",
-  "main": "app/index-logic.jsx",
+  "main": "app/index.jsx",
   "dependencies": {
     "jquery": "^2.1.4",
     "react": "^0.14.2",
