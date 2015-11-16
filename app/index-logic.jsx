@@ -2,7 +2,6 @@
 //  Import Statement braces {connect} import a non-default function
 //  e.g : "export default <function name>" export default root
 
-﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
 //  Import connect function to bind the state tree to the app's state
