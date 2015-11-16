@@ -1,11 +1,11 @@
-import React, { PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
 
-//  logic === Container  AND  display === Presentation
+//  logic === Container (smart)  AND  display === Presentation (dumb)
 
-export default class HeadingDispay extends React.Component
+export default class HeadingDispay extends Component
 {
     render()
     {
@@ -30,3 +30,5 @@ export default class HeadingDispay extends React.Component
         );
     }
 }
+
+// declare PropTypes here to lock variables into a specific type

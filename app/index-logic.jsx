@@ -6,7 +6,7 @@
 import ReactDOM from 'react-dom';
 
 //  Import connect function to bind the state tree to the app's state
-import {connect} from 'react-redux';
+import {Provider} from 'react-redux';
 
 //  Import the store a.k.a the state tree
 import createMyStore from './store.js';
@@ -24,8 +24,7 @@ function main()
 	let container_div = document.createElement('div');
 	container_div.setAttribute('class', 'container');
 	document.body.appendChild(container_div);
-
-	ReactDOM.render(<Provider store={store}><IndexDisplay/></Provider>, container_div);
+    ReactDOM.render(<Provider store={store}><IndexDisplay /></Provider>, container_div);
 }
 
 //	Run the main function
