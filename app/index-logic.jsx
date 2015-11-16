@@ -25,7 +25,7 @@ function main()
 	container_div.setAttribute('class', 'container');
 	document.body.appendChild(container_div);
 
-	ReactDOM.render(<IndexDisplay/>, container_div);
+	ReactDOM.render(<Provider store={store}><IndexDisplay/></Provider>, container_div);
 }
 
 //	Run the main function

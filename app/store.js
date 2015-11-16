@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 
 // root reducer, combines all reducers
 import reducer from './root-reducer.js';
@@ -8,8 +9,8 @@ import reducer from './root-reducer.js';
 // thunk middleware allows you to write action creators that return
 // a function instead of an action (object)
 // https://github.com/gaearon/redux-thunk
-
-const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
+const logger = createLogger();
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(createStore);
 
 //  =============  could also be written as ==============
 //  const thunkWare = applyMiddleware(thunkMiddleware);
