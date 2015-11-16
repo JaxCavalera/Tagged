@@ -2,7 +2,7 @@ import React from 'react';
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
-import HeadingLogic from '../logic-containers/heading-logic.jsx';
+import HeadingLogic from './heading-logic.jsx';
 
 export default class HeadingDispay extends React.Component
 {

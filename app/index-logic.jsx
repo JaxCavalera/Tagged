@@ -5,10 +5,18 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
+//  Import connect function to bind the state tree to the app's state
 import {connect} from 'react-redux';
 
-// Component import area -- will probably need to add routing here later
+//  Import the store a.k.a the state tree
+import createMyStore from './store.js';
+
+//  Component import area -- will probably need to add routing here later
 import IndexDisplay from './index-display.jsx';
+
+//  Create the store instance - this file is the top-level "wrapper"
+const store = createMyStore();
+
 
 //	Declare a new div element to hold the react content
 function main()
