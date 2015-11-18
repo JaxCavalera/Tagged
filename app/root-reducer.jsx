@@ -6,7 +6,7 @@ import HeadingReducer from './components/heading/heading-reducer.jsx';
 // import NavigationReducer from './navigation/reducer';
 
 export default combineReducers({
-    heading: HeadingReducer,
+    heading: HeadingReducer.regBtnReducer,
 
     //    navigationSet: NavigationReducer
 });

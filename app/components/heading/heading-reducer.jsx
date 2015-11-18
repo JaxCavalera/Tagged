@@ -13,4 +13,6 @@ let regBtnReducer = (currentState = {}, action) => {
     }
 };
 
-export default regBtnReducer;
+export default {
+    regBtnReducer,
+};
