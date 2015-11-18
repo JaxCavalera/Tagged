@@ -6,6 +6,8 @@ import MyManifest from './images/manifest.json';
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
 
+import regBtnActionCreator from './heading-actions.jsx';
+
 //  logic === Container (smart)  AND  display === Presentation (dumb)
 
 export default class HeadingDisplay extends Component {
