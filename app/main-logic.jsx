@@ -5,9 +5,7 @@ import HeadingDisplay from './components/heading/heading-display.jsx';
 
 function mapStateToProps(state)
 {
-    return {
-        regBtnClick: state.regBtnClick,
-    };
+    return {};
 }
 
 export default connect(mapStateToProps)(HeadingDisplay);

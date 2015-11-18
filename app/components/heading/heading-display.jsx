@@ -22,6 +22,10 @@ export default class HeadingDisplay extends Component {
         //  Destructuring would be the same as const regBtnClick = this.props.regBtnClick
         //  const {regBtnClick} = this.props;
 
+        let regBtnClick = () => {
+            this.props.dispatch(regBtnActionCreator('Clicked'));
+        };
+
         return (
             <div className='header'>
                 <Helmet

@@ -6,11 +6,7 @@ let regBtnActionCreator = (text) => {
     };
 };
 
-let regBtnClick = () => {
-    this.props.dispatch({
-        type: 'REG_BTN_CLICK',
-    });
-};
+export default regBtnActionCreator;
 
 // {
 //     type: SAMPLE,
