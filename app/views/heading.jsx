@@ -18,3 +18,6 @@ function mapStateToProps(state)
 }
 
 export default connect(mapStateToProps)(HeadingDisplay);
+
+// declare PropTypes here to lock variables into a specific type
+HeadingDisplay.propTypes = {};

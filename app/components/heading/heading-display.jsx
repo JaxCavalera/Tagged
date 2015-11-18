@@ -47,9 +47,3 @@ export default class HeadingDisplay extends Component {
         );
     }
 }
-
-// declare PropTypes here to lock variables into a specific type
-HeadingDisplay.propTypes =
-{
-    regBtnClick: PropTypes.func.isRequired,
-};
