@@ -8,7 +8,7 @@ import './heading.css';
 
 //  logic === Container (smart)  AND  display === Presentation (dumb)
 
-export default class HeadingDispay extends Component {
+export default class HeadingDisplay extends Component {
     // constructor() {
     //     super();
     //     let regBtnClick = (e) => {
@@ -62,7 +62,7 @@ export default class HeadingDispay extends Component {
 }
 
 // declare PropTypes here to lock variables into a specific type
-HeadingDispay.propTypes =
+HeadingDisplay.propTypes =
 {
     regBtnClick: PropTypes.func.isRequired,
 };
