@@ -1,7 +1,11 @@
-{
-    type: regBtnClick,
-    payload: "Clicked"
-}
+//  Action Creators
+let regBtnActionCreator = (text) => {
+    return {
+        type: 'REG_BTN_CLICK',
+        message: text,
+    };
+};
+
 // {
 //     type: SAMPLE,
 //     //optionals

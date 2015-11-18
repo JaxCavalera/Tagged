@@ -3,8 +3,7 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 // root reducer, combines all reducers
-import reducer from './root-reducer.js';
-
+import reducer from './root-reducer.jsx';
 
 // thunk middleware allows you to write action creators that return
 // a function instead of an action (object)
@@ -22,17 +21,16 @@ const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 //  add(3)(4) === 7; // true
 //  runs the function 2 times using different params and combines the result
 
-
 // create store with middleware, applying combined reducers
 export default function configureStore(initialState)
 {
     const store = createStoreWithMiddleware(reducer, initialState);
 
-//  Enable Webpack hot module replacement for reducers
+    //  Enable Webpack hot module replacement for reducers
     if (module.hot)
     {
-        module.hot.accept('./root-reducer.js', () => {
-            const nextReducer = require('./root-reducer.js');
+        module.hot.accept(reducer, () => {
+            const nextReducer = reducer;
             store.replaceReducer(nextReducer);
         });
     }
