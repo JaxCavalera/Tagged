@@ -6,7 +6,9 @@ let regBtnActionCreator = (text) => {
     };
 };
 
-export default regBtnActionCreator;
+export default {
+    regBtnActionCreator,
+};
 
 // {
 //     type: SAMPLE,

@@ -2,7 +2,7 @@
 //  Import Statement braces {connect} import a non-default function
 //  e.g : "export default <function name>" export default root
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, {render} from 'react-dom';
 
 //  Import connect function to bind the state tree to the app's state
 import {Provider} from 'react-redux';
@@ -10,8 +10,8 @@ import {Provider} from 'react-redux';
 //  Import the store a.k.a the state tree
 import configureStore from './configure-store.jsx';
 
-//  Component import area -- will probably need to add routing here later
-import MainLogic from './main-logic.jsx';
+//  This is the View Controller a.k.a handles the routing
+import Router from './router.jsx';
 
 //  Create the store instance - this file is the top-level "wrapper"
 const store = configureStore();
@@ -23,7 +23,7 @@ function main()
     containerDiv.setAttribute('CLASS', 'container');
     document.body.appendChild(containerDiv);
 
-    ReactDOM.render(<Provider store={store}><MainLogic /></Provider>, containerDiv);
+    render(<Provider store={store}><Router /></Provider>, containerDiv);
 }
 
 //	Run the main function

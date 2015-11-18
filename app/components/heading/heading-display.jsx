@@ -6,26 +6,13 @@ import MyManifest from './images/manifest.json';
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
 
-import regBtnActionCreator from './heading-actions.jsx';
-
-//  logic === Container (smart)  AND  display === Presentation (dumb)
+import AuthActions from '../../actions/auth-actions.jsx';
 
 export default class HeadingDisplay extends Component {
-    // constructor() {
-    //     super();
-    //     let regBtnClick = (e) => {
-    //         return console.log();
-    //     };
-    //
-    //     // this.regBtnClick = this.regBtnClick.bind(this);
-    // };
-
     render() {
-        //  Destructuring would be the same as const regBtnClick = this.props.regBtnClick
-        //  const {regBtnClick} = this.props;
 
         let regBtnClick = () => {
-            this.props.dispatch(regBtnActionCreator('Clicked'));
+            this.props.dispatch(AuthActions.regBtnActionCreator('Clicked'));
         };
 
         return (
