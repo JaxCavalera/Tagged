@@ -6,6 +6,12 @@ let regBtnActionCreator = (text) => {
     };
 };
 
+let regBtnClick = () => {
+    this.props.dispatch({
+        type: 'REG_BTN_CLICK',
+    });
+};
+
 // {
 //     type: SAMPLE,
 //     //optionals

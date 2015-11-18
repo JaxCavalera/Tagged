@@ -4,12 +4,12 @@ let regBtnReducer = (initialState, action) => {
     switch (action.type) {
         case 'REG_BTN_CLICK':
             return {
-                ...state,
+                ...initialState,
                 message: action.message,
             };
             break;
         default:
-            return state;
+            return initialState;
     }
 };
 
