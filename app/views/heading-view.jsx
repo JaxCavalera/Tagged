@@ -16,7 +16,7 @@ import {connect} from 'react-redux';
 
 //  import dumb components for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
-import AuthActions from '../actions/auth-actions.jsx';
+import AuthActions, {regBtnActionCreator} from '../actions/auth-actions.jsx';
 
 function mapStateToProps(state)
 {
@@ -27,8 +27,14 @@ class HeadingView extends Component {
     render() {
         return (
             <div className='header'>
-                <HeadingDisplay/>
+                <HeadingDisplay regBtnClick={
+                        () => {
+                            this.props.dispatch(regBtnActionCreator('Clicked'));
+                        }
+                    }
+                />
                 <Helmet
+
                     link={[
                         {rel: 'icon', sizes: '192x192', href: AndroidIcon},
                         {rel: 'manifest', href: MyManifest},
@@ -46,7 +52,3 @@ export default connect(mapStateToProps)(HeadingView);
 
 //  declare PropTypes here to lock variables into a specific type
 HeadingDisplay.propTypes = {};
-
-// let regBtnClick = () => {
-//     this.props.dispatch(AuthActions.regBtnActionCreator('Clicked'));
-// };
