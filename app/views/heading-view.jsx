@@ -51,4 +51,6 @@ class HeadingView extends Component {
 export default connect(mapStateToProps)(HeadingView);
 
 //  declare PropTypes here to lock variables into a specific type
-HeadingDisplay.propTypes = {};
+HeadingDisplay.propTypes = {
+    regBtnClick: PropTypes.func.isRequired,
+};
