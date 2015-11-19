@@ -34,7 +34,6 @@ class HeadingView extends Component {
                     }
                 />
                 <Helmet
-
                     link={[
                         {rel: 'icon', sizes: '192x192', href: AndroidIcon},
                         {rel: 'manifest', href: MyManifest},

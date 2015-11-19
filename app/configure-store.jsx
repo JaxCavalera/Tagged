@@ -22,9 +22,9 @@ const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 //  runs the function 2 times using different params and combines the result
 
 // create store with middleware, applying combined reducers
-export default function configureStore(initialState)
+export default function configureStore()
 {
-    const store = createStoreWithMiddleware(reducer, initialState);
+    const store = createStoreWithMiddleware(reducer);
 
     //  Enable Webpack hot module replacement for reducers
     if (module.hot)

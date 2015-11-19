@@ -1,13 +1,25 @@
+//  Async Action Creator
+// let regBtnActionCreator = (text) => {
+//     return ((dispatch) => {
+//         dispatch({
+//             type: 'REG_BTN_CLICK',
+//             message: text,
+//         });
+//         console.log('this is not used normally', text);
+//     });
+// };
+export const REG_BTN_CLICK = 'REG_BTN_CLICK';
+
 //  Action Creators
-let regBtnActionCreator = (text) => {
+const regBtnActionCreator = (text) => {
     return {
-        type: 'REG_BTN_CLICK',
+        type: REG_BTN_CLICK,
         message: text,
     };
 };
 
 export default {
-    regBtnActionCreator,
+    regBtnActionCreator, REG_BTN_CLICK,
 };
 
 // {
