@@ -10,6 +10,8 @@
 //         console.log('this is not used normally', text);
 //     });
 // };
+//  Based off https://github.com/happypoulp/redux-tutorial/blob/master/09_dispatch-async-action-2.js#L24
+//
 export const REG_BTN_CLICK = 'REG_BTN_CLICK';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
 export const PWORD_INPUT_EVENT = 'PWORD_INPUT_EVENT';
