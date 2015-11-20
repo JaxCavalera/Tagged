@@ -1,6 +1,6 @@
 import {REG_BTN_CLICK, UNAME_INPUT_EVENT} from '../actions/auth-actions.jsx';
 
-export const regBtnReducer = (currentState = {}, action) => {
+export const authReducers = (currentState = {}, action) => {
     switch (action.type) {
         case REG_BTN_CLICK:
             return {
@@ -11,7 +11,7 @@ export const regBtnReducer = (currentState = {}, action) => {
         case UNAME_INPUT_EVENT:
             return {
                     ...currentState,
-                    message: action.message,
+                    value: action.value,
                 };
             break;
         default:

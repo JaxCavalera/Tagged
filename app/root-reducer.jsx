@@ -1,12 +1,12 @@
 import {combineReducers} from 'redux';
 
 //  import reducers into the combiner
-import {regBtnReducer} from './reducers/auth-reducers.jsx';
+import {authReducers} from './reducers/auth-reducers.jsx';
 
 // import NavigationReducer from './navigation/reducer';
 
 export default combineReducers({
-    heading: regBtnReducer,
+    heading: authReducers,
 
     //    navigationSet: NavigationReducer
 });
