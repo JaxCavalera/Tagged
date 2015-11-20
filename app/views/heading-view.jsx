@@ -21,13 +21,13 @@ import {regBtnActionCreator, unameInputActionCreator} from '../actions/auth-acti
 
 function mapStateToProps(state) {
     return {
-        heading: state,
+        heading: state.heading,
     };
 }
 
 class HeadingView extends Component {
     render() {
-        console.log(this.props.heading.heading.value);
+        console.log(this.props.heading.value);
         return (
             <div className='header'>
                 <HeadingDisplay
@@ -39,7 +39,7 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
-                    errorTxt={unameValidation(this.props.heading.heading.value)}
+                    errorTxt={unameValidation(this.props.heading.value)}
                 />
                 <Helmet
                     link={[
@@ -56,9 +56,3 @@ class HeadingView extends Component {
 }
 
 export default connect(mapStateToProps)(HeadingView);
-
-//  declare PropTypes here to lock variables into a specific type
-HeadingDisplay.propTypes = {
-    regBtnClick: PropTypes.func.isRequired,
-    unameInput: PropTypes.func.isRequired,
-};
