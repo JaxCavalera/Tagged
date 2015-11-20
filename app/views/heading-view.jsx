@@ -5,7 +5,7 @@ const LOCAL_IP = ip.address();
 
 //  Redux and React Modules
 import {bindActionCreators} from 'redux';
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
 import AndroidIcon from '../components/heading/images/androidicon.png';
@@ -27,7 +27,6 @@ function mapStateToProps(state) {
 
 class HeadingView extends Component {
     render() {
-        console.log(this.props.heading.value);
         return (
             <div className='header'>
                 <HeadingDisplay

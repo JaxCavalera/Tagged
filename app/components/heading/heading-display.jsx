@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import taglogo from './images/taggedLogo.png';
 import './heading.css';
@@ -19,7 +19,7 @@ export default class HeadingDisplay extends Component {
                             <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
                             <button className='logFormInput' type='button' >Login</button>
                         </div>
-                        <p className='inputError'>{this.props.errorTxt}</p>
+                        <p className='inputError'>{this.props.errorTxt[0]}</p>
                     </form>
                 </div>
             </div>
@@ -31,4 +31,5 @@ export default class HeadingDisplay extends Component {
 HeadingDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
+    errorTxt: PropTypes.arrayOf(PropTypes.string),
 };
