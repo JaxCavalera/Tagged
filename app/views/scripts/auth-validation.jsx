@@ -20,3 +20,21 @@ export function unameValidation(text) {
 
     return errorTxt = [];
 };
+
+export function pwordValidation(text) {
+    let usertxt = text;
+    let errorTxt = [];
+
+    //  Check if unameInput is empty
+    if (usertxt.length === 0) {
+        errorTxt.push('Password Is Missing');
+        return errorTxt;
+    }
+
+    if (/\s+/g.test(usertxt)) {
+        errorTxt.push('Password Has Spaces');
+        return errorTxt;
+    }
+
+    return errorTxt = [];
+};

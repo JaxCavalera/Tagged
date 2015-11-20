@@ -16,8 +16,8 @@ import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
-import {unameValidation} from './scripts/uname-validation.jsx';
-import {regBtnActionCreator, unameInputActionCreator} from '../actions/auth-actions.jsx';
+import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
+import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
 
 function mapStateToProps(state) {
     return {
@@ -27,7 +27,11 @@ function mapStateToProps(state) {
 
 class HeadingView extends Component {
     render() {
-        let errorTxtValue = unameValidation(this.props.heading.value);
+        let unameErrorTxt = unameValidation(this.props.heading.unameValue);
+        let pwordErrorTxt = pwordValidation(this.props.heading.pwordValue);
+        let inputErrorMsg = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
+        console.log(inputErrorMsg);
+
         return (
             <div className='header'>
                 <HeadingDisplay
@@ -39,8 +43,13 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
-                    errorTxt={errorTxtValue}
-                    unameValue={this.props.heading.value}
+                    pwordInput={(e) => {
+                        this.props.dispatch(pwordInputActionCreator(e.target.value));
+                    }
+                    }
+                    errorTxt={inputErrorMsg}
+                    unameValue={this.props.heading.unameValue}
+                    pwordValue={this.props.heading.pwordValue}
                 />
                 <Helmet
                     link={[

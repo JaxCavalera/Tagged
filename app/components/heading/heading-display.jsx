@@ -14,7 +14,7 @@ export default class HeadingDisplay extends Component {
                     <form className='authForm'>
                         <span className='formTitle'>My Account</span>
                         <input className='logFormInput' maxLength='20' type='text' onChange={this.props.unameInput} value={this.props.unameValue}/>
-                        <input className='logFormInput' maxLength='20' type='password' />
+                        <input className='logFormInput' maxLength='20' type='password' onChange={this.props.pwordInput} value={this.props.pwordValue} />
                         <div className='formBtns'>
                             <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
                             <button className='logFormInput' type='button' >Login</button>
@@ -31,6 +31,7 @@ export default class HeadingDisplay extends Component {
 HeadingDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
-    errorTxt: PropTypes.arrayOf(PropTypes.string).isRequired,
+    errorTxt: PropTypes.func.isRequired,
     unameValue: PropTypes.string.isRequired,
+    pwordValue: PropTypes.string.isRequired,
 };

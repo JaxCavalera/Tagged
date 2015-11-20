@@ -10,6 +10,7 @@
 // };
 export const REG_BTN_CLICK = 'REG_BTN_CLICK';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
+export const PWORD_INPUT_EVENT = 'PWORD_INPUT_EVENT';
 
 //  Action Creators
 export const regBtnActionCreator = (boolValue) => {
@@ -22,6 +23,13 @@ export const regBtnActionCreator = (boolValue) => {
 export const unameInputActionCreator = (text) => {
     return {
         type: UNAME_INPUT_EVENT,
+        value: text,
+    };
+};
+
+export const pwordInputActionCreator = (text) => {
+    return {
+        type: PWORD_INPUT_EVENT,
         value: text,
     };
 };
