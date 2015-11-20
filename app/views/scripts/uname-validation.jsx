@@ -1,6 +1,6 @@
 export function unameValidation(text) {
     let usertxt = text;
-    let errorTxt = ['Create New Account or Login'];
+    let errorTxt = [];
 
     //  Check if unameInput is empty
     if (usertxt.length === 0) {
@@ -9,7 +9,7 @@ export function unameValidation(text) {
     }
 
     if (usertxt === 'Username') {
-        errorTxt.push('Change Username');
+        errorTxt.push('Create New Account or Login');
         return errorTxt;
     }
 

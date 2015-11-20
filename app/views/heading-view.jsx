@@ -27,6 +27,7 @@ function mapStateToProps(state) {
 
 class HeadingView extends Component {
     render() {
+        let errorTxtValue = unameValidation(this.props.heading.value);
         return (
             <div className='header'>
                 <HeadingDisplay
@@ -38,7 +39,8 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
-                    errorTxt={unameValidation(this.props.heading.value)}
+                    errorTxt={errorTxtValue}
+                    unameValue={this.props.heading.value}
                 />
                 <Helmet
                     link={[

@@ -13,13 +13,13 @@ export default class HeadingDisplay extends Component {
                 <div className='loginPanel'>
                     <form className='authForm'>
                         <span className='formTitle'>My Account</span>
-                        <input className='logFormInput' maxLength='20' type='text' onChange={this.props.unameInput}/>
+                        <input className='logFormInput' maxLength='20' type='text' onChange={this.props.unameInput} value={this.props.unameValue}/>
                         <input className='logFormInput' maxLength='20' type='password' />
                         <div className='formBtns'>
                             <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
                             <button className='logFormInput' type='button' >Login</button>
                         </div>
-                        <p className='inputError'>{this.props.errorTxt[0]}</p>
+                        <p className='inputError'>{this.props.errorTxt}</p>
                     </form>
                 </div>
             </div>
@@ -31,5 +31,6 @@ export default class HeadingDisplay extends Component {
 HeadingDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
-    errorTxt: PropTypes.arrayOf(PropTypes.string),
+    errorTxt: PropTypes.arrayOf(PropTypes.string).isRequired,
+    unameValue: PropTypes.string.isRequired,
 };
