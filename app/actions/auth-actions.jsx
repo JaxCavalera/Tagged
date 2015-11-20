@@ -12,10 +12,10 @@ export const REG_BTN_CLICK = 'REG_BTN_CLICK';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
 
 //  Action Creators
-export const regBtnActionCreator = (text) => {
+export const regBtnActionCreator = (boolValue) => {
     return {
         type: REG_BTN_CLICK,
-        message: text,
+        clicked: boolValue,
     };
 };
 

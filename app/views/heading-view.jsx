@@ -29,7 +29,7 @@ class HeadingView extends Component {
             <div className='header'>
                 <HeadingDisplay
                     regBtnClick={() => {
-                        this.props.dispatch(regBtnActionCreator('Clicked'));
+                        this.props.dispatch(regBtnActionCreator(true));
                     }
                     }
                     unameInput={(e) => {

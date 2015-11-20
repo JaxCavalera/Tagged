@@ -5,7 +5,7 @@ export const authReducers = (currentState = {}, action) => {
         case REG_BTN_CLICK:
             return {
                     ...currentState,
-                    message: action.message,
+                    clicked: action.clicked,
                 };
             break;
         case UNAME_INPUT_EVENT:
