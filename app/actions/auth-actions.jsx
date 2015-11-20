@@ -9,17 +9,21 @@
 //     });
 // };
 export const REG_BTN_CLICK = 'REG_BTN_CLICK';
+export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
 
 //  Action Creators
-const regBtnActionCreator = (text) => {
+export const regBtnActionCreator = (text) => {
     return {
         type: REG_BTN_CLICK,
         message: text,
     };
 };
 
-export default {
-    regBtnActionCreator, REG_BTN_CLICK,
+export const unameInputActionCreator = (text) => {
+    return {
+        type: UNAME_INPUT_EVENT,
+        value: text,
+    };
 };
 
 // {

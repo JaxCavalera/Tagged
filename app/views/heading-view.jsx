@@ -16,7 +16,7 @@ import {connect} from 'react-redux';
 
 //  import dumb components for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
-import AuthActions, {regBtnActionCreator} from '../actions/auth-actions.jsx';
+import {regBtnActionCreator, unameInputActionCreator} from '../actions/auth-actions.jsx';
 
 function mapStateToProps(state)
 {
@@ -27,10 +27,14 @@ class HeadingView extends Component {
     render() {
         return (
             <div className='header'>
-                <HeadingDisplay regBtnClick={
-                        () => {
-                            this.props.dispatch(regBtnActionCreator('Clicked'));
-                        }
+                <HeadingDisplay
+                    regBtnClick={() => {
+                        this.props.dispatch(regBtnActionCreator('Clicked'));
+                    }
+                    }
+                    unameInput={(e) => {
+                        this.props.dispatch(unameInputActionCreator(e.target.value));
+                    }
                     }
                 />
                 <Helmet
@@ -43,7 +47,7 @@ class HeadingView extends Component {
                     ]}
                 />
             </div>
-        );
+            );
     }
 }
 
@@ -52,4 +56,5 @@ export default connect(mapStateToProps)(HeadingView);
 //  declare PropTypes here to lock variables into a specific type
 HeadingDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
+    unameInput: PropTypes.func.isRequired,
 };

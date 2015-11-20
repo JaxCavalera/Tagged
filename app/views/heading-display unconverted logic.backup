@@ -175,3 +175,4 @@
         </form>
     </div>
 </div>
+ onChange={this.props.uname}

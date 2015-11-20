@@ -13,7 +13,7 @@ export default class HeadingDisplay extends Component {
                 <div className='loginPanel'>
                     <form className='authForm'>
                         <span className='formTitle'>My Account</span>
-                        <input className='logFormInput' maxLength='20' type='text' />
+                        <input className='logFormInput' maxLength='20' type='text' onChange={this.props.unameInput}/>
                         <input className='logFormInput' maxLength='20' type='password' />
                         <div className='formBtns'>
                             <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
