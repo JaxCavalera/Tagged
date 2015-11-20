@@ -1,10 +1,12 @@
 //  Async Action Creator
-// let regBtnActionCreator = (text) => {
+// export const regBtnAsyncActionCreator = (text) => {
 //     return ((dispatch) => {
-//         dispatch({
-//             type: 'REG_BTN_CLICK',
-//             message: text,
-//         });
+//         setTimeout(function() {
+//                dispatch({
+//                  type: 'REG_BTN_CLICK',
+//                  message: text,
+//              });
+//            }, 2000);
 //         console.log('this is not used normally', text);
 //     });
 // };
