@@ -39,7 +39,7 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
-                    errorTxt={unameValidation(this.props.heading)}
+                    errorTxt={unameValidation(this.props.heading.heading.value)}
                 />
                 <Helmet
                     link={[
