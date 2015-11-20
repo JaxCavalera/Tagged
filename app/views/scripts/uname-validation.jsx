@@ -10,7 +10,7 @@ export function unameValidation(text) {
             if (errorTxt.indexOf('Username Is Missing') === -1)
             {
                 errorTxt.push('Username Is Missing');
-                return errorTxt;
+                return errorTxt[0];
             }
         } else
         {
@@ -19,7 +19,7 @@ export function unameValidation(text) {
             if (error1pos !== -1)
             {
                 errorTxt.splice(error1pos, 1);
-                return errorTxt;
+                return errorTxt[0];
             }
         }
 
@@ -28,7 +28,7 @@ export function unameValidation(text) {
             if (errorTxt.indexOf('Change Username') === -1)
             {
                 errorTxt.push('Change Username');
-                return errorTxt;
+                return errorTxt[0];
             }
         } else
         {
@@ -37,7 +37,7 @@ export function unameValidation(text) {
             if (error2pos !== -1)
             {
                 errorTxt.splice(error2pos, 1);
-                return errorTxt;
+                return errorTxt[0];
             }
         }
 
@@ -46,7 +46,7 @@ export function unameValidation(text) {
             if (errorTxt.indexOf('Username Has Spaces') === -1)
             {
                 errorTxt.push('Username Has Spaces');
-                return errorTxt;
+                return errorTxt[0];
             }
         } else
         {
@@ -55,7 +55,7 @@ export function unameValidation(text) {
             if (error3pos !== -1)
             {
                 errorTxt.splice(error3pos, 1);
-                return errorTxt;
+                return errorTxt[0];
             }
         }
     }

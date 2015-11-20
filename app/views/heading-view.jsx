@@ -21,12 +21,13 @@ import {regBtnActionCreator, unameInputActionCreator} from '../actions/auth-acti
 
 function mapStateToProps(state) {
     return {
-        heading: state.props,
+        heading: state,
     };
 }
 
 class HeadingView extends Component {
     render() {
+        console.log(this.props.heading.heading.value);
         return (
             <div className='header'>
                 <HeadingDisplay
@@ -38,7 +39,7 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
-                    errorTxt={unameValidation(this.props.heading.value)}
+                    errorTxt={unameValidation(this.props.heading)}
                 />
                 <Helmet
                     link={[
