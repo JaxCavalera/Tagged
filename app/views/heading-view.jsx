@@ -29,7 +29,8 @@ class HeadingView extends Component {
     render() {
         let unameErrorTxt = unameValidation(this.props.heading.unameValue);
         let pwordErrorTxt = pwordValidation(this.props.heading.pwordValue);
-        let inputErrorMsg = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
+        let inputErrorSelector = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
+        let inputErrorMsg = inputErrorSelector();
         console.log(inputErrorMsg);
 
         return (

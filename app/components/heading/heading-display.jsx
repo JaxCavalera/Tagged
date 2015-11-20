@@ -31,7 +31,7 @@ export default class HeadingDisplay extends Component {
 HeadingDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
-    errorTxt: PropTypes.func.isRequired,
+    errorTxt: PropTypes.arrayOf(PropTypes.string).isRequired,
     unameValue: PropTypes.string.isRequired,
     pwordValue: PropTypes.string.isRequired,
 };
