@@ -19,7 +19,7 @@ export default class HeadingDisplay extends Component {
                             <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
                             <button className='logFormInput' type='button' >Login</button>
                         </div>
-                        <p className='inputError'>placeholder error text</p>
+                        <p className='inputError'>{this.props.errorTxt}</p>
                     </form>
                 </div>
             </div>

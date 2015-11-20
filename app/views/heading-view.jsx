@@ -14,13 +14,15 @@ import MyManifest from '../components/heading/images/manifest.json';
 //  connect() gives the component access to the state tree (a.k.a store)
 import {connect} from 'react-redux';
 
-//  import dumb components for this view
+//  import dumb components, scripts and actioncreators for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
+import {unameValidation} from './scripts/uname-validation.jsx';
 import {regBtnActionCreator, unameInputActionCreator} from '../actions/auth-actions.jsx';
 
-function mapStateToProps(state)
-{
-    return {};
+function mapStateToProps(state) {
+    return {
+        heading: state.props,
+    };
 }
 
 class HeadingView extends Component {
@@ -36,6 +38,7 @@ class HeadingView extends Component {
                         this.props.dispatch(unameInputActionCreator(e.target.value));
                     }
                     }
+                    errorTxt={unameValidation(this.props.heading.value)}
                 />
                 <Helmet
                     link={[
