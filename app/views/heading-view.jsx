@@ -1,8 +1,3 @@
-//  jquery and ip modules for AJAX usage only
-import $ from 'jquery';
-import ip from 'ip';
-const LOCAL_IP = ip.address();
-
 //  Redux and React Modules
 import {bindActionCreators} from 'redux';
 import React, {Component} from 'react';
@@ -27,16 +22,21 @@ function mapStateToProps(state) {
 
 class HeadingView extends Component {
     render() {
+        //  Auth Validation Logic
         let unameErrorTxt = unameValidation(this.props.heading.unameValue);
         let pwordErrorTxt = pwordValidation(this.props.heading.pwordValue);
         let inputErrorSelector = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
         let inputErrorMsg = inputErrorSelector();
 
+        //  Registration Logic
+
         return (
             <div className='header'>
                 <HeadingDisplay
                     regBtnClick={() => {
-                        this.props.dispatch(regBtnActionCreator(true));
+                        if (inputErrorMsg.length === 0) {
+                            this.props.dispatch(regBtnActionCreator());
+                        }
                     }
                     }
                     unameInput={(e) => {

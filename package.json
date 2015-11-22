@@ -2,9 +2,9 @@
   "name": "Tagged",
   "version": "1.0.0",
   "description": "description here",
-  "main": "app/index.jsx",
+  "main": "app/promise-bootstrap.js",
   "dependencies": {
-    "jquery": "^2.1.4",
+    "bluebird": "^3.0.5",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-helmet": "^2.1.1",
