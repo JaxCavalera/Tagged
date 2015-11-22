@@ -32,7 +32,10 @@ export const regBtnActionCreator = () => {
         const regInit = {
             method: 'POST',
             headers: regHeaders,
-            body: heading.unameValue,
+            body: {
+                username: heading.unameValue,
+                password: heading.pwordValue,
+            },
             mode: 'no-cors',
         };
         console.log(regInit);
