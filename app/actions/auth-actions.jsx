@@ -1,7 +1,6 @@
 //  ip and the Promise modules used for Async Promises
 import Promise from 'bluebird';
 const dbServer = 'http://cxstudios.duckdns.org:3000/';
-const regHeaders = new Headers({'Content-Type':'application/json'});
 
 //  Async Action Creator
 // export const regBtnAsyncActionCreator = (text) => {
@@ -31,14 +30,15 @@ export const regBtnActionCreator = () => {
         //  Define init (details) for fetch request
         const regInit = {
             method: 'POST',
-            headers: JSON.stringify({
+            headers: {
+                Accept:'application/json',
                 'Content-Type':'application/json',
-            }),
+            },
             body: JSON.stringify({
                 username: heading.unameValue,
                 password: heading.pwordValue,
             }),
-            mode: 'cors',
+            mode: 'no-cors',
         };
         console.log(regInit);
         return fetch(dbServer, regInit)
