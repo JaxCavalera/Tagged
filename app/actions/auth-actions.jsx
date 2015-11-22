@@ -31,14 +31,13 @@ export const regBtnActionCreator = () => {
         //  Define init (details) for fetch request
         const regInit = {
             method: 'POST',
-            headers: {
+            headers: JSON.stringify({
                 'Content-Type':'application/json',
-            },
+            }),
             body: JSON.stringify({
                 username: heading.unameValue,
                 password: heading.pwordValue,
             }),
-            mode: 'no-cors',
         };
         console.log(regInit);
         return fetch(dbServer, regInit)
