@@ -38,6 +38,7 @@ export const regBtnActionCreator = () => {
                 username: heading.unameValue,
                 password: heading.pwordValue,
             }),
+            mode: 'cors',
         };
         console.log(regInit);
         return fetch(dbServer, regInit)
