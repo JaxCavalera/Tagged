@@ -1,6 +1,7 @@
 //  ip and the Promise modules used for Async Promises
 import Promise from 'bluebird';
 const dbServer = 'http://cxstudios.duckdns.org:3000/';
+const regHeaders = new Headers({'Content-Type':'application/json'});
 
 //  Async Action Creator
 // export const regBtnAsyncActionCreator = (text) => {
