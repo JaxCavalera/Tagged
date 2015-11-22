@@ -43,12 +43,6 @@ export const regBtnActionCreator = () => {
         console.log(regInit);
         return fetch(dbServer, regInit)
         .then(
-            fetch('http://httpbin.org/post', { method: 'POST', body: 'a=1' })
-    .then(function(res) {
-        return res.json();
-    }).then(function(json) {
-        console.log(json);
-    })).then(
         dispatch({
             type: AUTH_ATTEMPT,
             status: 'request',//  request, failure, success
