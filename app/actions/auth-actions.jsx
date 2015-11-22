@@ -31,7 +31,7 @@ export const regBtnActionCreator = () => {
         //  Define init (details) for fetch request
         const regInit = {
             method: 'POST',
-            headers: regHeaders,
+            headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
                 username: heading.unameValue,
                 password: heading.pwordValue,
