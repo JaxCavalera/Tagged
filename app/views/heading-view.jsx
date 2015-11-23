@@ -18,6 +18,8 @@ import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} f
 //  in code located below inside the render() flux-standard-action
 //  The connection between this and the component is done at the bottom
 //  using the "connect()" function
+//
+//  "state" is being passed in from the top level <Provider> wrapper
 function mapStateToProps(state) {
     return {
         heading: state.heading,
@@ -36,7 +38,7 @@ class HeadingView extends Component {
 
         return (
             <div className='header'>
-                //  listing the props being passed down into the dumb component
+                {/* listing the props being passed down into the dumb component */}
                 <HeadingDisplay
                     regBtnClick={() => {
                         if (inputErrorMsg.length === 0) {
@@ -56,7 +58,7 @@ class HeadingView extends Component {
                     unameValue={this.props.heading.unameValue}
                     pwordValue={this.props.heading.pwordValue}
                 />
-                //  Helmet is used here to define Elements in the <head></head>
+                {/* Helmet is used here to define Elements in the <head></head> */}
                 <Helmet
                     link={[
                         {rel: 'icon', sizes: '192x192', href: AndroidIcon},
