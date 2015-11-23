@@ -1,6 +1,6 @@
 //  ip and the Promise modules used for Async Promises
 import Promise from 'bluebird';
-const dbServer = 'http://cxstudios.duckdns.org:3000/';
+const dbServer = 'http://cxstudios.duckdns.org:3000';
 
 //  Async Action Creator
 // export const regBtnAsyncActionCreator = (text) => {
@@ -41,7 +41,7 @@ export const regBtnActionCreator = () => {
             mode: 'no-cors',
         };
         console.log(regInit);
-        return fetch(dbServer, regInit)
+        return fetch(dbServer + '/register', regInit)
         .then(
         dispatch({
             type: AUTH_ATTEMPT,
