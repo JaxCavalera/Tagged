@@ -1,8 +1,8 @@
 //  ip and the Promise modules used for Async Promises
 import Promise from 'bluebird';
 import crypto from 'crypto';
-const dbServer = process.env.DBSERVER_VAR;
-console.log('%O', process.env.DBSERVER_VAR);
+import * as constvars from '../constvars.jsx';
+const dbServer = constvars.DBSERVER_VAR;
 
 //  Async Action Creator
 // export const regBtnAsyncActionCreator = (text) => {
@@ -42,12 +42,10 @@ export const regBtnActionCreator = () => {
             }),
             mode: 'no-cors',
         };
-        console.log(regInit);
         return fetch(dbServer + '/register', regInit)
-        .then(
-        dispatch({
+        .then(dispatch({
             type: AUTH_ATTEMPT,
-            status: 'request',//  request, failure, success
+            status: 'fail',// fail, success
         }));
     };
 };

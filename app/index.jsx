@@ -3,7 +3,6 @@
 //  e.g : "export default <function name>" export default root
 import React from 'react';
 import ReactDOM, {render} from 'react-dom';
-console.log(process.env.DBSERVER_VAR);
 
 //  Import connect function to bind the state tree to the app's state
 import {Provider} from 'react-redux';
@@ -13,7 +12,6 @@ import configureStore from './configure-store.jsx';
 
 //  This is the View Controller a.k.a handles the routing
 import Router from './router.jsx';
-require('dotenv').load();
 
 //  Create the store instance - this file is the top-level "wrapper"
 const store = configureStore();

@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
+import LoginPanel from '../components/heading/login-panel.jsx';
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
 import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
 
@@ -34,29 +35,41 @@ class HeadingView extends Component {
         let inputErrorSelector = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
         let inputErrorMsg = inputErrorSelector();
 
+        //  Login Panel Prop Declarations
+        let unameValue = this.props.heading.unameValue;
+        let pwordValue = this.props.heading.pwordValue;
+
+        let unameInput = ((e) => {
+            this.props.dispatch(unameInputActionCreator(e.target.value));
+        });
+
+        let pwordInput = ((e) => {
+            this.props.dispatch(pwordInputActionCreator(e.target.value));
+        });
+
+        let regBtnClick = (() => {
+            if (inputErrorMsg.length === 0) {
+                this.props.dispatch(regBtnActionCreator());
+            }
+        });
+
         //  Registration Logic
+        let statusResult = this.props.heading.status;
+        function authStatus() {
+            if (statusResult === 'fail') {
+                return <LoginPanel regBtnClick={regBtnClick} unameInput={unameInput} unameValue={unameValue} pwordInput={pwordInput} pwordValue={pwordValue} errorTxt={inputErrorMsg}/>;
+            } else {
+                return 'Logout Panel Here';
+            }
+        }
+
+        let AuthStatusValue = authStatus();
 
         return (
             <div className='header'>
                 {/* listing the props being passed down into the dumb component */}
                 <HeadingDisplay
-                    regBtnClick={() => {
-                        if (inputErrorMsg.length === 0) {
-                            this.props.dispatch(regBtnActionCreator());
-                        }
-                    }
-                    }
-                    unameInput={(e) => {
-                        this.props.dispatch(unameInputActionCreator(e.target.value));
-                    }
-                    }
-                    pwordInput={(e) => {
-                        this.props.dispatch(pwordInputActionCreator(e.target.value));
-                    }
-                    }
-                    errorTxt={inputErrorMsg}
-                    unameValue={this.props.heading.unameValue}
-                    pwordValue={this.props.heading.pwordValue}
+                    authPanelSelect={AuthStatusValue}
                 />
                 {/* Helmet is used here to define Elements in the <head></head> */}
                 <Helmet

@@ -1,6 +1,12 @@
 import {AUTH_ATTEMPT, UNAME_INPUT_EVENT, PWORD_INPUT_EVENT} from '../actions/auth-actions.jsx';
 
-export const authReducers = (currentState = {unameValue: 'Username', pwordValue: ''}, action) => {
+export const authReducers = (
+    currentState = {
+        unameValue: 'Username',
+        pwordValue: '',
+        status: 'fail',
+    }, action
+) => {
     switch (action.type) {
         case AUTH_ATTEMPT:
             return {
