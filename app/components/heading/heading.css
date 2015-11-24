@@ -23,6 +23,7 @@ p
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	display: block;
+    min-width: 310px;
 }
 
 /*  Header spans the full width of the window adding a Logo Blue */
@@ -39,7 +40,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 {
 	display: flex;
 	justify-content: space-between;
-	max-width: 95%;
+	max-width: 100%;
 	width: 980px;
 	height: 110px;
 }
@@ -53,13 +54,17 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	background: rgb(211, 230, 247);
 	flex-basis: 81%;
 	margin-right: 5px;
+    height: 110px;
+    min-width: 120px;
 }
 
 .tagLogo
 {
-	max-height: 80px;
-	max-width: 177.717px;
+	max-width: 178px;
+    max-height: 80px;
 	width: 80%;
+    min-width: 45px;
+    min-height: 20px;
 }
 
 /*Controls styling of the login_panel*/
@@ -70,7 +75,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	justify-content: center;
 	align-items: center;
 	background: rgb(211, 230, 247);
-	min-width: 185px;
+    min-width: 185px;
 }
 
 .authForm
@@ -80,12 +85,13 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	align-items: center;
 	justify-content: center;
 	width: 80%;
-	height: 92%;
+    line-height: 100%;
 }
 
 .formTitle
 {
 	font-weight: bold;
+    font-size: 1em;
 	height: 1em;
 	line-height: 0.7em;
 	text-align: center;
@@ -95,13 +101,18 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 .logFormInput
 {
 	box-sizing: border-box;
+    font-size: 0.8em;
+    line-height: 1.1em;
+    height: 100%;
 	margin: 2px 0px;
 	color: rgba(0, 0, 0, 1);
 }
 
 .authForm > input
 {
-	text-align: center;
+    text-align: center;
+    line-height: 100%;
+    height: 1.4em;
 	width: 100%;
 }
 

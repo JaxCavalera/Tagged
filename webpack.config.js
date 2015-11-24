@@ -1,7 +1,7 @@
-﻿var path = require('path');
+var path = require('path');
 var webpack = require('webpack');
 var ip = require('ip');
-var htmlgenerator = require('html-webpack-plugin');
+var HtmlGenerator = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var ROOT_PATH = path.resolve(__dirname);
@@ -62,13 +62,13 @@ module.exports = {
         port: MY_PORT,
     },
     postcss: function() {
-        return [autoprefixer({browsers: ['> 1%']})];
+        return [autoprefixer({browsers: ['> 0.8%']})];
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new htmlgenerator({
+        new HtmlGenerator({
             title: 'Tagged',
             filename: 'index.html',
             template: APP_PATH + '/index_template.html',

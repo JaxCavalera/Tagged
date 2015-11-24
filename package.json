@@ -5,6 +5,7 @@
   "main": "app/promise-bootstrap.js",
   "dependencies": {
     "bluebird": "^3.0.5",
+    "dotenv": "^1.2.0",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-helmet": "^2.1.1",

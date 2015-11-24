@@ -1,6 +1,8 @@
 //  ip and the Promise modules used for Async Promises
 import Promise from 'bluebird';
-const dbServer = 'http://cxstudios.duckdns.org:3000';
+import crypto from 'crypto';
+const dbServer = process.env.DBSERVER_VAR;
+console.log('%O', process.env.DBSERVER_VAR);
 
 //  Async Action Creator
 // export const regBtnAsyncActionCreator = (text) => {
@@ -36,7 +38,7 @@ export const regBtnActionCreator = () => {
             },
             body: JSON.stringify({
                 username: heading.unameValue,
-                password: heading.pwordValue,
+                password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
             }),
             mode: 'no-cors',
         };
