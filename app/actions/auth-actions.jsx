@@ -43,10 +43,11 @@ export const regBtnActionCreator = () => {
             mode: 'no-cors',
         };
         return fetch(dbServer + '/register', regInit)
-        .then(dispatch({
+        .then((data) => {dispatch({
             type: AUTH_ATTEMPT,
-            status: 'fail',// fail, success
-        }));
+            status: data,// fail, success
+        });
+        });
     };
 };
 
