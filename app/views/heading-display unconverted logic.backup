@@ -176,3 +176,21 @@
     </div>
 </div>
  onChange={this.props.uname}
+
+
+
+//  to add logic into your react router
+ class AuthenticationWrapper extends Component
+   render() {
+     if(this.props.authenticated) {
+       return <A />;
+     } else {
+       return <B />;
+     }
+   }
+ }
+ export default connect((state) => { authenticated: state.authenticated}))(AuthenticationWrapper)
+
+ <Route component={AuthenticationWrapper}>
+   {...}
+ </Route>
