@@ -56,7 +56,7 @@ class HeadingView extends Component {
         //  Registration Logic
         let statusResult = this.props.heading.status;
         function authStatus() {
-            if (statusResult === 'fail') {
+            if (statusResult !== '') {
                 return <LoginPanel regBtnClick={regBtnClick} unameInput={unameInput} unameValue={unameValue} pwordInput={pwordInput} pwordValue={pwordValue} errorTxt={inputErrorMsg}/>;
             } else {
                 return 'Logout Panel Here';

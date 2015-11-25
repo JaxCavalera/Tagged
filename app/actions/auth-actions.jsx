@@ -40,7 +40,8 @@ export const regBtnActionCreator = () => {
                 username: heading.unameValue,
                 password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
             }),
-            mode: 'no-cors',
+
+            // mode: 'no-cors',
         };
         return fetch(dbServer + '/register', regInit)
         .then((data) => {
