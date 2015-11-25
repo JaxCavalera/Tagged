@@ -3,15 +3,17 @@ import {bindActionCreators} from 'redux';
 import React, {Component} from 'react';
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
-import AndroidIcon from '../components/heading/images/androidicon.png';
-import MyManifest from '../components/heading/images/manifest.json';
-
 //  connect() gives the component access to the state tree (a.k.a store)
 import {connect} from 'react-redux';
 
+//  Import component assets (images data etc)
+import AndroidIcon from '../components/heading/images/androidicon.png';
+import MyManifest from '../components/heading/images/manifest.json';
+
 //  import dumb components, scripts and actioncreators for this view
 import HeadingDisplay from '../components/heading/heading-display.jsx';
-import LoginPanel from '../components/heading/login-panel.jsx';
+import LoginPanelDisplay from '../components/heading/login-panel-display.jsx';
+
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
 import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
 
@@ -66,24 +68,23 @@ class HeadingView extends Component {
             }
         });
 
-        //  Registration Logic
-        let statusResult = this.props.heading.status;
-        function authStatus() {
-            if (statusResult === 'fail' || statusResult === '') {
-                return <LoginPanel regBtnClick={regBtnClick} unameInput={unameInput} unameValue={unameValue} pwordInput={pwordInput} pwordValue={pwordValue} errorTxt={inputErrorMsg}/>;
-            } else {
-                return 'Logout Panel Here';
-            }
-        }
-
-        let AuthStatusValue = authStatus();
+        // //  Registration Logic
+        // let statusResult = this.props.heading.status;
+        // function authStatus() {
+        //     if (statusResult === 'fail' || statusResult === '') {
+        //         return <LoginPanel regBtnClick={regBtnClick} unameInput={unameInput} unameValue={unameValue} pwordInput={pwordInput} pwordValue={pwordValue} errorTxt={inputErrorMsg}/>;
+        //     } else {
+        //         return 'Logout Panel Here';
+        //     }
+        // }
+        //
+        // let AuthStatusValue = authStatus();
 
         return (
             <div className='header'>
-                {/* listing the props being passed down into the dumb component */}
-                <HeadingDisplay
-                    authPanelSelect={AuthStatusValue}
-                />
+                {/* Props being passed into the Display "dumb" component */}
+                <HeadingDisplay authPanelSelect={LoginPanelDisplay} menuSelect={''} />
+
                 {/* Helmet is used here to define Elements in the <head></head> */}
                 <Helmet
                     link={[

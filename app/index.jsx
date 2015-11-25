@@ -4,26 +4,31 @@
 import React from 'react';
 import ReactDOM, {render} from 'react-dom';
 
+//  Import routing structure (relation between "smart" views and URL's)
+import Routes from './routes.jsx';
+
 //  Import connect function to bind the state tree to the app's state
 import {Provider} from 'react-redux';
 
 //  Import the store a.k.a the state tree
 import configureStore from './configure-store.jsx';
 
-//  This is the View Controller a.k.a handles the routing
-import Router from './router.jsx';
-
-//  Create the store instance - this file is the top-level "wrapper"
+//  Create the store alias for <provider>
+//  index.jsx is the top-level "wrapper"
 const store = configureStore();
 
-//	Declare a new div element to hold the react content
+//	Declare a new div element to hold the react application
 function main()
 {
     let containerDiv = document.createElement('div');
     containerDiv.setAttribute('CLASS', 'container');
     document.body.appendChild(containerDiv);
 
-    render(<Provider store={store}><Router /></Provider>, containerDiv);
+    render(
+        <Provider store={store}>
+            <Routes />
+        </Provider>, containerDiv
+    );
 }
 
 //	Run the main function

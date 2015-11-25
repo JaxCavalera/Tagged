@@ -34,7 +34,7 @@ p
 	background-color: #007DF1;
 }
 
-/*Head_bar pushes the logo_panel and login_panel divs apart
+/*Head_bar pushes the logo_panel and Auth_panel divs apart
 A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 .headBar
 {
@@ -67,8 +67,8 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
     min-height: 20px;
 }
 
-/*Controls styling of the login_panel*/
-.loginPanel
+/*Controls styling of the Auth_panel*/
+.authPanel
 {
 	display: flex;
 	flex-direction: column;

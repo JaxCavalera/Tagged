@@ -11,6 +11,7 @@ export default class HeadingDisplay extends Component {
                     <img className='tagLogo' src={taglogo} alt='Tagged Logo'/>
                 </div>
                 {this.props.authPanelSelect}
+                {this.props.menuSelect}
             </div>
         );
     }
