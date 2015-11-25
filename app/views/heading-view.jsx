@@ -95,7 +95,7 @@ class HeadingView extends Component {
                     ]}
                 />
             </div>
-            );
+        );
     }
 }
 
