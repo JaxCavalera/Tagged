@@ -5,6 +5,7 @@ export const authReducers = (
         unameValue: 'Username',
         pwordValue: '',
         status: '',
+        prevRegAttempt: '',
     }, action
 ) => {
     switch (action.type) {
@@ -12,6 +13,7 @@ export const authReducers = (
             return {
                     ...currentState,
                     status: action.status,
+                    prevRegAttempt: action.unameAttempt,
                 };
             break;
         case UNAME_INPUT_EVENT:

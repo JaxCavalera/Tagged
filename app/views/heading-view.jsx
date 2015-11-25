@@ -39,8 +39,7 @@ class HeadingView extends Component {
                     break;
                 case (pwordErrorTxt.length !== 0):
                     return pwordErrorTxt;
-                case (this.props.heading.status === 'fail'):
-                    this.props.heading.status = '';
+                case (this.props.heading.status === 'fail' && this.props.heading.prevRegAttempt === this.props.heading.unameValue):
                     return 'That Username Is Taken';
                 default:
                     return '';

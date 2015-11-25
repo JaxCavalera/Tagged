@@ -49,6 +49,7 @@ export const regBtnActionCreator = () => {
                 dispatch({
                     type: AUTH_ATTEMPT,
                     status: data,// fail, success
+                    unameAttempt: heading.unameValue,
                 });
             });
 
