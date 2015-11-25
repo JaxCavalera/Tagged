@@ -4,7 +4,7 @@ export const authReducers = (
     currentState = {
         unameValue: 'Username',
         pwordValue: '',
-        status: 'fail',
+        status: '',
     }, action
 ) => {
     switch (action.type) {

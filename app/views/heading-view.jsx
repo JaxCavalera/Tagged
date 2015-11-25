@@ -32,7 +32,21 @@ class HeadingView extends Component {
         //  Auth Validation Logic
         let unameErrorTxt = unameValidation(this.props.heading.unameValue);
         let pwordErrorTxt = pwordValidation(this.props.heading.pwordValue);
-        let inputErrorSelector = () => (unameErrorTxt.length === 0 ? pwordErrorTxt : unameErrorTxt);
+        let inputErrorSelector = () => {
+            switch (true) {
+                case (unameErrorTxt.length !== 0):
+                    return unameErrorTxt;
+                    break;
+                case (pwordErrorTxt.length !== 0):
+                    return pwordErrorTxt;
+                case (this.props.heading.status === 'fail'):
+                    this.props.heading.status = '';
+                    return 'That Username Is Taken';
+                default:
+                    return '';
+            }
+        };
+
         let inputErrorMsg = inputErrorSelector();
 
         //  Login Panel Prop Declarations
@@ -56,7 +70,7 @@ class HeadingView extends Component {
         //  Registration Logic
         let statusResult = this.props.heading.status;
         function authStatus() {
-            if (statusResult === 'fail') {
+            if (statusResult === 'fail' || statusResult === '') {
                 return <LoginPanel regBtnClick={regBtnClick} unameInput={unameInput} unameValue={unameValue} pwordInput={pwordInput} pwordValue={pwordValue} errorTxt={inputErrorMsg}/>;
             } else {
                 return 'Logout Panel Here';
