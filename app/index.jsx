@@ -3,9 +3,11 @@
 //  e.g : "export default <function name>" export default root
 import React from 'react';
 import ReactDOM, {render} from 'react-dom';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+import {Router} from 'react-router';
 
 //  Import routing structure (relation between "smart" views and URL's)
-import Routes from './routes.jsx';
+import routes from './routes.jsx';
 
 //  Import connect function to bind the state tree to the app's state
 import {Provider} from 'react-redux';
@@ -26,7 +28,7 @@ function main()
 
     render(
         <Provider store={store}>
-            <Routes />
+            <Router routes={routes} history={createBrowserHistory()} />
         </Provider>, containerDiv
     );
 }
