@@ -34,21 +34,25 @@ module.exports = {
             test: /\.css$/, // scan for css files only
             loader: 'style!css!postcss-loader',
             include: APP_PATH,
+            exclude: /node_modules/,
         },
         {
             test: /\.png$/,
             loader: 'url?limit=100000&mimetype=image/png',
             include: APP_PATH,
+            exclude: /node_modules/,
         },
         {
             test: /\.jpg$/,
             loader: 'file',
             include: APP_PATH,
+            exclude: /node_modules/,
         },
         {
             test: /\.json$/,
             loader: 'file',
             include: APP_PATH,
+            exclude: /node_modules/,
         },
     ],
     },
@@ -68,6 +72,9 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new webpack.ProvidePlugin({
+            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+        }),
         new HtmlGenerator({
             title: 'Tagged',
             filename: 'index.html',
