@@ -33,7 +33,7 @@ class AppWrapper extends Component {
     render() {
 
         //  =====  Define loginCheck Function  =====
-        const loginStatus = this.props.heading.status;
+        const loginStatus = this.props.heading.logStatus;
 
         const loginStatusFunction = () => {
             if (loginStatus === '' || loginStatus === 'fail') {

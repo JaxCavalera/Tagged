@@ -10,8 +10,8 @@ import EditorView from './views/editor-view.jsx';
 const routes = (
     <Route component={AppWrapper}>
         <Route path='/' component={HomeView}></Route>
-        <Route path='private/gallery' component={GalleryView}></Route>
-        <Route path='private/editor' component={EditorView}></Route>
+        <Route path='/gallery' component={GalleryView}></Route>
+        <Route path='/editor' component={EditorView}></Route>
     </Route>
 );
 

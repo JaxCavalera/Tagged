@@ -1,31 +1,42 @@
-import {AUTH_ATTEMPT, UNAME_INPUT_EVENT, PWORD_INPUT_EVENT} from '../actions/auth-actions.jsx';
+import {REG_ATTEMPT, LOG_ATTEMPT, UNAME_INPUT_EVENT, PWORD_INPUT_EVENT} from '../actions/auth-actions.jsx';
 
 export const authReducers = (
     currentState = {
         unameValue: 'Username',
         pwordValue: '',
-        status: '',
+        logStatus: '',
+        regStatus: '',
         prevRegAttempt: '',
     }, action
 ) => {
     switch (action.type) {
-        case AUTH_ATTEMPT:
+        case REG_ATTEMPT:
             return {
                     ...currentState,
-                    status: action.status,
+                    regStatus: action.regStatus,
+                    logStatus: action.regStatus,
                     prevRegAttempt: action.unameAttempt,
+                };
+            break;
+        case LOG_ATTEMPT:
+            return {
+                    ...currentState,
+                    logStatus: action.logStatus,
                 };
             break;
         case UNAME_INPUT_EVENT:
             return {
                     ...currentState,
-                    unameValue: action.value,
+                    unameValue: action.unameValue,
+                    logStatus: '',
+                    regStatus: '',
                 };
             break;
         case PWORD_INPUT_EVENT:
             return {
                     ...currentState,
-                    pwordValue: action.value,
+                    pwordValue: action.pwordValue,
+                    logStatus: '',
                 };
             break;
         default:

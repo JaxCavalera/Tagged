@@ -11,7 +11,12 @@ import LoginDisplay from '../components/heading/login-display.jsx';
 
 //  =====  Import Scripts and ActionCreators  =====
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
-import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
+import {
+    regBtnActionCreator,
+    logBtnActionCreator,
+    unameInputActionCreator,
+    pwordInputActionCreator,
+} from '../actions/auth-actions.jsx';
 
 /*
 properties declared in here become accessible
@@ -39,8 +44,13 @@ class HeadingView extends Component {
                     break;
                 case (pwordErrorTxt.length !== 0):
                     return pwordErrorTxt;
-                case (this.props.heading.status === 'fail' && this.props.heading.prevRegAttempt === this.props.heading.unameValue):
+                    break;
+                case (this.props.heading.prevRegAttempt === this.props.heading.unameValue):
                     return 'That Username Is Taken';
+                    break;
+                case (this.props.heading.logStatus === 'fail'):
+                    return 'Invalid Username or Password';
+                    break;
                 default:
                     return '';
             }
@@ -74,12 +84,18 @@ class HeadingView extends Component {
         });
 
         //  =====  Login Click Event  =====
+        let logBtnClick = (() => {
+            if (inputErrorMsg.length === 0 || inputErrorMsg === 'That Username Is Taken') {
+                this.props.dispatch(logBtnActionCreator());
+            }
+        });
 
         return (
             <div className='headBar'>
                 <LogoDisplay />
                 <LoginDisplay
                     regBtnClick={regBtnClick}
+                    logBtnClick={logBtnClick}
                     unameInput={unameInput}
                     unameValue={unameValue}
                     pwordInput={pwordInput}

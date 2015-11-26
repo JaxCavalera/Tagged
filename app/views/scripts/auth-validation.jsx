@@ -8,7 +8,7 @@ export function unameValidation(text) {
         return errorTxt;
     }
 
-    if (usertxt === 'Username') {
+    if (usertxt === 'Username' || usertxt === 'username') {
         errorTxt = 'Create New Account or Login';
         return errorTxt;
     }

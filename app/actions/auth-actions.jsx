@@ -4,25 +4,15 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
-//  Async Action Creator
-// export const regBtnAsyncActionCreator = (text) => {
-//     return ((dispatch) => {
-//         setTimeout(function() {
-//                dispatch({
-//                  type: 'REG_BTN_CLICK',
-//                  message: text,
-//              });
-//            }, 2000);
-//         console.log('this is not used normally', text);
-//     });
-// };
-//  Based off https://github.com/happypoulp/redux-tutorial/blob/master/09_dispatch-async-action-2.js#L24
-//
-export const AUTH_ATTEMPT = 'AUTH_ATTEMPT';
+export const REG_ATTEMPT = 'REG_ATTEMPT';
+export const LOG_ATTEMPT = 'LOG_ATTEMPT';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
 export const PWORD_INPUT_EVENT = 'PWORD_INPUT_EVENT';
 
-//  =============  Async Action Creator  =============
+//  =============  Async Action Creators  =============
+//  Based off https://github.com/happypoulp/redux-tutorial/blob/master/09_dispatch-async-action-2.js#L24
+
+//  =====  REGISTER ASYNC ACTION CREATOR  =====
 export const regBtnActionCreator = () => {
     return (dispatch, getState) => {
         //  Destructuring treats the function/object as a source
@@ -40,15 +30,46 @@ export const regBtnActionCreator = () => {
                 username: heading.unameValue,
                 password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
             }),
-
-            // mode: 'no-cors',
         };
+
+        //  fetch(URL & PORT + Server-side Route, Init Details)
         return fetch(dbServer + '/register', regInit)
         .then((response) => {
             response.json().then((data) => {
                 dispatch({
-                    type: AUTH_ATTEMPT,
-                    status: data,// fail, success
+                    type: REG_ATTEMPT,
+                    regStatus: data,// fail, success
+                    unameAttempt: heading.unameValue,
+                });
+            });
+
+        });
+    };
+};
+
+//  =====  LOGIN ASYNC ACTION CREATOR  =====
+export const logBtnActionCreator = () => {
+    return (dispatch, getState) => {
+        const {heading} = getState();
+
+        //  Define init (details) for fetch request
+        const logInit = {
+            method: 'POST',
+            headers: {
+                Accept:'application/json',
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+                username: heading.unameValue,
+                password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
+            }),
+        };
+        return fetch(dbServer + '/login', logInit)
+        .then((response) => {
+            response.json().then((data) => {
+                dispatch({
+                    type: LOG_ATTEMPT,
+                    logStatus: data,// fail, success
                     unameAttempt: heading.unameValue,
                 });
             });
@@ -61,14 +82,14 @@ export const regBtnActionCreator = () => {
 export const unameInputActionCreator = (text) => {
     return {
         type: UNAME_INPUT_EVENT,
-        value: text,
+        unameValue: text,
     };
 };
 
 export const pwordInputActionCreator = (text) => {
     return {
         type: PWORD_INPUT_EVENT,
-        value: text,
+        pwordValue: text,
     };
 };
 
