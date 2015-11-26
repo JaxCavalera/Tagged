@@ -30,8 +30,8 @@ p
 .appWrapper
 {
 	display: flex;
+    flex-direction: column;
 	justify-content: center;
-	background-color: #007DF1;
 }
 
 /*Head_bar pushes the logo_panel and Auth_panel divs apart
@@ -39,10 +39,12 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 .headBar
 {
 	display: flex;
+    flex-direction: row;
 	justify-content: space-between;
 	max-width: 100%;
 	width: 980px;
 	height: 110px;
+	background-color: #007DF1;
 }
 
 /*Controls Auto Scaling and placement of Tagged Logo*/
