@@ -28,7 +28,7 @@ function main()
 
     render(
         <Provider store={store}>
-            <Router routes={routes} history={createBrowserHistory()} />
+            <Router routes={routes} history={createBrowserHistory()}/>
         </Provider>, containerDiv
     );
 }

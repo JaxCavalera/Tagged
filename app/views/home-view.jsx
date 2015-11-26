@@ -8,9 +8,6 @@ import {connect} from 'react-redux';
 //  import dumb components, scripts and actioncreators for this view
 import HomeDisplay from '../components/home/home-display.jsx';
 
-// import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
-// import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
-
 //  properties declared in here become accessible
 //  in code located below inside the render() flux-standard-action
 //  The connection between this and the component is done at the bottom

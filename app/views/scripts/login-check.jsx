@@ -14,11 +14,11 @@ class LoginCheck extends Component {
             if (loginStatus === '' || loginStatus === 'fail') {
 
                 //  User is not logged in or login attempt failed
-                return <HeadingView />;
+                return {HeadingView};
             } else {
 
                 //  User successfully logged in
-                return <HeadingViewAuth />;
+                return {HeadingViewAuth};
             };
         };
 

@@ -27,7 +27,7 @@ p
 }
 
 /*  Header spans the full width of the window adding a Logo Blue */
-.header
+.appWrapper
 {
 	display: flex;
 	justify-content: center;
@@ -149,4 +149,9 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	color: rgba(255, 0, 0, 1);
     font-size: 0.59em;
     height: 1em;
+}
+
+.menuPanel
+{
+    display: flex;
 }

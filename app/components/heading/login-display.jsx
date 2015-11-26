@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-export default class LoginPanelDisplay extends Component {
+export default class LoginDisplay extends Component {
     render() {
         return (
             <div className='authPanel'>
@@ -20,7 +20,7 @@ export default class LoginPanelDisplay extends Component {
 }
 
 //  declare PropTypes here to lock variables into a specific type
-LoginPanelDisplay.propTypes = {
+LoginDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
     errorTxt: PropTypes.string.isRequired,
