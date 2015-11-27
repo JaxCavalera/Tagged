@@ -91,17 +91,19 @@ class HeadingView extends Component {
         });
 
         return (
-            <div className='headBar'>
-                <LogoDisplay />
-                <LoginDisplay
-                    regBtnClick={regBtnClick}
-                    logBtnClick={logBtnClick}
-                    unameInput={unameInput}
-                    unameValue={unameValue}
-                    pwordInput={pwordInput}
-                    pwordValue={pwordValue}
-                    errorTxt={inputErrorMsg}
-                />
+            <div className='headingWrapper'>
+                <div className='heading'>
+                    <LogoDisplay />
+                    <LoginDisplay
+                        regBtnClick={regBtnClick}
+                        logBtnClick={logBtnClick}
+                        unameInput={unameInput}
+                        unameValue={unameValue}
+                        pwordInput={pwordInput}
+                        pwordValue={pwordValue}
+                        errorTxt={inputErrorMsg}
+                    />
+                </div>
             </div>
         );
     }

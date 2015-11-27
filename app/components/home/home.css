@@ -1,0 +1,26 @@
+.homeContainer
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+}
+
+.homeBody
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 979px;
+    height: 100%;
+}
+
+.homeBody > h1
+{
+    margin: 5px 10px 0px 10px;
+}
+
+.homeBody > p
+{
+    margin: 5px 10px 0px 10px;
+}

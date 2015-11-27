@@ -14,6 +14,7 @@ import HeadingViewAuth from './views/heading-view-auth.jsx';
 //  =====  Import Helmet Assets (images data etc)  =====
 import AndroidIcon from './components/heading/images/androidicon.png';
 import MyManifest from './components/heading/images/manifest.json';
+import './components/default.css';
 
 /*
 properties declared in here become accessible

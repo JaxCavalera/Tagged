@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 //  =====  Dumb Display Components  =====
 import LogoDisplay from '../components/heading/logo-display.jsx';
 import LogoutDisplay from '../components/heading/logout-display.jsx';
-import MenuDisplay from '../components/heading/menu-display.jsx';
+import NavDisplay from '../components/heading/nav-display.jsx';
 
 //  =====  Scripts and ActionCreators  =====
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
@@ -33,10 +33,12 @@ class HeadingViewAuth extends Component {
         //  =====  Logout Panel Logic  =====
 
         return (
-            <div className='headBar'>
-                <LogoDisplay />
-                <LogoutDisplay />
-                <MenuDisplay />
+            <div className='headingWrapper'>
+                <div className='heading'>
+                    <LogoDisplay />
+                    <LogoutDisplay welcomeName={this.props.heading.unameValue}/>
+                </div>
+                <NavDisplay />
             </div>
         );
     }

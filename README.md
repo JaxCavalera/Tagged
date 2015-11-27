@@ -209,3 +209,6 @@ Ports were forwarded from the local ip through the router and directed to a publ
 [Back to Top](#contents)
 
 - - -
+So now the task will be to build my login code, logout code and get session management working.
+
+After that I just need to build the logout code and work out how to block users from accessing Gallery and Editor when not logged in.

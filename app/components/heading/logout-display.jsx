@@ -4,9 +4,11 @@ export default class LogoutDisplay extends Component {
     render() {
         return (
             <div className='authPanel'>
-                <form className='authForm'>
-                    <span className='formTitle'>Logout Panel Display</span>
-                    <button className='logFormInput' type='button' >Logout</button>
+                <form className='logoutForm'>
+                    <span className='logoutFormTitle'>Welcome, {this.props.welcomeName}</span>
+                    <div className='logoutFormBtns'>
+                        <button className='logFormInput' type='button' >Logout</button>
+                    </div>
                 </form>
             </div>
         );
@@ -15,5 +17,5 @@ export default class LogoutDisplay extends Component {
 
 //  declare PropTypes here to lock variables into a specific type
 LogoutDisplay.propTypes = {
-
+    welcomeName: PropTypes.string.isRequired,
 };

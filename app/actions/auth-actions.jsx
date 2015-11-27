@@ -39,7 +39,7 @@ export const regBtnActionCreator = () => {
                 dispatch({
                     type: REG_ATTEMPT,
                     regStatus: data,// fail, success
-                    unameAttempt: heading.unameValue,
+                    prevRegAttempt: heading.unameValue,
                 });
             });
 
@@ -70,7 +70,7 @@ export const logBtnActionCreator = () => {
                 dispatch({
                     type: LOG_ATTEMPT,
                     logStatus: data,// fail, success
-                    unameAttempt: heading.unameValue,
+                    prevRegAttempt: '',
                 });
             });
 

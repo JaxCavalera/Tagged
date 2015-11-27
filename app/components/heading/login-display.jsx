@@ -4,11 +4,11 @@ export default class LoginDisplay extends Component {
     render() {
         return (
             <div className='authPanel'>
-                <form className='authForm'>
-                    <span className='formTitle'>My Account</span>
+                <form className='loginForm'>
+                    <span className='loginFormTitle'>My Account</span>
                     <input className='logFormInput' maxLength='20' type='text' onChange={this.props.unameInput} value={this.props.unameValue}/>
                     <input className='logFormInput' maxLength='20' type='password' onChange={this.props.pwordInput} value={this.props.pwordValue} />
-                    <div className='formBtns'>
+                    <div className='loginFormBtns'>
                         <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
                         <button className='logFormInput' type='button' onClick={this.props.logBtnClick}>Login</button>
                     </div>

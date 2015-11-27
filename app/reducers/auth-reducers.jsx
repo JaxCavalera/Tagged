@@ -15,13 +15,14 @@ export const authReducers = (
                     ...currentState,
                     regStatus: action.regStatus,
                     logStatus: action.regStatus,
-                    prevRegAttempt: action.unameAttempt,
+                    prevRegAttempt: action.prevRegAttempt,
                 };
             break;
         case LOG_ATTEMPT:
             return {
                     ...currentState,
                     logStatus: action.logStatus,
+                    prevRegAttempt: action.prevRegAttempt,
                 };
             break;
         case UNAME_INPUT_EVENT:
