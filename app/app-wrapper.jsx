@@ -7,10 +7,6 @@ import {connect} from 'react-redux';
 
 import Helmet from 'react-helmet'; // usage = <Helmet props=""/>
 
-//  =====  Import View Component Options  =====
-import HeadingView from './views/heading-view.jsx';
-import HeadingViewAuth from './views/heading-view-auth.jsx';
-
 //  =====  Import Helmet Assets (images data etc)  =====
 import AndroidIcon from './components/heading/images/androidicon.png';
 import MyManifest from './components/heading/images/manifest.json';
@@ -33,24 +29,12 @@ function mapStateToProps(state) {
 class AppWrapper extends Component {
     render() {
 
-        //  =====  Define loginCheck Function  =====
-        const loginStatus = this.props.heading.logStatus;
-
-        const loginStatusFunction = () => {
-            if (loginStatus === '' || loginStatus === 'fail') {
-
-                //  User is not logged in or login attempt failed
-                return <HeadingView />;
-            } else {
-
-                //  User successfully logged in
-                return <HeadingViewAuth />;
-            };
-        };
+        const {headingOption, bodyOption} = this.props;
 
         return (
             <div className='appWrapper'>
-                {loginStatusFunction()}
+                {headingOption}
+                {bodyOption}
                 {this.props.children}
 
                 {/* Helmet is used here to define Elements in the <head></head> */}

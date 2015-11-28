@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import './auth-panel.css';
 
 import taglogo from './images/taggedLogo.png';
 

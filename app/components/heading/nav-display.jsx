@@ -6,9 +6,9 @@ export default class NavDisplay extends Component {
         return (
             <div className='navPanel'>
                 <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/gallery'>Gallery</Link></li>
-                    <li><Link to='/editor'>Editor</Link></li>
+                    <li><Link to='/secure'>Home</Link></li>
+                    <li><Link to='/secure/gallery'>Gallery</Link></li>
+                    <li><Link to='/secure/editor'>Editor</Link></li>
                 </ul>
             </div>
         );
