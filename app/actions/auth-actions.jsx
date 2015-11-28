@@ -34,6 +34,7 @@ export const regBtnActionCreator = () => {
                 username: heading.unameValue,
                 password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
             }),
+            credentials: 'include',
         };
 
         //  fetch(URL & PORT + Server-side Route, Init Details)
@@ -67,7 +68,7 @@ export const logBtnActionCreator = () => {
                 username: heading.unameValue,
                 password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
             }),
-            credentials: true,
+            credentials: 'include',
         };
         return fetch(dbServer + '/login', logInit)
         .then((response) => {
@@ -96,7 +97,7 @@ export const sessionStatusActionCreator = () => {
                 Accept:'application/json',
                 'Content-Type':'application/json',
             },
-            credentials: true,
+            credentials: 'include',
         };
         return fetch(dbServer + '/sessionStatus', sessionInit)
         .then((response) => {
