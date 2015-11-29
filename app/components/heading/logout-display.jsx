@@ -17,5 +17,5 @@ export default class LogoutDisplay extends Component {
 
 //  declare PropTypes here to lock variables into a specific type
 LogoutDisplay.propTypes = {
-    welcomeName: PropTypes.string.isRequired,
+    welcomeName: PropTypes.string,
 };

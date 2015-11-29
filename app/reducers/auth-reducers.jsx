@@ -6,7 +6,7 @@ import {
     SESSION_STATUS,
 } from '../actions/auth-actions.jsx';
 
-import {UPDATE_PATH} from 'redux-simple-router';
+// import {UPDATE_PATH} from 'redux-simple-router';
 
 export const authReducers = (
     currentState = {
@@ -14,7 +14,6 @@ export const authReducers = (
         pwordValue: '',
         logStatus: '',
         prevRegAttempt: '',
-        sessionStatus: '',
     }, action
 ) => {
     switch (action.type) {
@@ -22,6 +21,9 @@ export const authReducers = (
             return {
                     ...currentState,
                     prevRegAttempt: action.prevRegAttempt,
+                    logStatus: action.logStatus,
+                    sessionStatus: action.sessionStatus,
+                    currentUser: action.currentUser,
                 };
             break;
         case LOG_ATTEMPT:
@@ -29,6 +31,8 @@ export const authReducers = (
                     ...currentState,
                     logStatus: action.logStatus,
                     prevRegAttempt: action.prevRegAttempt,
+                    sessionStatus: action.sessionStatus,
+                    currentUser: action.currentUser,
                 };
             break;
         case UNAME_INPUT_EVENT:
@@ -45,13 +49,14 @@ export const authReducers = (
                     logStatus: '',
                 };
             break;
-        case UPDATE_PATH:
-            return {
-                    ...currentState,
 
-                    //  empty (default behavior only for now)
-                };
-            break;
+        // case UPDATE_PATH:
+        //     return {
+        //             ...currentState,
+        //
+        //             //  empty (default behavior only for now)
+        //         };
+        //     break;
         case SESSION_STATUS:
             return {
                     ...currentState,

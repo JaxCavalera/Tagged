@@ -18,7 +18,7 @@ import configureStore from './configure-store.jsx';
 
 //  Create the store alias for <provider>
 //  index.jsx is the top-level "wrapper"
-const store = configureStore();
+export const store = configureStore();
 const history = createBrowserHistory();
 syncReduxAndRouter(history, store);
 

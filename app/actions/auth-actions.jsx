@@ -4,9 +4,6 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
-//  React-Router and Redux path change function
-import {updatePath} from 'redux-simple-router';
-
 export const REG_ATTEMPT = 'REG_ATTEMPT';
 export const LOG_ATTEMPT = 'LOG_ATTEMPT';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
@@ -41,10 +38,12 @@ export const regBtnActionCreator = () => {
         return fetch(dbServer + '/register', regInit)
         .then((response) => {
             response.json().then((data) => {
-                dispatch(updatePath('/secure'));
                 return dispatch({
                     type: REG_ATTEMPT,
                     prevRegAttempt: heading.unameValue,
+                    logStatus: data.regResult,
+                    sessionStatus: data.sessionStatus,
+                    currentUser: data.currentUser,
                 });
             });
 
@@ -73,14 +72,15 @@ export const logBtnActionCreator = () => {
         return fetch(dbServer + '/login', logInit)
         .then((response) => {
             response.json().then((data) => {
-                dispatch(updatePath('/secure'));
                 return dispatch({
                     type: LOG_ATTEMPT,
-                    logStatus: data,// fail, success
+                    logStatus: data.logResult,// fail, success
+                    sessionStatus: data.sessionStatus,
                     prevRegAttempt: '',
-                });
+                    currentUser: data.currentUser,
+                },
+            );
             });
-
         });
     };
 };
@@ -104,7 +104,8 @@ export const sessionStatusActionCreator = () => {
             response.json().then((data) => {
                 return dispatch({
                     type: SESSION_STATUS,
-                    sessionStatus: data,// active or none
+                    sessionStatus: data.sessionStatus,// active or none
+                    currentUser: data.currentUser,
                 });
             });
 

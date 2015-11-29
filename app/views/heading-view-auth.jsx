@@ -36,7 +36,7 @@ class HeadingViewAuth extends Component {
             <div className='headingWrapper'>
                 <div className='heading'>
                     <LogoDisplay />
-                    <LogoutDisplay welcomeName={this.props.heading.unameValue}/>
+                    <LogoutDisplay welcomeName={this.props.heading.currentUser}/>
                 </div>
                 <NavDisplay />
             </div>

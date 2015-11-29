@@ -2,6 +2,9 @@
 import {bindActionCreators} from 'redux';
 import React, {Component} from 'react';
 
+//  React-Router and Redux path change function
+import {updatePath} from 'redux-simple-router';
+
 //  connect() gives the component access to the state tree (a.k.a store)
 import {connect} from 'react-redux';
 
@@ -49,7 +52,7 @@ class HeadingView extends Component {
                     return 'That Username Is Taken';
                     break;
                 case (this.props.heading.logStatus === 'fail'):
-                    return 'Invalid Username or Password';
+                    return 'Incorrect Username or Password';
                     break;
                 default:
                     return '';
@@ -78,8 +81,13 @@ class HeadingView extends Component {
 
         //  =====  Registration Click Event  =====
         let regBtnClick = (() => {
-            if (inputErrorMsg.length === 0) {
-                this.props.dispatch(regBtnActionCreator());
+            if (inputErrorMsg.length === 0 || inputErrorMsg === 'Incorrect Username or Password') {
+                this.props.dispatch(regBtnActionCreator())
+                .then(() => {
+                    if (this.props.heading.currentUser !== '' && this.props.heading.sessionStatus === 'active') {
+                        this.props.dispatch(updatePath('/secure', false));
+                    }
+                });
             }
         });
 
@@ -87,6 +95,7 @@ class HeadingView extends Component {
         let logBtnClick = (() => {
             if (inputErrorMsg.length === 0 || inputErrorMsg === 'That Username Is Taken') {
                 this.props.dispatch(logBtnActionCreator());
+                this.props.dispatch(updatePath('/secure'));
             }
         });
 
