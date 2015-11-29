@@ -19,7 +19,7 @@ import configureStore from './configure-store.jsx';
 //  Create the store alias for <provider>
 //  index.jsx is the top-level "wrapper"
 export const store = configureStore();
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 syncReduxAndRouter(history, store);
 
 //	Declare a new div element to hold the react application

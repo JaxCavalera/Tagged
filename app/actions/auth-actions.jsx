@@ -4,6 +4,9 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
+//  React-Router and Redux path change function
+import {updatePath} from 'redux-simple-router';
+
 export const REG_ATTEMPT = 'REG_ATTEMPT';
 export const LOG_ATTEMPT = 'LOG_ATTEMPT';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
@@ -70,16 +73,20 @@ export const logBtnActionCreator = () => {
             credentials: 'include',
         };
         return fetch(dbServer + '/login', logInit)
-        .then((response) => {
-            response.json().then((data) => {
-                return dispatch({
+        .then((responseValue) => {
+            responseValue.json().then((jsonValue) => {
+                dispatch({
                     type: LOG_ATTEMPT,
-                    logStatus: data.logResult,// fail, success
-                    sessionStatus: data.sessionStatus,
+                    logStatus: jsonValue.logResult,// fail, success
+                    sessionStatus: jsonValue.sessionStatus,
                     prevRegAttempt: '',
-                    currentUser: data.currentUser,
-                },
-            );
+                    currentUser: jsonValue.currentUser,
+                });
+
+                return new Promise((resolve, reject) => {
+                    console.log('dispatch complete attempting to hit /secure path');
+                    resolve(dispatch(updatePath('/secure')));
+                });
             });
         });
     };
@@ -108,7 +115,6 @@ export const sessionStatusActionCreator = () => {
                     currentUser: data.currentUser,
                 });
             });
-
         });
     };
 };

@@ -2,9 +2,6 @@
 import {bindActionCreators} from 'redux';
 import React, {Component} from 'react';
 
-//  React-Router and Redux path change function
-import {updatePath} from 'redux-simple-router';
-
 //  connect() gives the component access to the state tree (a.k.a store)
 import {connect} from 'react-redux';
 
@@ -94,8 +91,8 @@ class HeadingView extends Component {
         //  =====  Login Click Event  =====
         let logBtnClick = (() => {
             if (inputErrorMsg.length === 0 || inputErrorMsg === 'That Username Is Taken') {
+                console.log('dispatched login attempt action');
                 this.props.dispatch(logBtnActionCreator());
-                this.props.dispatch(updatePath('/secure'));
             }
         });
 
