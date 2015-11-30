@@ -14,6 +14,8 @@ export const authReducers = (
         pwordValue: '',
         logStatus: '',
         prevRegAttempt: '',
+        currentUser: '',
+        sessionStatus: '',
     }, action
 ) => {
     switch (action.type) {
