@@ -10,13 +10,16 @@
 
 **[◄ Milestone One ►](#milestone-one)**   
 [Development Environment Setup](#development-environment-setup)   
-[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ► Node & Webpack Setup](#node-&-webpack-setup)   
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ► Node & Webpack Setup](#node--webpack-setup)   
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ► Preparing for Webpack-dev-server](#preparing-for-webpack-dev-server)   
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ► Installing Webpack-dev-server](#installing-webpack-dev-server)   
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ► Running the Server](#running-the-server)   
 [React Setup](#react-setup)   
 [Development of Web Application](#development-of-web-application)   
-[Testing](#testing)
+[Testing](#testing)    
+
+**== Extra Content ==**
+[Callbacks and Promises](#calbacks-and-promises)    
 - - -
 
 
@@ -212,3 +215,121 @@ Ports were forwarded from the local ip through the router and directed to a publ
 So now the task will be to build my login code, logout code and get session management working.
 
 After that I just need to build the logout code and work out how to block users from accessing Gallery and Editor when not logged in.
+
+
+## Callbacks and Promises
+A callback is registered by putting "callback" or any other placeholder name as an argument inside the parenthesis of a function.
+
+e.g.
+```javascript
+let fancyText = 'some text in here';
+
+function myFunction(callMeBack, justSomeString) {
+    //  do a bunch of things like ajax requests or fetch
+    let randomText = justSomeString;
+
+    //  Now "register" the callback so it will fire off whatever Function
+    //  you assign to that argument placeholder
+    callMeBack();
+}
+```
+With the example above, we can make a new function outside "myFunction" that will run something like, "console.log('heyo');" the moment callMeBack(); runs (gets called).
+
+```javascript
+//  let's assume the previous code is part of this same file
+
+//  Define a function to be used inside the placeholder "callMeBack"
+function logMyConsole() {
+    console.log('heyo');
+}
+
+//  Actually run "myFunction" where we "registered" our callback
+myFunction(logMyConsole, fancyText);
+```
+Because javascript is synchronous, it will run each line of code in the order we list them inside a function.  This means that in cases where the data is locally available and will not have a delay, it can be used right away.
+
+"fancyText" was declared locally within the same javascript file so there is no delay when we later assign it to the value of "randomText" and the same can be said for our function, "logMyConsole".
+
+So now we have our callback function, let's look at the Promise alternative.  The A+ specification describes a promise as :
+>A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
+
+This basically means that a promise is the **VALUE** being returned from a task that does not finish the moment it is started (immediately).  The description goes pretty fast overlooking a basic snippet of information valuable to understand things.
+
+It doesn't explain **what** a promise *really* is.  A promise is not a **VALUE**, it is actually a **function** :
+```javascript
+//  A simple example of a promise and .then
+let p = new Promise(function(resolve, reject) {
+  resolve("hello world");
+});
+
+p.then(function(pValue) {
+  console.log(pValue);
+});
+
+//  or
+
+let p1 = new Promise(function(resolve, reject) {
+  resolve("Success!");
+  // or
+  // reject ("Error!");
+});
+
+p1.then(function(value) {
+  console.log(value); // Success!
+}, function(reason) {
+  console.log(reason); // Error!
+});
+
+//  Below shows how we can turn a normal function into a promise object
+//  simply by having it do nothing other than return a promise object.. it becomes a wrapper. a.k.a promisified
+//  the function becomes a promise because the value it returns
+//  can be used outside the function before the asyncFunction has
+//  executed the resolve or reject callbacks
+
+function thisBecomesAPromise() {
+    return new Promise(
+        //  because this anonymous function ends with a semi-colon it is
+        //  self executing and so it is automatically registered (being called to run.. by itself)
+        function(resolve, reject) {
+
+        //  Now inside the callback, some function runs returning either an error or a result
+        asyncFunction(function(error, result) {
+            //  it does some things and based on how they go it will
+            if (error) {
+            //  if there was an error run this Code
+
+            //  reject is a registered callback
+                reject(error);
+
+            } else {
+            //  if there was no error then run this Code
+
+            //  resolve is also a registered callback
+                resolve(result);
+            }                
+        });
+    });
+}
+
+```
+So keeping this in mind, we could console.log() the returned value of our newly created promise function, "thisBecomesAPromise();" as shown below :
+
+```javascript
+//  assumes this continues on from the previous code
+
+//  We run (call) the function that was turned into a promise
+//  It will be returning the value of "error" or "result"
+//  to log this value all we need to do is run the Function
+//  and **.then** console log the returned value when it eventually arrives
+thisBecomesAPromise().then(function(ourPromiseResult) {
+    console.log(ourPromiseResult);
+});
+```
+As demonstrated, The primary way of doing things with the **VALUE** of a promise is through its **.then** method (function).  So it is easy to think of a promise as an Object with various functions and properties that we can use.
+
+The promise object will have a Return or Error **VALUE**.  It will also have a **.then** and **.catch** function.  **.then** will let us do things with a resolved (successful) result and **.catch** will let us do things with any errors.
+
+With this in mind, when they documentation says :
+>The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
+
+This should be making more sense now.  the registered callback inside our promise object has a **resolve** and **reject** argument.  The registered callback in the **.then** function is the **VALUE** such as "ourPromiseResult" (from the previous example).

@@ -4,30 +4,32 @@ import {sessionStatusActionCreator} from '../../actions/auth-actions.jsx';
 export function secureAccessCheck(nextState, replaceState, cb) {
     let sessionValue = store.getState().heading.sessionStatus;
 
-    console.log('checking local store for active session');
-
     if (sessionValue === 'active') {
         return cb();
-    }
-    /*
-    If sessionValue !== 'active', then dispatch an ActionCreator
-    All dispatched ActionCreators have access to getState()
-    and dispatch(); because "store" was modified to include Thunk
-    */
-    console.log('hitting up the database');
-    store.dispatch(sessionStatusActionCreator())
-    .then(() => {
-        console.log('re-checking the store afterdb scan');
-        if (sessionValue === 'active') {
+    } else {
+        /*
+        If sessionValue !== 'active', dispatch ActionCreator
+        All dispatched ActionCreators have access to getState()
+        and dispatch(); because "store" was modified to include Thunk
+
+        the action creator will need to return a (resolve, reject)
+        a.k.a promise.  so bind what it spits out to resolve
+        */
+        store.dispatch(sessionStatusActionCreator())
+        .then((result) => {
+            console.log(result);
+            if (sessionValue === 'active') {
+                console.log('session was found after hitting up the Database');
+                return cb();
+            }
+        })
+        .then((result) => {
+            //  If the database has no record, redirect back to login screen
+            console.log('No session found sending back to "/"');
+            replaceState(nextState.location.pathname, '/');
             return cb();
-        }
-    })
-    .then(() => {
-        //  If the database has no record, redirect back to login screen
-        console.log('No session found sending back to "/"');
-        replaceState(nextState.location.pathname, '/');
-        return cb();
-    });
+        });
+    }
 }
 
 //  When a user arrives at the '/' check if a previous session

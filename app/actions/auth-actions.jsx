@@ -41,7 +41,7 @@ export const regBtnActionCreator = () => {
         return fetch(dbServer + '/register', regInit)
         .then((response) => {
             response.json().then((data) => {
-                return dispatch({
+                dispatch({
                     type: REG_ATTEMPT,
                     prevRegAttempt: heading.unameValue,
                     logStatus: data.regResult,
@@ -73,8 +73,13 @@ export const logBtnActionCreator = () => {
             credentials: 'include',
         };
         return fetch(dbServer + '/login', logInit)
-        .then((responseValue) => {
-            responseValue.json().then((jsonValue) => {
+        .then((response) => {
+            response.json()
+
+            //  json() is a prototype function of fetch responses
+            //  it converts the response and then returns the json object
+            //  which we are passing down the promise chain
+            .then((jsonValue) => {
                 dispatch({
                     type: LOG_ATTEMPT,
                     logStatus: jsonValue.logResult,// fail, success
@@ -82,11 +87,7 @@ export const logBtnActionCreator = () => {
                     prevRegAttempt: '',
                     currentUser: jsonValue.currentUser,
                 });
-
-                return new Promise((resolve, reject) => {
-                    console.log('dispatch complete attempting to hit /secure path');
-                    resolve(dispatch(updatePath('/secure')));
-                });
+                dispatch(updatePath('/secure'));
             });
         });
     };
@@ -108,11 +109,12 @@ export const sessionStatusActionCreator = () => {
         };
         return fetch(dbServer + '/sessionStatus', sessionInit)
         .then((response) => {
-            response.json().then((data) => {
-                return dispatch({
+            response.json()
+            .then((jsonValue) => {
+                dispatch({
                     type: SESSION_STATUS,
-                    sessionStatus: data.sessionStatus,// active or none
-                    currentUser: data.currentUser,
+                    sessionStatus: jsonValue.sessionStatus,// active or none
+                    currentUser: jsonValue.currentUser,
                 });
             });
         });
