@@ -60,7 +60,6 @@ export function existingSessionCheck(nextState, replaceState, cb) {
 
         store.dispatch(sessionStatusActionCreator());
     };
-
     sessionCheck();
     console.log('session check completed with a session value of : ', sessionValue);
 
