@@ -4,7 +4,6 @@
 import React from 'react';
 import ReactDOM, {render} from 'react-dom';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import {syncReduxAndRouter} from 'redux-simple-router';
 import {Router} from 'react-router';
 
 //  Import routing structure (relation between "smart" views and URL's)
@@ -20,7 +19,6 @@ import configureStore from './configure-store.jsx';
 //  index.jsx is the top-level "wrapper"
 export const store = configureStore();
 export const history = createBrowserHistory();
-syncReduxAndRouter(history, store);
 
 //	Declare a new div element to hold the react application
 function main()

@@ -1,11 +1,9 @@
 //  ip and the Promise modules used for Async Promises
+import {history} from '../index.jsx';
 import Promise from 'bluebird';
 import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
-
-//  React-Router and Redux path change function
-import {updatePath} from 'redux-simple-router';
 
 export const REG_ATTEMPT = 'REG_ATTEMPT';
 export const LOG_ATTEMPT = 'LOG_ATTEMPT';
@@ -48,6 +46,7 @@ export const regBtnActionCreator = () => {
                     sessionStatus: data.sessionStatus,
                     currentUser: data.currentUser,
                 });
+                history.replaceState(null, '/secure');
             });
 
         });
@@ -87,16 +86,15 @@ export const logBtnActionCreator = () => {
                     prevRegAttempt: '',
                     currentUser: jsonValue.currentUser,
                 });
-                dispatch(updatePath('/secure'));
+                history.replaceState(null, '/secure');
             });
         });
     };
 };
 
 //  =====  SESSION STATUS ASYNC ACTION CREATOR  =====
-export const sessionStatusActionCreator = () => {
+export const sessionStatusActionCreator = (doneCallback) => {
     return (dispatch, getState) => {
-        const {heading} = getState();
 
         //  Define init (details) for fetch request
         const sessionInit = {
@@ -107,15 +105,16 @@ export const sessionStatusActionCreator = () => {
             },
             credentials: 'include',
         };
-        return fetch(dbServer + '/sessionStatus', sessionInit)
+
+        fetch(dbServer + '/sessionStatus', sessionInit)
         .then((response) => {
-            response.json()
-            .then((jsonValue) => {
+            response.json().then((jsonValue) => {
                 dispatch({
                     type: SESSION_STATUS,
                     sessionStatus: jsonValue.sessionStatus,// active or none
                     currentUser: jsonValue.currentUser,
                 });
+                doneCallback();
             });
         });
     };

@@ -10,7 +10,7 @@ import HeadingView from './views/heading-view.jsx';
 import HeadingViewAuth from './views/heading-view-auth.jsx';
 
 //  =====  Scripts and Functions  =====
-import {secureAccessCheck, existingSessionCheck} from './views/scripts/session-validation.jsx';
+import {secureAccessCheck, sessionCheck} from './views/scripts/session-validation.jsx';
 
 /*
 path='/secure/editor/:imageId' component={ImageDisplay}
@@ -21,10 +21,10 @@ the desired DIV of EditorView to hook up the route.
 
 const routes = (
     <Route component={AppWrapper}>
-        <Route path='/' components={{headingOption: HeadingView, bodyOption: HomeView}} onEnter={existingSessionCheck}></Route>
+        <Route path='/' components={{headingOption: HeadingView, bodyOption: HomeView}} onEnter={sessionCheck}></Route>
         <Route path='/secure' components={{headingOption: HeadingViewAuth, bodyOption: HomeView}} onEnter={secureAccessCheck}></Route>
-        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryView}}></Route>
-        <Route path='/secure/editor' components={{headingOption: HeadingViewAuth, bodyOption: EditorView}}>
+        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryView}} onEnter={secureAccessCheck}></Route>
+        <Route path='/secure/editor' components={{headingOption: HeadingViewAuth, bodyOption: EditorView}} onEnter={secureAccessCheck}>
 
         </Route>
     </Route>

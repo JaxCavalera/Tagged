@@ -3,9 +3,6 @@ import {bindActionCreators} from 'redux';
 import React, {Component} from 'react';
 import Promise from 'bluebird';
 
-//  React-Router and Redux path change function
-import {updatePath} from 'redux-simple-router';
-
 //  connect() gives the component access to the state tree (a.k.a store)
 import {connect} from 'react-redux';
 

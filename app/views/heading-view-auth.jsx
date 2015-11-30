@@ -31,12 +31,13 @@ function mapStateToProps(state) {
 class HeadingViewAuth extends Component {
     render() {
         //  =====  Logout Panel Logic  =====
-
+        console.log(this.props.heading.currentUser);
+        let activeUsername = this.props.heading.currentUser;
         return (
             <div className='headingWrapper'>
                 <div className='heading'>
                     <LogoDisplay />
-                    <LogoutDisplay welcomeName={this.props.heading.currentUser}/>
+                    <LogoutDisplay welcomeName={activeUsername}/>
                 </div>
                 <NavDisplay />
             </div>
