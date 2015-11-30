@@ -2,11 +2,9 @@ import {store, history} from '../../index.jsx';
 import {sessionStatusActionCreator} from '../../actions/auth-actions.jsx';
 
 export function secureAccessCheck(nextState, replaceState, cb) {
-    let sessionValue = store.getState().heading.sessionStatus;
-
     console.log('checking local store for active session');
 
-    if (sessionValue === 'active') {
+    if (store.getState().heading.sessionStatus === 'active') {
         return cb();
     }
     /*
@@ -18,11 +16,10 @@ export function secureAccessCheck(nextState, replaceState, cb) {
     store.dispatch(sessionStatusActionCreator())
     .then(() => {
         console.log('re-checking the store afterdb scan');
-        if (sessionValue === 'active') {
+        if (store.getState().heading.sessionStatus === 'active') {
             return cb();
         }
-    })
-    .then(() => {
+
         //  If the database has no record, redirect back to login screen
         console.log('No session found sending back to "/"');
         replaceState(nextState.location.pathname, '/');
@@ -33,15 +30,13 @@ export function secureAccessCheck(nextState, replaceState, cb) {
 //  When a user arrives at the '/' check if a previous session
 //  exists for them and if none exists, continue to '/'
 export function existingSessionCheck(nextState, replaceState, cb) {
-    let sessionValue = store.getState().heading.sessionStatus;
-
-    if (sessionValue !== 'active') {
+    if (store.getState().heading.sessionStatus !== 'active') {
         return cb();
     }
 
     store.dispatch(sessionStatusActionCreator())
     .then(() => {
-        if (sessionValue !== 'active') {
+        if (store.getState().heading.sessionStatus !== 'active') {
             return cb();
         } else {
             //  If the database has no record, redirect back to login screen
