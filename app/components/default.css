@@ -1,7 +1,7 @@
 /*This styling is for the heading component of Tagged
 Colours are listed :
 logo blue = #007DF1
-Ice blue = #D3E6F7
+Ice blue = rgb(180, 213, 242)
 Navy = #000C4D
 */
 
@@ -23,7 +23,7 @@ p
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	display: block;
-    min-width: 310px;
+    min-width: 285px;
 }
 
 /*  Header spans the full width of the window adding a Logo Blue */
@@ -33,6 +33,7 @@ p
     flex-direction: column;
 	justify-content: center;
     width: 100%;
+    background-color: #000C4D;
 }
 
 /*Head_bar pushes the logo_panel and Auth_panel divs apart
@@ -43,16 +44,15 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
     flex-direction: column;
     max-width: 100%;
     align-items: center;
-    background-color: #007DF1;
 }
 
 .heading
 {
     display: flex;
     flex-direction: row;
-    background: rgb(211, 230, 247);
+    background: rgb(180, 213, 242);
     max-width: 100%;
-    width: 979px;
+    width: 980px;
     height: 110px;
     padding: 5px 0px;
 }
@@ -63,7 +63,7 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: rgb(211, 230, 247);
+	background: rgb(180, 213, 242);
 	flex-basis: 81%;
 	/*margin-right: 5px;*/
     height: 110px;
@@ -77,4 +77,14 @@ A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
 	width: 80%;
     min-width: 45px;
     min-height: 20px;
+}
+
+.panelSpacer
+{
+    width: 3px;
+    display: flex;
+    height: 90%;
+    flex-shrink: 0;
+    align-self: center;
+    background-color: #007DF1;
 }

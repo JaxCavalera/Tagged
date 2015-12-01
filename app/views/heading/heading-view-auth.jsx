@@ -42,6 +42,7 @@ class HeadingViewAuth extends Component {
             <div className='headingWrapper'>
                 <div className='heading'>
                     <LogoDisplay />
+                    <div className='panelSpacer' />
                     <LogoutDisplay
                         welcomeName={activeUsername}
                         logoutBtnClick={logoutBtnClick}

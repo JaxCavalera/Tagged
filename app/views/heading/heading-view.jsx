@@ -100,6 +100,7 @@ class HeadingView extends Component {
             <div className='headingWrapper'>
                 <div className='heading'>
                     <LogoDisplay />
+                        <div className='panelSpacer' />
                     <LoginDisplay
                         regBtnClick={regBtnClick}
                         loginBtnClick={loginBtnClick}
