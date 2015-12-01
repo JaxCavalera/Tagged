@@ -3,11 +3,11 @@ import {Route} from 'react-router';
 
 //  =====  Smart View Components  =====
 import AppWrapper from './app-wrapper.jsx';
-import HomeView from './views/home-view.jsx';
-import GalleryView from './views/gallery-view.jsx';
-import EditorView from './views/editor-view.jsx';
-import HeadingView from './views/heading-view.jsx';
-import HeadingViewAuth from './views/heading-view-auth.jsx';
+import HomeView from './views/home/home-view.jsx';
+import GalleryView from './views/gallery/gallery-view.jsx';
+import EditorView from './views/editor/editor-view.jsx';
+import HeadingView from './views/heading/heading-view.jsx';
+import HeadingViewAuth from './views/heading/heading-view-auth.jsx';
 
 //  =====  Scripts and Functions  =====
 import {secureAccessCheck, sessionCheck} from './views/scripts/session-validation.jsx';

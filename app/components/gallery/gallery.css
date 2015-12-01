@@ -1,0 +1,16 @@
+.galleryContainer
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+}
+
+.galleryBody
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 979px;
+    height: 100%;
+}

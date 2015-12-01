@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
-import GalleryDisplay from '../components/gallery/gallery-display.jsx';
+import GalleryDisplay from '../../components/gallery/gallery-display.jsx';
 
 //  properties declared in here become accessible
 //  in code located below inside the render() flux-standard-action

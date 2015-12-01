@@ -1,0 +1,10 @@
+.galleryCp
+{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    max-width: 100%;
+    align-items: center;
+    height: 110px;
+    background: rgb(211, 230, 247);
+}

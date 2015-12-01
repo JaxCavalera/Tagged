@@ -6,13 +6,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 //  =====  Dumb Display Components  =====
-import LogoDisplay from '../components/heading/logo-display.jsx';
-import LogoutDisplay from '../components/heading/logout-display.jsx';
-import NavDisplay from '../components/heading/nav-display.jsx';
+import LogoDisplay from '../../components/heading/logo-display.jsx';
+import LogoutDisplay from '../../components/heading/logout-display.jsx';
+import NavDisplay from '../../components/heading/nav-display.jsx';
 
 //  =====  Scripts and ActionCreators  =====
-import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
-import {logoutBtnActionCreator} from '../actions/auth-actions.jsx';
+import {logoutBtnActionCreator} from '../../actions/auth-actions.jsx';
 
 /*
 properties declared in here become accessible

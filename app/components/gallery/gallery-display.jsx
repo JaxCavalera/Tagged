@@ -1,10 +1,13 @@
 import React, {Component, PropTypes} from 'react';
+import './gallery.css';
 
 export default class GalleryDisplay extends Component {
     render() {
         return (
-            <div className='galleryBody'>
-                <p>Gallery Body Area - Secured</p>
+            <div className='galleryContainer'>
+                <div className='galleryBody'>
+
+                </div>
             </div>
         );
     }

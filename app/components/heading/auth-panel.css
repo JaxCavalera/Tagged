@@ -124,7 +124,7 @@
 
 .loginFormBtns > button:hover, .logoutFormBtns > button:hover
 {
-	background: rgba(67, 138, 201, 1);
+	background: #007DF1;
 	color: rgba(255, 255, 255, 1);
 }
 
@@ -163,12 +163,12 @@
     width: 100%;
     margin: 0px 0px 0px 5px;
     /*background: rgb(211, 230, 247);*/
-    background: #000C4D
+    background: #000C4D;
 }
 
-.navPanel > ul > li:first-child
+.navPanel > ul > li:last-child
 {
-    margin: 0px;
+    margin: 0px 5px 0px 5px;
 }
 
 .navPanel > ul > li > a
@@ -177,6 +177,19 @@
     font-weight: bold;
     font-size: 1.25em;
     color: #D3E6F7;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.navPanel > ul > li > a:hover
+{
+    display: flex;
+    font-weight: bold;
+    font-size: 1.25em;
+    background: #007DF1;
+	color: rgba(255, 255, 255, 1);
     align-items: center;
     justify-content: center;
     height: 100%;

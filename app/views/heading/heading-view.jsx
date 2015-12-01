@@ -7,17 +7,17 @@ import Promise from 'bluebird';
 import {connect} from 'react-redux';
 
 //  =====  Import Dumb Display Components  =====
-import LogoDisplay from '../components/heading/logo-display.jsx';
-import LoginDisplay from '../components/heading/login-display.jsx';
+import LogoDisplay from '../../components/heading/logo-display.jsx';
+import LoginDisplay from '../../components/heading/login-display.jsx';
 
 //  =====  Import Scripts and ActionCreators  =====
-import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
+import {unameValidation, pwordValidation} from '../scripts/auth-validation.jsx';
 import {
     regBtnActionCreator,
     loginBtnActionCreator,
     unameInputActionCreator,
     pwordInputActionCreator,
-} from '../actions/auth-actions.jsx';
+} from '../../actions/auth-actions.jsx';
 
 /*
 properties declared in here become accessible
