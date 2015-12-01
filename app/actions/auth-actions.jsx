@@ -6,7 +6,8 @@ import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
 export const REG_ATTEMPT = 'REG_ATTEMPT';
-export const LOG_ATTEMPT = 'LOG_ATTEMPT';
+export const LOGIN_ATTEMPT = 'LOGIN_ATTEMPT';
+export const LOGOUT_ATTEMPT = 'LOGOUT_ATTEMPT';
 export const UNAME_INPUT_EVENT = 'UNAME_INPUT_EVENT';
 export const PWORD_INPUT_EVENT = 'PWORD_INPUT_EVENT';
 export const SESSION_STATUS = 'SESSION_STATUS';
@@ -54,12 +55,12 @@ export const regBtnActionCreator = () => {
 };
 
 //  =====  LOGIN ASYNC ACTION CREATOR  =====
-export const logBtnActionCreator = () => {
+export const loginBtnActionCreator = () => {
     return (dispatch, getState) => {
         const {heading} = getState();
 
         //  Define init (details) for fetch request
-        const logInit = {
+        const loginInit = {
             method: 'POST',
             headers: {
                 Accept:'application/json',
@@ -71,7 +72,7 @@ export const logBtnActionCreator = () => {
             }),
             credentials: 'include',
         };
-        return fetch(dbServer + '/login', logInit)
+        return fetch(dbServer + '/login', loginInit)
         .then((response) => {
             response.json()
 
@@ -80,13 +81,44 @@ export const logBtnActionCreator = () => {
             //  which we are passing down the promise chain
             .then((jsonValue) => {
                 dispatch({
-                    type: LOG_ATTEMPT,
+                    type: LOGIN_ATTEMPT,
                     logStatus: jsonValue.logResult,// fail, success
                     sessionStatus: jsonValue.sessionStatus,
                     prevRegAttempt: '',
                     currentUser: jsonValue.currentUser,
                 });
                 history.replaceState(null, '/secure');
+            });
+        });
+    };
+};
+
+//  =====  LOGOUT ASYNC ACTION CREATOR  =====
+export const logoutBtnActionCreator = () => {
+    return (dispatch, getState) => {
+        const {heading} = getState();
+
+        //  Define init (details) for fetch request
+        const logoutInit = {
+            method: 'POST',
+            headers: {
+                Accept:'application/json',
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+                username: heading.currentUser,
+            }),
+            credentials: 'include',
+        };
+        return fetch(dbServer + '/logout', logoutInit)
+        .then((response) => {
+            response.json().then((jsonValue) => {
+                dispatch({
+                    type: LOGOUT_ATTEMPT,
+                    sessionStatus: jsonValue.sessionStatus,
+                    currentUser: jsonValue.currentUser,
+                });
+                history.replaceState(null, '/');
             });
         });
     };

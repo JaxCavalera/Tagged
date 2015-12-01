@@ -14,7 +14,7 @@ import LoginDisplay from '../components/heading/login-display.jsx';
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
 import {
     regBtnActionCreator,
-    logBtnActionCreator,
+    loginBtnActionCreator,
     unameInputActionCreator,
     pwordInputActionCreator,
 } from '../actions/auth-actions.jsx';
@@ -90,9 +90,9 @@ class HeadingView extends Component {
         });
 
         //  =====  Login Click Event  =====
-        let logBtnClick = (() => {
+        let loginBtnClick = (() => {
             if (inputErrorMsg.length === 0 || inputErrorMsg === 'That Username Is Taken') {
-                this.props.dispatch(logBtnActionCreator());
+                this.props.dispatch(loginBtnActionCreator());
             }
         });
 
@@ -102,7 +102,7 @@ class HeadingView extends Component {
                     <LogoDisplay />
                     <LoginDisplay
                         regBtnClick={regBtnClick}
-                        logBtnClick={logBtnClick}
+                        loginBtnClick={loginBtnClick}
                         unameInput={unameInput}
                         unameValue={unameValue}
                         pwordInput={pwordInput}

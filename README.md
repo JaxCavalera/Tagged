@@ -333,3 +333,6 @@ With this in mind, when they documentation says :
 >The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
 
 This should be making more sense now.  the registered callback inside our promise object has a **resolve** and **reject** argument.  The registered callback in the **.then** function is the **VALUE** such as "ourPromiseResult" (from the previous example).
+
+## React Router Tip
+If a main component is rendering on state change and so is the child component that also connects to the store.  Write some logic into the main component to update only on path name update (redux + react-router specific solution). this seems to prevent the double render from happening to the child components.

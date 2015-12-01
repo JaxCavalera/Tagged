@@ -12,7 +12,7 @@ import NavDisplay from '../components/heading/nav-display.jsx';
 
 //  =====  Scripts and ActionCreators  =====
 import {unameValidation, pwordValidation} from './scripts/auth-validation.jsx';
-import {regBtnActionCreator, unameInputActionCreator, pwordInputActionCreator} from '../actions/auth-actions.jsx';
+import {logoutBtnActionCreator} from '../actions/auth-actions.jsx';
 
 /*
 properties declared in here become accessible
@@ -29,15 +29,24 @@ function mapStateToProps(state) {
 }
 
 class HeadingViewAuth extends Component {
+
     render() {
         //  =====  Logout Panel Logic  =====
-        console.log(this.props.heading.currentUser);
         let activeUsername = this.props.heading.currentUser;
+
+        //  =====  Logout Click Event  =====
+        let logoutBtnClick = (() => {
+            this.props.dispatch(logoutBtnActionCreator());
+        });
+
         return (
             <div className='headingWrapper'>
                 <div className='heading'>
                     <LogoDisplay />
-                    <LogoutDisplay welcomeName={activeUsername}/>
+                    <LogoutDisplay
+                        welcomeName={activeUsername}
+                        logoutBtnClick={logoutBtnClick}
+                    />
                 </div>
                 <NavDisplay />
             </div>

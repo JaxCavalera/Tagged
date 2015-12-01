@@ -11,7 +11,7 @@ export default class LoginDisplay extends Component {
                     <input className='logFormInput' maxLength='20' type='password' onChange={this.props.pwordInput} value={this.props.pwordValue} />
                     <div className='loginFormBtns'>
                         <button className='logFormInput' type='button' onClick={this.props.regBtnClick}>Register</button>
-                        <button className='logFormInput' type='button' onClick={this.props.logBtnClick}>Login</button>
+                        <button className='logFormInput' type='button' onClick={this.props.loginBtnClick}>Login</button>
                     </div>
                     <p className='inputError'>{this.props.errorTxt}</p>
                 </form>
@@ -23,7 +23,7 @@ export default class LoginDisplay extends Component {
 //  declare PropTypes here to lock variables into a specific type
 LoginDisplay.propTypes = {
     regBtnClick: PropTypes.func.isRequired,
-    logBtnClick: PropTypes.func.isRequired,
+    loginBtnClick: PropTypes.func.isRequired,
     unameInput: PropTypes.func.isRequired,
     errorTxt: PropTypes.string.isRequired,
     unameValue: PropTypes.string.isRequired,

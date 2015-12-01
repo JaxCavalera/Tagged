@@ -1,6 +1,7 @@
 import {
     REG_ATTEMPT,
-    LOG_ATTEMPT,
+    LOGIN_ATTEMPT,
+    LOGOUT_ATTEMPT,
     UNAME_INPUT_EVENT,
     PWORD_INPUT_EVENT,
     SESSION_STATUS,
@@ -28,13 +29,23 @@ export const authReducers = (
                     currentUser: action.currentUser,
                 };
             break;
-        case LOG_ATTEMPT:
+        case LOGIN_ATTEMPT:
             return {
                     ...currentState,
                     logStatus: action.logStatus,
                     prevRegAttempt: action.prevRegAttempt,
                     sessionStatus: action.sessionStatus,
                     currentUser: action.currentUser,
+                };
+            break;
+        case LOGOUT_ATTEMPT:
+            return {
+                    ...currentState,
+                    sessionStatus: action.sessionStatus,
+                    currentUser: action.currentUser,
+                    logStatus: '',
+                    unameValue: 'Username',
+                    pwordValue: '',
                 };
             break;
         case UNAME_INPUT_EVENT:
@@ -51,18 +62,11 @@ export const authReducers = (
                     logStatus: '',
                 };
             break;
-
-        // case UPDATE_PATH:
-        //     return {
-        //             ...currentState,
-        //
-        //             //  empty (default behavior only for now)
-        //         };
-        //     break;
         case SESSION_STATUS:
             return {
                     ...currentState,
                     sessionStatus: action.sessionStatus,
+                    currentUser: action.currentUser,
                 };
             break;
         default:
