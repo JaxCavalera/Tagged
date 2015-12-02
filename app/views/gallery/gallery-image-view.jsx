@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
-import GalleryImagesDisplay from '../../components/gallery/gallery-images-display.jsx';
+import GalleryImageDisplay from '../../components/gallery/gallery-image-display.jsx';
 
 //  properties declared in here become accessible
 //  in code located below inside the render() flux-standard-action
@@ -20,15 +20,15 @@ function mapStateToProps(state) {
     };
 }
 
-class GalleryImagesView extends Component {
+class GalleryImageView extends Component {
     render() {
         //  Gallery Logic Code
         return (
-            <div className='galleryImagesView'>
-                <GalleryImagesDisplay />
+            <div className='galleryImageView'>
+                <GalleryImageDisplay />
             </div>
         );
     }
 }
 
-export default connect(mapStateToProps)(GalleryImagesView);
+export default connect(mapStateToProps)(GalleryImageView);

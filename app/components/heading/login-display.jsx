@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import './auth-panel.css';
+import './heading.css';
 
 export default class LoginDisplay extends Component {
     render() {

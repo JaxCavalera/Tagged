@@ -1,12 +1,16 @@
-.homeContainer
+.homeBodyView
 {
+    position: absolute;
+    top: 160px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
-    max-width: 100%;
     align-items: center;
 }
 
-.homeBody
+.homeBodyDisplay
 {
     display: flex;
     flex-direction: column;
@@ -16,12 +20,12 @@
     background-color: #FFFFFF;
 }
 
-.homeBody > h1
+.homeBodyDisplay > h1
 {
     margin: 5px 10px 0px 10px;
 }
 
-.homeBody > p
+.homeBodyDisplay > p
 {
     margin: 5px 10px 0px 10px;
 }

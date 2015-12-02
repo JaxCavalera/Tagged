@@ -1,0 +1,32 @@
+/*This styling is for the heading component of Tagged
+Colours are listed :
+logo blue = #007DF1
+Ice blue = rgb(180, 213, 242)
+Navy = #000C4D
+*/
+
+.galleryBodyView
+{
+    position: absolute;
+    top: 160px;
+    left: 0px;
+    right: 0px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galleryBodyDisplay
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 980px;
+    overflow-y: scroll;
+    background-color: #FFFFFF;
+}

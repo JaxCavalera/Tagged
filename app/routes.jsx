@@ -4,7 +4,8 @@ import {Route} from 'react-router';
 //  =====  Smart View Components  =====
 import AppWrapper from './app-wrapper.jsx';
 import HomeView from './views/home/home-view.jsx';
-import GalleryView from './views/gallery/gallery-view.jsx';
+import GalleryBodyView from './views/gallery/gallery-body-view.jsx';
+import GalleryCpView from './views/gallery/gallery-cp-view.jsx';
 import EditorView from './views/editor/editor-view.jsx';
 import HeadingView from './views/heading/heading-view.jsx';
 import HeadingViewAuth from './views/heading/heading-view-auth.jsx';
@@ -23,7 +24,7 @@ const routes = (
     <Route component={AppWrapper}>
         <Route path='/' components={{headingOption: HeadingView, bodyOption: HomeView}} onEnter={sessionCheck}></Route>
         <Route path='/secure' components={{headingOption: HeadingViewAuth, bodyOption: HomeView}} onEnter={secureAccessCheck}></Route>
-        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryView}} onEnter={secureAccessCheck}></Route>
+        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryBodyView, footerOption: GalleryCpView}} onEnter={secureAccessCheck}></Route>
         <Route path='/secure/editor' components={{headingOption: HeadingViewAuth, bodyOption: EditorView}} onEnter={secureAccessCheck}>
 
         </Route>

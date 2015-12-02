@@ -12,72 +12,27 @@ Navy = #000C4D
 	margin: 0px;
 }
 
-/*CSS for sections that appear more than once in the page*/
 p
 {
 	font-size: 12pt;
 	color: #000000;
 }
 
-.container
+body
 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	display: block;
-    min-width: 285px;
-}
-
-/*  Header spans the full width of the window adding a Logo Blue */
-.appWrapper
-{
-	display: flex;
-    flex-direction: column;
-	justify-content: center;
-    width: 100%;
     background-color: #000C4D;
 }
 
-/*Head_bar pushes the logo_panel and Auth_panel divs apart
-A 2.5% gap each side reduces accidental softkey presses for mobile viewers*/
-.headingWrapper
+/*.container
 {
-	display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    align-items: center;
+
 }
 
-.heading
+.appWrapper
 {
-    display: flex;
-    flex-direction: row;
-    background: rgb(180, 213, 242);
-    max-width: 100%;
-    width: 980px;
-    height: 110px;
-    padding: 5px 0px;
-}
 
-/*Controls Auto Scaling and placement of Tagged Logo*/
-.logoPanel
-{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgb(180, 213, 242);
-	flex-basis: 81%;
-	/*margin-right: 5px;*/
-    height: 110px;
-    min-width: 120px;
 }
-
-.tagLogo
-{
-	max-width: 178px;
-    max-height: 80px;
-	width: 80%;
-    min-width: 45px;
-    min-height: 20px;
-}
+*/
 
 .panelSpacer
 {

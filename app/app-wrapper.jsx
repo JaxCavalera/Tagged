@@ -29,13 +29,13 @@ function mapStateToProps(state) {
 class AppWrapper extends Component {
     render() {
 
-        const {headingOption, bodyOption} = this.props;
+        const {headingOption, bodyOption, footerOption} = this.props;
 
         return (
             <div className='appWrapper'>
                 {headingOption}
                 {bodyOption}
-                {this.props.children}
+                {footerOption}
 
                 {/* Helmet is used here to define Elements in the <head></head> */}
                 <Helmet

@@ -23,8 +23,15 @@ function mapStateToProps(state) {
 class HomeView extends Component {
     render() {
         //  Home Logic Code
+        let homeViewTopValue = () => {
+            if (this.props.route.path === '/') {
+                let topVal = {top: '120px'};
+                return topVal;
+            }
+        };
+
         return (
-            <div className='homePanel'>
+            <div className='homeBodyView' style={homeViewTopValue()}>
                 <HomeDisplay />
             </div>
         );

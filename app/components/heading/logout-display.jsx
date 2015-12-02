@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import './heading.css';
 
 export default class LogoutDisplay extends Component {
     render() {

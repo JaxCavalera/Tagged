@@ -1,11 +1,58 @@
-/*Controls styling of the Auth_panel*/
+/*Controls styling of the heading*/
+.headingWrapper
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 160px;
+}
+
+.heading
+{
+    display: flex;
+    flex-direction: row;
+    min-width: 285px;
+    width: 100%;
+    max-width: 980px;
+    background: rgb(180, 213, 242);
+    height: 110px;
+    padding: 5px 0px;
+}
+
+/*Controls Auto Scaling and placement of Tagged Logo*/
+.logoPanel
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(180, 213, 242);
+	flex-basis: 81%;
+	/*margin-right: 5px;*/
+    height: 110px;
+    min-width: 120px;
+}
+
+.tagLogo
+{
+	max-width: 178px;
+    max-height: 80px;
+	width: 80%;
+    min-width: 45px;
+    min-height: 20px;
+}
+
+/*Auth Panel Styling*/
 .authPanel
 {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/*background: rgb(180, 213, 242);*/
     height: 100%;
     flex-basis: 100%;
     max-width: 185px;
@@ -65,7 +112,7 @@
 
 .logFormInput
 {
-    /* box-sizing is used to make the border sit inside */
+    /*box-sizing is used to make the border sit inside*/
 	box-sizing: border-box;
     font-size: 0.8em;
     line-height: 1.1em;
@@ -121,6 +168,7 @@
     height: 1em;
 }
 
+/*Navigation Menu Styling*/
 .navPanel
 {
     display: flex;
@@ -141,7 +189,6 @@
     background: rgb(180, 213, 242);
     background: radial-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 
-    /*background: rgba(255, 255, 255, 1);*/
 }
 
 .navPanel > ul > li
@@ -149,7 +196,6 @@
     display: flex;
     height: 100%;
     width: 32%;
-    /*background: rgb(180, 213, 242);*/
     background: #000C4D;
 }
 

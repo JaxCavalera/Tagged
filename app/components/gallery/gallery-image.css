@@ -1,0 +1,48 @@
+/*
+This styling is for the heading component of Tagged
+Colours are listed :
+logo blue = #007DF1
+Ice blue = rgb(180, 213, 242)
+Navy = #000C4D
+*/
+
+.galleryImageView
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    width: 180px;
+}
+
+.galleryImageDisplay
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 170px;
+    background-color: #007DF1;
+}
+
+.galleryImageFrame
+{
+    width: 100%;
+    height: 94%;
+    background-color: rgb(180, 213, 242);
+}
+
+.galleryImageInfo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.galleryImageCheckbox
+{
+    font-size: 20pt
+}
