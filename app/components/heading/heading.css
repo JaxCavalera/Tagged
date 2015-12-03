@@ -1,7 +1,15 @@
+/*
+This styling is for the heading component of Tagged
+Colours are listed :
+logo blue = #007DF1
+Sky blue = rgb(180, 213, 242)
+Navy = #000C4D
+Ice Blue = rgba(236, 248, 255, 1)
+*/
+
 /*Controls styling of the heading*/
 .headingWrapper
 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;

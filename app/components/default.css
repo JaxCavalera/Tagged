@@ -1,13 +1,16 @@
-/*This styling is for the heading component of Tagged
+/*
+This styling is for the heading component of Tagged
 Colours are listed :
 logo blue = #007DF1
-Ice blue = rgb(180, 213, 242)
+Sky blue = rgb(180, 213, 242)
 Navy = #000C4D
+Ice Blue = rgba(236, 248, 255, 1)
 */
 
 *
 {
-	text-decoration: none;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
 	padding: 0px;
 	margin: 0px;
 }
@@ -16,6 +19,7 @@ p
 {
 	font-size: 12pt;
 	color: #000000;
+
 }
 
 body

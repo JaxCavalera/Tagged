@@ -1,3 +1,12 @@
+/*
+This styling is for the heading component of Tagged
+Colours are listed :
+logo blue = #007DF1
+Sky blue = rgb(180, 213, 242)
+Navy = #000C4D
+Ice Blue = rgba(236, 248, 255, 1)
+*/
+
 .galleryCpView
 {
     display: flex;
@@ -10,13 +19,24 @@
     height: 120px;
 }
 
-.galleryCp
+.galleryCpOut
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 980px;
+    height: 120px;
+    background-color: #000C4D;
+}
+
+.galleryCpIn
 {
     display: flex;
     flex-direction: row;
     width: 100%;
     max-width: 980px;
-    height: 120px;
+    height: 110px;
     background-color: rgb(180, 213, 242);
 }
 
@@ -28,16 +48,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-width: 75px;
-    max-width: 75px;
+    min-width: 80px;
+    max-width: 80px;
 }
 
 .galleryDelBtn
 {
 	background: rgba(236, 248, 255, 1);
 	font-size: 0.8em;
-    max-width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border: solid;
 	border-color: rgba(67, 138, 201, 0.75);
 	border-width: 1px;
@@ -101,7 +121,7 @@
     text-align: center;
 }
 
-.galleryUploadInput, .galleryUploadOk
+.galleryUploadSelect, .galleryUploadGo
 {
     text-align: center;
     line-height: 100%;
@@ -116,13 +136,13 @@
     cursor: pointer;
 }
 
-.galleryUploadInput:hover, .galleryUploadOk:hover
+.galleryUploadSelect:hover, .galleryUploadGo:hover
 {
     background: #007DF1;
 	color: rgba(255, 255, 255, 1);
 }
 
-.galleryUploadOk
+.galleryUploadGo
 {
     width: 30px;
 }

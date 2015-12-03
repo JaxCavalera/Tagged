@@ -2,8 +2,9 @@
 This styling is for the heading component of Tagged
 Colours are listed :
 logo blue = #007DF1
-Ice blue = rgb(180, 213, 242)
+Sky blue = rgb(180, 213, 242)
 Navy = #000C4D
+Ice Blue = rgba(236, 248, 255, 1)
 */
 
 .galleryImageView
@@ -24,7 +25,7 @@ Navy = #000C4D
     align-items: center;
     height: 120px;
     width: 170px;
-    background-color: #007DF1;
+    background-color: #000C4D;
 }
 
 .galleryImageFrame
@@ -37,12 +38,60 @@ Navy = #000C4D
 .galleryImageInfo
 {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
+/*Gallery Checkbox Styling*/
 .galleryImageCheckbox
 {
-    font-size: 20pt
+    cursor: pointer;
+}
+
+.galleryImageCheckbox > input[type=checkbox]
+{
+    display: none;
+}
+
+/*
+Both css rules require a match of all listed elements
+in the correct position to work.
+=====================================================
+">" targets the child : Parent > Child match
+"+" targets next element to follow : First + Next
+
+more info : http://www.w3schools.com/cssref/css_selectors.asp
+=====================================================
+*/
+
+.galleryImageCheckbox > input[type=checkbox] + span
+{
+    display: flex;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000C4D;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+    width: 1em;
+    background-color: rgba(236, 248, 255, 1);
+}
+
+.galleryImageCheckbox > input[type=checkbox]:checked + span > span
+{
+    display: flex;
+    height: 0.5em;
+    width: 0.5em;
+    background-color: #007DF1;
+}
+
+.galleryImageName
+{
+    width: 100%;
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(236, 248, 255, 1);
 }

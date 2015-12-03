@@ -9,8 +9,13 @@ export default class GalleryImageDisplay extends Component {
                     <img src={this.props.imgSrc} />
                 </div>
                 <div className='galleryImageInfo'>
-                    <input className='galleryImageCheckbox' type='checkbox' />
-                    <div className='galleryImageName'>{'this.props.imgName'}</div>
+                    <label className='galleryImageCheckbox'>
+                        <input type='checkbox' />
+                        <span><span></span></span>
+                    </label>
+                    <span className='galleryImageName'>
+                        {'this.props.imageName'}
+                    </span>
                 </div>
             </div>
         );
