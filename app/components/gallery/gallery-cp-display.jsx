@@ -15,7 +15,10 @@ export default class GalleryCpDisplay extends Component {
                             <img src={this.props.galleryUploadPreviewValue} />
                             <input className='galleryImgNameInput' maxLength='20' type='text' onChange={this.props.galleryImgNameTest} value={this.props.galleryImgNameValue}/>
                             <div className='galleryUploadBtnWrapper'>
-                                <button className='galleryUploadSelect' type='button' onClick={this.props.gallerySelectBtnClick}>Select Image</button>
+                                <label className='galleryUploadSelect'>
+                                    Select Image
+                                    <input id='galleryUploadSelectHidden' type='file' onChange={this.props.gallerySelectBtnClick}></input>
+                                </label>
                                 <button className='galleryUploadGo' type='button' onClick={this.props.galleryGoBtnClick}>Go</button>
                             </div>
                         </div>

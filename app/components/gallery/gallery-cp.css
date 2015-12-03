@@ -16,18 +16,19 @@ Ice Blue = rgba(236, 248, 255, 1)
     bottom: 0px;
     left: 0px;
     right: 0px;
-    height: 120px;
+    height: 115px;
 }
 
 .galleryCpOut
 {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
     max-width: 980px;
-    height: 120px;
+    height: 100%;
     background-color: #000C4D;
+    vertical-align: middle;
 }
 
 .galleryCpIn
@@ -35,8 +36,7 @@ Ice Blue = rgba(236, 248, 255, 1)
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 980px;
-    height: 110px;
+    height: 115px;
     background-color: rgb(180, 213, 242);
 }
 
@@ -88,9 +88,10 @@ Ice Blue = rgba(236, 248, 255, 1)
 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-width: 160px;
+    height: 95%;
 }
 
 .galleryUploadPreview img
@@ -115,7 +116,6 @@ Ice Blue = rgba(236, 248, 255, 1)
     font-size: 0.8em;
     line-height: 1.1em;
     height: 20px;
-	margin: 2px 0px;
 	color: rgba(0, 0, 0, 1);
     width: 100%;
     text-align: center;
@@ -125,8 +125,6 @@ Ice Blue = rgba(236, 248, 255, 1)
 {
     text-align: center;
     line-height: 100%;
-    height: 20px;
-    width: 115px;
     background: rgba(236, 248, 255, 1);
     font-size: 0.8em;
     border: solid;
@@ -140,6 +138,20 @@ Ice Blue = rgba(236, 248, 255, 1)
 {
     background: #007DF1;
 	color: rgba(255, 255, 255, 1);
+}
+
+.galleryUploadSelect
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 70%;
+}
+
+#galleryUploadSelectHidden
+{
+    display: none;
 }
 
 .galleryUploadGo

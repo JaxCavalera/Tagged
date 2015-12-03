@@ -7,6 +7,11 @@ import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
 import GalleryCpDisplay from '../../components/gallery/gallery-cp-display.jsx';
+import {unameValidation} from '../scripts/auth-validation.jsx';
+
+import {
+    regBtnActionCreator,
+} from '../../actions/gallery-actions.jsx';
 
 //  properties declared in here become accessible
 //  in code located below inside the render() flux-standard-action
@@ -23,6 +28,7 @@ function mapStateToProps(state) {
 class GalleryCpView extends Component {
     render() {
         //  Gallery Logic Code
+
         return (
             <div className='galleryCpView'>
                 <GalleryCpDisplay />
