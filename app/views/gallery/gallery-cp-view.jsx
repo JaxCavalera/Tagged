@@ -12,6 +12,7 @@ import {unameValidation} from '../scripts/auth-validation.jsx';
 
 import {
     uploadImgUpdatedActionCreator,
+    startImgUploadActionCreator,
 } from '../../actions/gallery-actions.jsx';
 
 //  properties declared in here become accessible
@@ -39,9 +40,11 @@ class GalleryCpView extends Component {
 
             //  This defines what the FileReader object will do when you "read"
             //  a.k.a pass it a "File"
+            //  essentially file reader does nothing until you give it
+            //  instructions to the onload function.
             fr.onload = (e) => {
-                let galleryImgSrc = e.target.result;
-                this.props.dispatch(uploadImgUpdatedActionCreator(galleryImgSrc));
+                let currentUploadSrc = e.target.result;
+                this.props.dispatch(uploadImgUpdatedActionCreator(currentUploadSrc, currentUploadImg));
             };
 
             //  This "reads" a.k.a passes FileReader a file
@@ -52,7 +55,17 @@ class GalleryCpView extends Component {
 
         //  =====  Upload Image Go (upload) Event  =====
         let galleryGoBtnClick = (() => {
+            let currentUploadImg = this.props.gallery.currentUploadImg;
 
+            if (currentUploadImg !== 'No Image Selected') {
+                //  FormData wraps appended items as though they were directly submitted
+                //  from within a form
+                let galleryUploadData = new FormData();
+                galleryUploadData.append('file', currentUploadImg);
+                galleryUploadData.append('imageName', 'Test Image');
+
+                this.props.dispatch(startImgUploadActionCreator(galleryUploadData));
+            }
         });
 
         return (
@@ -60,7 +73,7 @@ class GalleryCpView extends Component {
                 <GalleryCpDisplay
                     gallerySelectBtnClick={gallerySelectBtnClick}
                     galleryGoBtnClick={galleryGoBtnClick}
-                    galleryUploadPreviewImg={this.props.gallery.currentUploadImg}
+                    galleryUploadPreviewImg={this.props.gallery.currentUploadSrc}
                 />
             </div>
         );
