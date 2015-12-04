@@ -1,19 +1,17 @@
 import {
-    REG_ATTEMPT,
+    UPLOAD_IMG_UPDATED,
 } from '../actions/gallery-actions.jsx';
-
-// import {UPDATE_PATH} from 'redux-simple-router';
 
 export const galleryReducers = (
     currentState = {
-
+        currentUploadImg: 'No Image Selected',
     }, action
 ) => {
     switch (action.type) {
-        case REG_ATTEMPT:
+        case UPLOAD_IMG_UPDATED:
             return {
                     ...currentState,
-                    prevRegAttempt: action.prevRegAttempt,
+                    currentUploadImg: action.currentUploadImg,
                 };
             break;
         default:

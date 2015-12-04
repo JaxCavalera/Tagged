@@ -5,53 +5,28 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
-export const REG_ATTEMPT = 'REG_ATTEMPT';
+export const UPLOAD_IMG_UPDATED = 'UPLOAD_IMG_UPDATED';
 
 //  =============  Async Action Creators  =============
 
-//  =====  LOGIN ASYNC ACTION CREATOR  =====
-export const loginBtnActionCreator = () => {
+//  =====  UPLOAD IMAGE UPDATED ASYNC ACTION CREATOR  =====
+export const uploadImgUpdatedActionCreator = (image, cb) => {
     return (dispatch, getState) => {
-        const {heading} = getState();
-
-        //  Define init (details) for fetch request
-        const loginInit = {
-            method: 'POST',
-            headers: {
-                Accept:'application/json',
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-                username: heading.unameValue,
-                password: crypto.createHmac('sha1', heading.pwordValue).update(heading.pwordValue).digest('hex'),
-            }),
-            credentials: 'include',
-        };
-        return fetch(dbServer + '/login', loginInit)
-        .then((response) => {
-            response.json()
-
-            //  json() is a prototype function of fetch responses
-            //  it converts the response and then returns the json object
-            //  which we are passing down the promise chain
-            .then((jsonValue) => {
-                dispatch({
-                    type: LOGIN_ATTEMPT,
-                    logStatus: jsonValue.logResult,// fail, success
-                    sessionStatus: jsonValue.sessionStatus,
-                    prevRegAttempt: '',
-                    currentUser: jsonValue.currentUser,
-                });
-                history.replaceState(null, '/secure');
-            });
+        dispatch({
+            type: UPLOAD_IMG_UPDATED,
+            currentUploadImg: image,
         });
+
+        //  Run the callback (cb) to display the preview
+        //  image once dispatch finishes
+        cb();
     };
 };
 
 //  ================  Action Creators  ================
-export const unameInputActionCreator = (text) => {
-    return {
-        type: UNAME_INPUT_EVENT,
-        unameValue: text,
-    };
-};
+// export const uploadImgUpdatedActionCreator = (image) => {
+//     return {
+//         type: UPLOAD_IMG_UPDATED,
+//         currentUploadImg: image,
+//     };
+// };
