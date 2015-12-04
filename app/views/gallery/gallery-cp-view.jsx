@@ -31,13 +31,21 @@ class GalleryCpView extends Component {
 
         //  =====  Upload Image Selected Event  =====
         let gallerySelectBtnClick = ((event) => {
-            let currentUploadImg = event.target.files[0];
-            let fr = FileReader();
+            //  This first line gets the file from the input element
 
+            let currentUploadImg = event.target.files[0];
+
+            let fr = new FileReader();
+
+            //  This defines what the FileReader object will do when you "read"
+            //  a.k.a pass it a "File"
             fr.onload = (e) => {
                 let galleryImgSrc = e.target.result;
                 this.props.dispatch(uploadImgUpdatedActionCreator(galleryImgSrc));
             };
+
+            //  This "reads" a.k.a passes FileReader a file
+            fr.readAsDataURL(currentUploadImg);
         });
 
         //  =============================================
