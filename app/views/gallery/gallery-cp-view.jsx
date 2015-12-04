@@ -29,30 +29,6 @@ function mapStateToProps(state) {
 class GalleryCpView extends Component {
     render() {
 
-        //  =====  Upload Image Preview =====
-        // let galleryUploadPreviewImg = this.props.gallery.currentUploadImg;
-        //
-        // let imgPreviewFunction = () => {
-        //     let fr = new FileReader();
-        //
-        //     fr.onload = (e) => {
-        //         let dataUrlString = e.target.result;
-        //
-        //     }
-        //         console.log('image loaded is running');
-        //         loadPrevResult = e.target.result;
-        //         console.log(loadPrevResult);
-        //     }
-        //
-        //     // let imgFile = this.props.gallery.currentUploadImg;
-        //
-        //     fr.onload = imageLoaded;
-        //
-        //
-        // };
-        //
-        // //  =============================================
-
         //  =====  Upload Image Selected Event  =====
         let gallerySelectBtnClick = ((event) => {
             let currentUploadImg = event.target.files[0];
