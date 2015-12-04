@@ -28,18 +28,11 @@ function mapStateToProps(state) {
 
 class GalleryCpView extends Component {
     render() {
-        //  =====  Upload Image Selected Event  =====
-        let gallerySelectBtnClick = ((event) => {
-            let currentUploadImg = event.target.files[0];
-            this.props.dispatch(uploadImgUpdatedActionCreator(currentUploadImg, imgPreviewFuncton));
-        });
-
-        //  =============================================
 
         //  =====  Upload Image Preview =====
         let galleryUploadPreviewImg = this.props.gallery.currentUploadImg;
 
-        let imgPreviewFuncton = () => {
+        let imgPreviewFunction = () => {
             let fr = new FileReader();
 
             // let imgFile = this.props.gallery.currentUploadImg;
@@ -52,6 +45,14 @@ class GalleryCpView extends Component {
                 console.log(loadPrevResult);
             }
         };
+
+        //  =============================================
+
+        //  =====  Upload Image Selected Event  =====
+        let gallerySelectBtnClick = ((event) => {
+            let currentUploadImg = event.target.files[0];
+            this.props.dispatch(uploadImgUpdatedActionCreator(currentUploadImg, imgPreviewFunction));
+        });
 
         //  =============================================
 
