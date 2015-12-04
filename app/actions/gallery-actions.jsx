@@ -10,16 +10,12 @@ export const UPLOAD_IMG_UPDATED = 'UPLOAD_IMG_UPDATED';
 //  =============  Async Action Creators  =============
 
 //  =====  UPLOAD IMAGE UPDATED ASYNC ACTION CREATOR  =====
-export const uploadImgUpdatedActionCreator = (image, cb) => {
+export const uploadImgUpdatedActionCreator = (imageSrcUrl) => {
     return (dispatch, getState) => {
         dispatch({
             type: UPLOAD_IMG_UPDATED,
-            currentUploadImg: image,
+            currentUploadImg: imageSrcUrl,
         });
-
-        //  Run the callback (cb) to display the preview
-        //  image once dispatch finishes
-        cb();
     };
 };
 

@@ -12,7 +12,7 @@ export default class GalleryCpDisplay extends Component {
                     <div className='panelSpacer' />
                     <div className='galleryUploadWrapper'>
                         <div className='galleryUploadPreview'>
-                            {this.props.galleryUploadPreviewImg}
+                            <img src={this.props.galleryUploadPreviewImg} alt={this.props.galleryUploadPreviewImg} />
                             <input className='galleryImgNameInput' maxLength='20' type='text' onChange={this.props.galleryImgNameTest} value={this.props.galleryImgNameValue}/>
                             <div className='galleryUploadBtnWrapper'>
                                 <label className='galleryUploadSelect'>
