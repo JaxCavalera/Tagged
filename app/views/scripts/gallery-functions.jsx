@@ -19,20 +19,20 @@ export const launchGetGalleryImageListDispatch = () => {
             return console.log('No Images in The Current User Gallery');
         } else {
             let imgList = store.getState().gallery.galleryImgList;
-            let galleryImageViewInstancesValue = '';
+            let galleryImageViewInstancesValue = [];
 
             for (let i = 0; imgList.length > i; i++) {
-                let instancedGallerySrcPath = imgList[i].img_src;
+                let instancedGallerySrcPath = imgList[i].img_src.replace('\\', '/');
                 let instancedimageName = imgList[i].img_name;
 
-                galleryImageViewInstancesValue += ReactDOMServer.renderToStaticMarkup(
+                galleryImageViewInstancesValue.push(
                     <GalleryImageView
                         store={store}
-                        instancedGallerySrcPath={instancedGallerySrcPath}
+                        key={i}
+                        instancedGallerySrcPath={'/' + instancedGallerySrcPath}
                         instancedimageName={instancedimageName}
                     />
                 );
-                console.log('%O', galleryImageViewInstancesValue);
             }
 
             //  displatch the action creator to update the store with the list of image components
