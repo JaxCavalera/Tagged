@@ -1,5 +1,6 @@
 import {store, history} from '../../index.jsx';
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import GalleryImageView from '../gallery/gallery-image-view.jsx';
 
 import {getGalleryImageListActionCreator, galleryUpdateImgViewActionCreator} from '../../actions/gallery-actions.jsx';
@@ -24,13 +25,14 @@ export const launchGetGalleryImageListDispatch = () => {
                 let instancedGallerySrcPath = imgList[i].img_src;
                 let instancedimageName = imgList[i].img_name;
 
-                galleryImageViewInstancesValue = (
-                    galleryImageViewInstancesValue
-                    + <GalleryImageView
+                galleryImageViewInstancesValue += ReactDOMServer.renderToStaticMarkup(
+                    <GalleryImageView
+                        store={store}
                         instancedGallerySrcPath={instancedGallerySrcPath}
                         instancedimageName={instancedimageName}
                     />
                 );
+                console.log('%O', galleryImageViewInstancesValue);
             }
 
             //  displatch the action creator to update the store with the list of image components
