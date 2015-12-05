@@ -5,11 +5,12 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
-import {galleryUpdateImgList} from '../views/scripts/gallery-functions.jsx';
+import {launchGetGalleryImageListDispatch} from '../views/scripts/gallery-functions.jsx';
 
 export const UPLOAD_IMG_UPDATED = 'UPLOAD_IMG_UPDATED';
 export const START_IMG_UPLOAD = 'START_IMG_UPLOAD';
 export const SET_GALLERY_IMG_LIST = 'SET_GALLERY_IMG_LIST';
+export const IMG_VIEW_INSTANCES_VALUE = 'IMG_VIEW_INSTANCES_VALUE';
 
 //  =============  Async Action Creators  =============
 
@@ -32,7 +33,7 @@ export const startImgUploadActionCreator = (galleryUploadData) => {
                     uploadStatus: text,
                 });
                 if (gallery.uploadStatus === 'success') {
-                    galleryUpdateImgList();
+                    launchGetGalleryImageListDispatch();
                 }
             });
         });
@@ -40,12 +41,9 @@ export const startImgUploadActionCreator = (galleryUploadData) => {
 };
 
 //  =====  GET GALLERY IMAGE LIST ASYNC ACTION CREATOR  =====
-export const getGalleryImageListActionCreator = () => {
+export const getGalleryImageListActionCreator = (generateGalleryImageViewInstances) => {
     return (dispatch, getState) => {
         const {gallery} = getState();
-
-        // //  Cache current state to compare
-        // const currentGalleryImgList = gallery.galleryImgList;
 
         //  Define init (details) for fetch request
         const galleryDownloadInit = {
@@ -60,6 +58,9 @@ export const getGalleryImageListActionCreator = () => {
                     type: SET_GALLERY_IMG_LIST,
                     galleryImgList: jsonData,
                 });
+
+                //  Callback function to build image components
+                generateGalleryImageViewInstances();
             });
         });
     };
@@ -73,5 +74,12 @@ export const uploadImgUpdatedActionCreator = (src, image) => {
         type: UPLOAD_IMG_UPDATED,
         currentUploadSrc: src,
         currentUploadImg: image,
+    };
+};
+
+export const galleryUpdateImgViewActionCreator = (galleryImageViewInstancesValue) => {
+    return {
+        type: IMG_VIEW_INSTANCES_VALUE,
+        galleryImageViewInstancesValue: galleryImageViewInstancesValue,
     };
 };

@@ -1,5 +1,6 @@
-import {store, history} from '../../index.jsx';
+import {store} from '../../index.jsx';
 import {sessionStatusActionCreator} from '../../actions/auth-actions.jsx';
+import launchGetGalleryImageListDispatch from './gallery-functions.jsx';
 
 //  =====  This function will continue to '/secure' if a session is found =====
 export function secureAccessCheck(nextState, replaceState, cb) {
@@ -7,6 +8,14 @@ export function secureAccessCheck(nextState, replaceState, cb) {
 
     //  =====  This is the callback function. It runs if nothing matches  =====
     function dbCheckDone() {
+        //  Check if the target path is the image gallery
+        //  if it is, then launch the image updater functions
+        let theCurrentPath = nextState.location.pathname;
+
+        if (theCurrentPath === '/secure/gallery') {
+            launchGetGalleryImageListDispatch();
+        }
+
         if (store.getState().heading.sessionStatus === 'active') {
             return cb();
         }

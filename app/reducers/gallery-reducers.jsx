@@ -2,6 +2,7 @@ import {
     UPLOAD_IMG_UPDATED,
     START_IMG_UPLOAD,
     SET_GALLERY_IMG_LIST,
+    IMG_VIEW_INSTANCES_VALUE,
 } from '../actions/gallery-actions.jsx';
 
 export const galleryReducers = (
@@ -9,6 +10,7 @@ export const galleryReducers = (
         currentUploadImg: 'No Image Selected',
         currentUploadSrc: '',
         galleryImgList: '',
+        galleryImageViewInstancesValue: '',
     }, action
 ) => {
     switch (action.type) {
@@ -31,6 +33,13 @@ export const galleryReducers = (
             return {
                 ...currentState,
                 galleryImgList: action.galleryImgList,
+            };
+            break;
+
+        case IMG_VIEW_INSTANCES_VALUE:
+            return {
+                ...currentState,
+                galleryImageViewInstancesValue: action.galleryImageViewInstancesValue,
             };
             break;
 

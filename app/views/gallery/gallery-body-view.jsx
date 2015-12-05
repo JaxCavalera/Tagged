@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 //  import dumb components, scripts and actioncreators for this view
 import GalleryBodyDisplay from '../../components/gallery/gallery-body-display.jsx';
 import GalleryImageView from './gallery-image-view.jsx';
+import galleryImageViewInstancesValue from '../scripts/gallery-functions.jsx';
 
 //  properties declared in here become accessible
 //  in code located below inside the render() flux-standard-action
@@ -24,37 +25,11 @@ function mapStateToProps(state) {
 
 class GalleryBodyView extends Component {
     render() {
-        //  Gallery Logic Code
-        //        let gallerySrcPath = this.props.instancedGallerySrcPath;
-        //        let imageName = this.props.instancedimageName;
-
-        //  Get the updated image list object and generate instances of the
-        //  Image View component using pairs of values from the array
-        let galleryImageViewInstances = () => {
-            if (this.props.gallery.galleryImgList.length === 0) {
-                return '';
-            } else {
-                let imgList = this.props.gallery.gallerImgList;
-
-                for (i = 0; imgList.length > i; i++) {
-                    let instancedGallerySrcPath = imgList[i].img_src;
-                    let instancedimageName = imgList[i].img_name;
-
-                    return (
-                        galleryImageViewInstances()
-                        + <GalleryImageView
-                        instancedGallerySrcPath={instancedGallerySrcPath}
-                        instancedimageName={instancedimageName}
-                        />
-                    );
-                }
-            }
-        };
 
         return (
             <div className='galleryBodyView'>
                 <GalleryBodyDisplay
-                    galleryImageViewInstances={galleryImageViewInstances}
+                    galleryImageViewInstances={galleryImageViewInstancesValue}
                 />
             </div>
         );
