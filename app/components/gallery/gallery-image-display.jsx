@@ -1,12 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import './gallery-image.css';
+import * as constvars from '../../constvars.jsx';
+const dbServer = constvars.DBSERVER_VAR;
+
+//  '/galleries/1449284503923_allstyle_imagemap.jpg'
 
 export default class GalleryImageDisplay extends Component {
     render() {
         return (
             <div className='galleryImageDisplay'>
                 <div className='galleryImageFrame'>
-                    <img src={this.props.imgSrc} />
+                    <img src={dbServer + this.props.gallerySrcPath} />
                 </div>
                 <div className='galleryImageInfo'>
                     <label className='galleryImageCheckbox'>
@@ -14,7 +18,7 @@ export default class GalleryImageDisplay extends Component {
                         <span><span></span></span>
                     </label>
                     <span className='galleryImageName'>
-                        {'this.props.imageName'}
+                        {this.props.imageName}
                     </span>
                 </div>
             </div>

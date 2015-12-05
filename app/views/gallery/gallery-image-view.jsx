@@ -16,16 +16,22 @@ import GalleryImageDisplay from '../../components/gallery/gallery-image-display.
 //  "state" is being passed in from the top level <Provider> wrapper
 function mapStateToProps(state) {
     return {
+        gallery: state.gallery,
         heading: state.heading,
     };
 }
 
 class GalleryImageView extends Component {
     render() {
-        //  Gallery Logic Code
+        let gallerySrcPath = this.props.instancedGallerySrcPath;
+        let imageName = this.props.instancedimageName;
+
         return (
             <div className='galleryImageView'>
-                <GalleryImageDisplay />
+                <GalleryImageDisplay
+                    gallerySrcPath={gallerySrcPath}
+                    imageName={imageName}
+                />
             </div>
         );
     }

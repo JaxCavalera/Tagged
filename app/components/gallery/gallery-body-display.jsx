@@ -1,20 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import './gallery-body.css';
 
-import GalleryImageView from '../../views/gallery/gallery-image-view.jsx';
-
 export default class GalleryBodyDisplay extends Component {
     render() {
         return (
             <div className='galleryBodyDisplay'>
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
-                <GalleryImageView />
+                {this.props.galleryImageViewInstances}
             </div>
         );
     }

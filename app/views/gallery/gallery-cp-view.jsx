@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 //  import dumb components, scripts and actioncreators for this view
 import GalleryCpDisplay from '../../components/gallery/gallery-cp-display.jsx';
 import {unameValidation} from '../scripts/auth-validation.jsx';
+import {galleryUpdateImgList} from '../scripts/gallery-functions.jsx';
 
 import {
     uploadImgUpdatedActionCreator,
@@ -24,6 +25,7 @@ import {
 function mapStateToProps(state) {
     return {
         gallery: state.gallery,
+        heading: state.heading,
     };
 }
 

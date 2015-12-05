@@ -5,8 +5,11 @@ import crypto from 'crypto';
 import * as constvars from '../constvars.jsx';
 const dbServer = constvars.DBSERVER_VAR;
 
+import {galleryUpdateImgList} from '../views/scripts/gallery-functions.jsx';
+
 export const UPLOAD_IMG_UPDATED = 'UPLOAD_IMG_UPDATED';
 export const START_IMG_UPLOAD = 'START_IMG_UPLOAD';
+export const SET_GALLERY_IMG_LIST = 'SET_GALLERY_IMG_LIST';
 
 //  =============  Async Action Creators  =============
 
@@ -23,20 +26,48 @@ export const startImgUploadActionCreator = (galleryUploadData) => {
         };
         return fetch(dbServer + '/galleryUpload', galleryUploadInit)
         .then((response) => {
-            dispatch({
-                type: START_IMG_UPLOAD,
-                uploadStatus: response,
+            response.text().then((text) => {
+                dispatch({
+                    type: START_IMG_UPLOAD,
+                    uploadStatus: text,
+                });
+                if (gallery.uploadStatus === 'success') {
+                    galleryUpdateImgList();
+                }
             });
+        });
+    };
+};
 
-            // history.replaceState(null, '/secure');
-            // might need a force refresh for image to show up
+//  =====  GET GALLERY IMAGE LIST ASYNC ACTION CREATOR  =====
+export const getGalleryImageListActionCreator = () => {
+    return (dispatch, getState) => {
+        const {gallery} = getState();
+
+        // //  Cache current state to compare
+        // const currentGalleryImgList = gallery.galleryImgList;
+
+        //  Define init (details) for fetch request
+        const galleryDownloadInit = {
+            method: 'POST',
+            credentials: 'include',
+        };
+        return fetch(dbServer + '/galleryDownload', galleryDownloadInit)
+        .then((response) => {
+            response.json().then((jsonData) => {
+                console.log(jsonData);
+                dispatch({
+                    type: SET_GALLERY_IMG_LIST,
+                    galleryImgList: jsonData,
+                });
+            });
         });
     };
 };
 
 //  ================  Action Creators  ================
 
-//  =====  UPLOAD IMAGE UPDATED ASYNC ACTION CREATOR  =====
+//  =====  UPLOAD IMAGE UPDATED ACTION CREATOR  =====
 export const uploadImgUpdatedActionCreator = (src, image) => {
     return {
         type: UPLOAD_IMG_UPDATED,

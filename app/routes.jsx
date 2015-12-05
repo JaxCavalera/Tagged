@@ -12,6 +12,7 @@ import HeadingViewAuth from './views/heading/heading-view-auth.jsx';
 
 //  =====  Scripts and Functions  =====
 import {secureAccessCheck, sessionCheck} from './views/scripts/session-validation.jsx';
+import {loadGalleryImages} from './views/scripts/gallery-functions.jsx';
 
 /*
 path='/secure/editor/:imageId' component={ImageDisplay}
@@ -24,7 +25,7 @@ const routes = (
     <Route component={AppWrapper}>
         <Route path='/' components={{headingOption: HeadingView, bodyOption: HomeView}} onEnter={sessionCheck}></Route>
         <Route path='/secure' components={{headingOption: HeadingViewAuth, bodyOption: HomeView}} onEnter={secureAccessCheck}></Route>
-        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryBodyView, footerOption: GalleryCpView}} onEnter={secureAccessCheck}></Route>
+        <Route path='/secure/gallery' components={{headingOption: HeadingViewAuth, bodyOption: GalleryBodyView, footerOption: GalleryCpView}} onEnter={secureAccessCheck, loadGalleryImages}></Route>
         <Route path='/secure/editor' components={{headingOption: HeadingViewAuth, bodyOption: EditorView}} onEnter={secureAccessCheck}>
 
         </Route>
