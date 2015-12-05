@@ -1,4 +1,7 @@
 import {store, history} from '../../index.jsx';
+import React from 'react';
+import GalleryImageView from '../gallery/gallery-image-view.jsx';
+
 import {getGalleryImageListActionCreator, galleryUpdateImgViewActionCreator} from '../../actions/gallery-actions.jsx';
 
 //        let gallerySrcPath = this.props.instancedGallerySrcPath;
@@ -8,6 +11,8 @@ import {getGalleryImageListActionCreator, galleryUpdateImgViewActionCreator} fro
 //  Image View component using pairs of values from the array
 
 export const launchGetGalleryImageListDispatch = () => {
+    console.log('test');
+
     const generateGalleryImageViewInstances = () => {
         if (store.getState().gallery.galleryImgList.length === 0) {
             return console.log('No Images in The Current User Gallery');

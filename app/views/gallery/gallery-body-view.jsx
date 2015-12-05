@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 
 //  import dumb components, scripts and actioncreators for this view
 import GalleryBodyDisplay from '../../components/gallery/gallery-body-display.jsx';
-import GalleryImageView from './gallery-image-view.jsx';
 import galleryImageViewInstancesValue from '../scripts/gallery-functions.jsx';
 
 //  properties declared in here become accessible
@@ -25,6 +24,7 @@ function mapStateToProps(state) {
 
 class GalleryBodyView extends Component {
     render() {
+        let galleryImageViewInstancesValue = this.props.gallery.galleryImageViewInstancesValue;
 
         return (
             <div className='galleryBodyView'>
