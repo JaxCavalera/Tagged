@@ -27,9 +27,9 @@
 
 
 # Purpose
-The purpose of this document is to detail the development and test results for the first Milestone, "Create Home Splash Page". My primary goal for this document is to keep a point of reference for future development work and is not intended as a tutorial guide as there are much better guides out there.
+The purpose of this document is to detail the development and test results for the initial setup to this non-isomorphic React web application. My primary goal for this document is to keep a point of reference for future development work and is not intended as a tutorial guide as there are much better guides out there.
 
-Essentially this is my personal, informal tutorial on geting up and running with Node.js, React and Webpack.  The documentation will demonstrate evidence of my current comprehension `(at the time of writing this)` with each of the technologies being used and will explain key decissions that were made during the development process.
+Essentially this is my personal, informal tutorial on getting up and running with Node.js, React and Webpack.  It does not consider Redux or React-Router as those demand significant alterations to both the code and directory structure to best suit their approach to **state** management.
 
 [Back to Top](#contents)
 
@@ -205,17 +205,11 @@ The primary goals in the design of the foundational structure to the component a
 
 - Ensure the logo and favicon displayed correctly on both mobile home screen and desktop browser windows.
 
-- Establish a clear directory structure for the development of Milestone Two which will involve setting up the postgreSQL database and using node.js to communicate between the React front end and the database.
-
 Ports were forwarded from the local ip through the router and directed to a public domain using a DNS service called duckDNS.org during testing. This allowed for the testing on both desktop and mobile simultaneously taking advantage of the Hot-Reloading of components made available through the Webpack-Dev-Server.
 
 [Back to Top](#contents)
 
 - - -
-So now the task will be to build my login code, logout code and get session management working.
-
-After that I just need to build the logout code and work out how to block users from accessing Gallery and Editor when not logged in.
-
 
 ## Callbacks and Promises
 A callback is registered by putting "callback" or any other placeholder name as an argument inside the parenthesis of a function.
